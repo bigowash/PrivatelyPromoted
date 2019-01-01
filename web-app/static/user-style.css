@@ -9,3 +9,74 @@
     border: 1px solid black;
     text-align: center;
 }
+
+/* .toggle-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.toggle-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.toggle-item>span {
+    display: inline-block;
+    width: 90%;
+}
+
+.toggle-item>i {
+    font-size: 20px;
+}
+
+.toggle-item.open>i:before {
+    content: '-'
+}
+
+.toggle-item.closed>i:before {
+    content: '+'
+} */
+
+/* .toggle-list.nested {
+    display: none;
+}
+
+.toggle-item.open .toggle-list.nested {
+    display: block;
+}
+
+.toggle-container {
+    display: none;
+} */
+
+.toggle-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.toggle-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.toggle-item:hover {
+    background-color: lightgray;
+}
+
+.toggle-content {
+    padding-left: 20px;
+}
+
+/* 
+.toggle-list {
+    display: none;
+}
+
+.toggle-list.show {
+    display: block;
+} */
