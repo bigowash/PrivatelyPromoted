@@ -9,9 +9,8 @@ var hyp_row;
 var hyp_col;
 
 const handler = function (obj) {
-
     const rtnObject = {
-        "makeitnotempty": true
+        makeitnotempty: true,
     };
 
     const task = obj.task;
@@ -62,20 +61,15 @@ const handler = function (obj) {
         hyp_row = obj.hyp_row;
         hyp_col = obj.hyp_col;
         options = obj.options;
-        const answer = help.hypothesis(
-            options,
-            hyp_number,
-            hyp_row,
-            hyp_col
-        );
+        const answer = help.hypothesis(options, hyp_number, hyp_row, hyp_col);
         rtnObject.options = answer.options;
-        if (!answer.changed){
+        if (!answer.changed) {
             rtnObject.changed = false;
             rtnObject.reason = answer.reason;
         } else {
             rtnObject.changed = true;
         }
-    } else if (task === "undo_hyp"){
+    } else if (task === "undo_hyp") {
         rtnObject.undo_hyp = true;
         hyp_number = obj.hyp_number;
         hyp_row = obj.hyp_row;

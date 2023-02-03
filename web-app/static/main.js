@@ -16,8 +16,8 @@ function singleOption() {
 
     // prepare request
     const request = {
-        "task": "single_option",
-        "options": options
+        task: "single_option",
+        options: options,
     };
 
     const template = Ajax.query(request);
@@ -41,4 +41,4 @@ const option_1 = id("option-1");
 // (idk why that doesnt seem to work for me but this does)
 window.onload = function () {
     option_1.addEventListener("click", singleOption);
-}
+};

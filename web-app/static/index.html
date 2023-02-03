@@ -1,35 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sudoku Solver</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
-</head>
-<header>
-    <h1>Sudoku Solver</h1>
-    <h2>For sudoku 81 character strings: <a href="http://forum.enjoysudoku.com/patterns-game-results-t6291.html"
-            target="_blank">click here</a></h2>
-    <div id="setup-game">
-        <div id="game-string">
-            <input type="text" id="sudoku-string" name="sudoku-string"
-                placeholder="Enter 81 character string of sudoku...">
-            <input type="text" id="null-character" name="null-character"
-                placeholder="Enter the null character used (i.e. 0)">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sudoku Solver</title>
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <header>
+        <h1>Sudoku Solver</h1>
+        <h2>
+            For sudoku 81 character strings:
+            <a
+                href="http://forum.enjoysudoku.com/patterns-game-results-t6291.html"
+                target="_blank"
+                >click here</a
+            >
+        </h2>
+        <div id="setup-game">
+            <div id="game-string">
+                <input
+                    type="text"
+                    id="sudoku-string"
+                    name="sudoku-string"
+                    placeholder="Enter 81 character string of sudoku..."
+                />
+                <input
+                    type="text"
+                    id="null-character"
+                    name="null-character"
+                    placeholder="Enter the null character used (i.e. 0)"
+                />
+            </div>
+            <div id="button-area">
+                <button id="start-btn" type="button">Start Game</button>
+            </div>
         </div>
-        <div id="button-area">
-            <button id="start-btn" type="button">Start Game</button>
+    </header>
 
-        </div>
-    </div>
-</header>
-
-<footer>
-    <p>Made by Theo Bui - Computing 2 Assignment</p>
-</footer>
-
+    <footer>
+        <p>Made by Theo Bui - Computing 2 Assignment</p>
+    </footer>
 </html>
