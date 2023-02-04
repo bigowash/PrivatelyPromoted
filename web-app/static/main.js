@@ -37,25 +37,22 @@ function singleOption() {
 function userSelected() {
     // update selected profile
     console.log("User profile selected.");
-    // profile = "user";
+
+    window.location = "./userSelection.html";
 
     // // prepare request
     // const request = {
-    //     task: "single_option",
-    //     options: options,
+    //     task: "select-user",
     // };
 
     // const template = Ajax.query(request);
     // console.log("Request: " + JSON.stringify(request));
 
+    // // upon the return of the request
     // template.then(function (object) {
     //     console.log("Response: " + JSON.stringify(object));
 
-    //     // if the function actually changed something, change the onscreen board
-    //     if (JSON.stringify(options) != JSON.stringify(object.options)) {
-    //         options = object.options;
-    //         update_board(false);
-    //     }
+    //     window.location = "./userSelection.html";
     // });
 }
 
@@ -65,8 +62,6 @@ const user_profile = id("user-selected");
 const adv_profile = id("adv-selected");
 const web_profile = id("website-selected");
 const admin_profile = id("admin-selected");
-
-confirm("hey")
 
 // Equivalent of .onclick = function ()
 // (idk why that doesnt seem to work for me but this does)
