@@ -1,15 +1,6 @@
 * {
     font-family: "Oswald", sans-serif;
-    background-color: #fffacc;
-}
-
-.hidden {
-    display: none;
-}
-
-body.dark {
-    background-color: #333333;
-    color: white;
+    background-color: #ffffff;
 }
 
 header {
@@ -27,166 +18,38 @@ h2 {
     font-weight: lighter;
 }
 
-#setup-game {
-    display: flex;
-    justify-content: center;
+.intro-button {
+    margin: 10px;
+    width: 200px;
+    height: 200px;
+    background-color: transparent;
+    border-color: rgb(214, 214, 214);
+    border-style: solid;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
-#setup-game > * {
-    margin-bottom: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    display: flex;
-    align-items: center;
-}
-
-input {
-    margin-right: 25px;
-}
-
-#sudoku-string {
-    width: 500px;
-}
-
-#null-character {
-    width: 170px;
-}
-
-#row_col_text {
-    width: 192px;
-}
-
-#hyp_value_text {
-    width: 60px;
-}
-
-button {
-    justify-self: center;
-    text-align: center;
-    cursor: pointer;
-}
-
-#game {
-    display: flex;
-    justify-content: center;
-}
-
-#solving-options {
-    align-self: center;
-}
-
-#solving-options > div {
+.intro-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     display: block;
-    margin-left: 50px;
-    margin-top: 30px;
-    margin-bottom: 30px;
 }
 
-#board {
-    padding-top: 10px;
-    margin-top: 10px;
+.intro-button:hover img {
+    opacity: 0.75;
+}
+
+div {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-content: flex-start;
-    width: 600px;
-    height: 600px;
-}
-
-.uncertain {
-    /* width: 33.3%;
-    height: 33.3%; */
-    display: flex;
-}
-
-.one {
-    font-size: 12pt;
-    text-align: left;
-    vertical-align: top;
-    margin: 0px;
-}
-
-.two {
-    /* upper left */
-    font-size: 12pt;
-    text-align: middle;
-    vertical-align: top;
-    margin: 0px;
-}
-
-.three {
-    /* upper left */
-    font-size: 12pt;
-    text-align: right;
-    vertical-align: top;
-    margin: 0px;
-}
-
-.four {
-    /* upper left */
-    font-size: 12pt;
-    text-align: left;
-    vertical-align: middle;
-    margin: 0px;
-}
-
-.five {
-    font-size: 12pt;
-    text-align: middle;
-    vertical-align: middle;
-    margin: 0px;
-}
-
-.six {
-    font-size: 12pt;
-    text-align: right;
-    vertical-align: middle;
-    margin: 0px;
-}
-
-.seven {
-    font-size: 12pt;
-    text-align: left;
-    vertical-align: bottom;
-    margin: 0px;
-}
-
-.eight {
-    font-size: 12pt;
-    text-align: middle;
-    vertical-align: bottom;
-    margin: 0px;
-}
-
-.nine {
-    font-size: 12pt;
-    text-align: right;
-    vertical-align: middle;
-    margin: 0px;
-}
-
-.tile {
-    border: 1px solid black;
-    width: 60px;
-    height: 60px;
-    text-align: center;
-    margin: 0px;
-    font-size: 30pt;
-}
-
-/* p.selected {
-    background-color: lightblue;
-} */
-
-.rightBorder {
-    border-right: 4px solid black;
-}
-
-.bottomBorder {
-    border-bottom: 4px solid black;
 }
 
 footer {
-    background-color: lightgray;
+    padding-top: 10em;
+    background-color: white;
     text-align: center;
+    font-size: x-small;
 }

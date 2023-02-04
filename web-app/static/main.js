@@ -34,11 +34,43 @@ function singleOption() {
     });
 }
 
+function userSelected() {
+    // update selected profile
+    console.log("User profile selected.");
+    // profile = "user";
+
+    // // prepare request
+    // const request = {
+    //     task: "single_option",
+    //     options: options,
+    // };
+
+    // const template = Ajax.query(request);
+    // console.log("Request: " + JSON.stringify(request));
+
+    // template.then(function (object) {
+    //     console.log("Response: " + JSON.stringify(object));
+
+    //     // if the function actually changed something, change the onscreen board
+    //     if (JSON.stringify(options) != JSON.stringify(object.options)) {
+    //         options = object.options;
+    //         update_board(false);
+    //     }
+    // });
+}
+
 // Get the button elements
-const option_1 = id("option-1");
+// const option_1 = id("option-1");
+const user_profile = id("user-selected");
+const adv_profile = id("adv-selected");
+const web_profile = id("website-selected");
+const admin_profile = id("admin-selected");
+
+confirm("hey")
 
 // Equivalent of .onclick = function ()
 // (idk why that doesnt seem to work for me but this does)
 window.onload = function () {
-    option_1.addEventListener("click", singleOption);
+    // option_1.addEventListener("click", singleOption);
+    user_profile.addEventListener("click", userSelected);
 };
