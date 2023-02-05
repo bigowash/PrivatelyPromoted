@@ -1,12 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="user-style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-gap: 10px;
+        }
+
+        .grid-item {
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -28,10 +35,6 @@
             <!-- Add content for graphics section -->
         </div>
     </div>
-    <div id="line_top_x"></div>
-
 </body>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="module" src="./user-page.js"></script>
 
 </html>
