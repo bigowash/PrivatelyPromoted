@@ -1,5 +1,5 @@
 * {
-    font-family: "Oswald", sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color: #ffffff;
 }
 
@@ -9,13 +9,13 @@ header {
 }
 
 h1 {
-    font-size: 45pt;
+    font-size: 40pt;
     margin-bottom: 20px;
 }
 
 h2 {
-    font-size: 12pt;
-    font-weight: lighter;
+    font-size: large;
+    font-weight: normal;
 }
 
 .intro-button {
@@ -52,4 +52,14 @@ footer {
     background-color: white;
     text-align: center;
     font-size: x-small;
+    font-weight: normal;
+}
+
+.intro-button-container {
+    display: inline-block;
+    text-align: center;
+}
+
+.intro-button-description{
+    display: block;
 }

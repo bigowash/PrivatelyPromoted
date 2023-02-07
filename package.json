@@ -11,8 +11,10 @@
     "author": "Freddie Page",
     "license": "MIT",
     "dependencies": {
+        "@microsoft/fast-components": "^2.30.6",
         "express": "^4.17.1",
         "express-session": "^1.17.1",
+        "jslint": "^0.12.1",
         "nedb": "^1.8.0"
     },
     "devDependencies": {

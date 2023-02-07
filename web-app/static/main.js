@@ -34,7 +34,7 @@ function singleOption() {
     });
 }
 
-function userSelected() {
+const userSelected = function () {
     // update selected profile
     console.log("User profile selected.");
 
@@ -56,6 +56,14 @@ function userSelected() {
     // });
 }
 
+const advertiserSelected = function () {
+    console.log("Advertiser profile selected");
+
+    // Send to advertiser page
+    window.location = "./advertiser-page/advertiser-page.html"
+}
+
+
 // Get the button elements
 // const option_1 = id("option-1");
 const user_profile = id("user-selected");
@@ -68,4 +76,6 @@ const admin_profile = id("admin-selected");
 window.onload = function () {
     // option_1.addEventListener("click", singleOption);
     user_profile.addEventListener("click", userSelected);
+
+    adv_profile.addEventListener("click", advertiserSelected);
 };
