@@ -1,4 +1,4 @@
-// import Ajax from "./ajax.js";
+import Ajax from "./ajax.js";
 
 // Helper functions - to ease coding
 function id(id) {
@@ -123,6 +123,7 @@ function makeTable(values, i) {
     // value
     const valueSection = document.createElement('td');
     valueSection.textContent = values["values"];
+    valueSection.id = values["category"] + i + 'value';
     // console.log(valueSection.textContent)
     dataRow.appendChild(valueSection);
 
@@ -141,7 +142,7 @@ function makeTable(values, i) {
     const changeText = document.createElement('input');
     changeText.setAttribute('type', 'text');
     changeText.setAttribute('name', values["category"]);
-    changeText.setAttribute('id', values["category"] + i + ' change');
+    changeText.setAttribute('id', values["category"] + i + 'change');
     // changeText.setAttribute('id', values["category"] + '_id');
     changeSection.appendChild(changeText);
     dataRow.appendChild(changeSection);
@@ -150,7 +151,7 @@ function makeTable(values, i) {
     const submitSection = document.createElement('td');
     const submitButton = document.createElement('button');
     submitButton.classList += "submit-button"
-    submitButton.setAttribute('id', values["category"] + i + ' button');
+    submitButton.setAttribute('id', values["category"] + i + 'button');
     submitButton.addEventListener('click', function () {
         changeValue(values["category"] + i);
     });
@@ -174,14 +175,15 @@ saveButton.addEventListener("click", function () {
     checkboxes.forEach(function (checkbox) {
         // console.log("checkboc", checkbox.name);
         const category = checkbox.name.split(/(\d+)/)
+        console.log(userdata, category);
         if (checkbox.checked) {
-            userdata[category[0]][category[1]] = true;
+            userdata[category[0]]['selected'][category[1]] = true;
         } else {
-            userdata[category[0]][category[1]] = false;
+            userdata[category[0]]['selected'][category[1]] = false;
         }
     });
 
-    writeToFile(userdata);
+    writeToFile(userdata, user_filename);
 });
 
 selectAllButton.addEventListener("click", function () {
@@ -202,23 +204,59 @@ deselectAllButton.addEventListener("click", function () {
 
 function changeValue(category) {
 
+    // get the value from the text prompt
+    const text = id(category + "change").value;
+
+    if (text.length != 0) {
+        // change the value of the html element
+        id(category + "value").textContent = text
+
+        // change the value of the data
+        const x = category.split(/(\d+)/)
+        userdata[x[0]]['values'][x[1]] = text;
+
+        writeToFile(userdata, user_filename);
+
+    } else {
+        confirm("Please input an alternative")
+    }
 }
 
-async function writeToFile(data) {
+async function writeToFile(data, filename) {
     console.log(data);
-    const response = await fetch('./database/' + user_filename,
-        {
-            method: 'POST',
-            body: JSON.stringify(data)
-        })
-        .then(response => console.log(response.json()))
-        .then(data => {
-            console.log("successfully writtent o file")
-        })
-        .catch(error => {
-            console.error(error)
-        })
-    console.log("made it rhur")
+
+    // prepare request
+    const request = {
+        task: "get-user-data",
+        data: data,
+        filename: filename
+    };
+
+    const template = Ajax.query(request);
+    console.log("Request: " + JSON.stringify(request));
+
+    // upon the return of the request
+    template.then(function (object) {
+        console.log("Response: " + JSON.stringify(object));
+
+        // rest of the code here
+
+    });
+
+
+    // const response = await fetch('./database/' + user_filename,
+    //     {
+    //         method: 'POST',
+    //         body: JSON.stringify(data)
+    //     })
+    //     .then(response => console.log(response.json()))
+    //     .then(data => {
+    //         console.log("successfully writtent o file")
+    //     })
+    //     .catch(error => {
+    //         console.error(error)
+    //     })
+    // console.log("made it rhur")
 }
 // using the user id information. need to build out the profile of the person.
 // need a boiler plate user dashboard page. what information to include, and then
