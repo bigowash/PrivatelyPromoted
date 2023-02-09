@@ -1,21 +1,162 @@
 {
-    "Occupation": "Soldier",
-    "Home ownership": "Rent",
-    "Interests": [
-        "Basketball",
-        "Cycling",
-        "Tennis",
-        "Crafting",
-        "Football"
-    ],
-    "Purchasing behavior": [
-        "Checking product specifications and details",
-        "Comparing prices and features of similar products",
-        "Searching for discounts or coupons before making a purchase"
-    ],
-    "Location": "Bangkok, Bangkok, Thailand",
-    "Income": "$250,000 to $499,999",
-    "Education": "No formal education",
-    "Gender": "Female",
-    "Age": "32"
+    "Online behavior": {
+        "values": [
+            "Streaming video and music content",
+            "Searching for information using search engines"
+        ],
+        "certainty": [
+            97,
+            76
+        ],
+        "selected": [
+            true,
+            true
+        ],
+        "source": [
+            "TransUnion",
+            "TikTok"
+        ]
+    },
+    "Religion": {
+        "selected": [
+            true
+        ],
+        "values": [
+            "Buddhism"
+        ],
+        "source": [
+            "TikTok"
+        ],
+        "certainty": [
+            80
+        ]
+    },
+    "Marital status": {
+        "selected": [
+            true
+        ],
+        "values": [
+            "Divorced"
+        ],
+        "source": [
+            "Spotify"
+        ],
+        "certainty": [
+            62
+        ]
+    },
+    "Purchasing behavior": {
+        "values": [
+            "Window shopping or browsing products before making a purchase",
+            "Purchasing products based on recommendations or advertisements",
+            "Adding items to a shopping cart and leaving them there for later",
+            "Searching for discounts or coupons before making a purchase"
+        ],
+        "certainty": [
+            65,
+            94,
+            82,
+            64
+        ],
+        "selected": [
+            true,
+            true,
+            true,
+            true
+        ],
+        "source": [
+            "TikTok",
+            "Neustar",
+            "Amazon",
+            "Twitter"
+        ]
+    },
+    "Location": {
+        "selected": [
+            true
+        ],
+        "values": [
+            "Staten Island, NY, United States"
+        ],
+        "source": [
+            "Spotify"
+        ],
+        "certainty": [
+            69
+        ]
+    },
+    "Age": {
+        "selected": [
+            true
+        ],
+        "values": [
+            "25"
+        ],
+        "source": [
+            "Twitter"
+        ],
+        "certainty": [
+            94
+        ]
+    },
+    "Mobile Usage Behaviors": {
+        "values": [
+            "Connecting and communicating with others through social media and messaging apps",
+            "Playing mobile games"
+        ],
+        "certainty": [
+            93,
+            84
+        ],
+        "selected": [
+            true,
+            true
+        ],
+        "source": [
+            "YouTube",
+            "Acxiom"
+        ]
+    },
+    "Education": {
+        "selected": [
+            true
+        ],
+        "values": [
+            "Bachelor's or equivalent level"
+        ],
+        "source": [
+            "Equifax"
+        ],
+        "certainty": [
+            69
+        ]
+    },
+    "Gender": {
+        "selected": [
+            true
+        ],
+        "values": [
+            "Male"
+        ],
+        "source": [
+            "Spotify"
+        ],
+        "certainty": [
+            80
+        ]
+    },
+    "Ethnicity": {
+        "selected": [
+            true
+        ],
+        "values": [
+            "European"
+        ],
+        "source": [
+            "YouTube"
+        ],
+        "certainty": [
+            94
+        ]
+    }
 }
