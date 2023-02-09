@@ -23,22 +23,22 @@ console.log(userType);
 switch (userType) {
     case "insightGenerator":
         dataFile = '../database/insightProfiles.csv'
-        nextPage = 'insightPage.html'
+        nextPage = '../insight-page/insightPage.html'
         subtitle = 'Insight Generator'
         break;
     case "advertiser":
         dataFile = '../database/advProfiles.csv'
-        nextPage = 'advPage.html'
+        nextPage = '../advertiser-page/advPage.html'
         subtitle = 'Advertiser'
         break;
     case "user":
         dataFile = '../database/userProfiles.csv'
-        nextPage = 'userPage.html'
+        nextPage = '../user-page/userPage.html'
         subtitle = 'User'
         break;
     case "website":
         dataFile = '../database/webProfiles.csv'
-        nextPage = 'webPage.html'
+        nextPage = '../wen-page/webPage.html'
         subtitle = 'Website'
         break;
     default:
@@ -57,7 +57,7 @@ async function setUp() {
                 const el = lines[i].split(", ");
                 let name = el[1];
                 let id = el[2];
-                console.log("el", el);
+                console.log(id);
 
                 id = id.replace(/\r/g, "");
                 profile_ids.push(id)
@@ -65,7 +65,7 @@ async function setUp() {
 
                 let a = document.createElement('button');
                 a.classList += "intro-button"
-                let link = "./img/user/" + id + ".jpeg"
+                let link = "../img/user/" + id + ".jpeg"
                 a.innerHTML = '<img src = ' + link + ' alt = ' + name + '>'
                 a.id += "user-" + id
 

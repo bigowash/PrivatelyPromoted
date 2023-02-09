@@ -1,4 +1,4 @@
-import Ajax from "./ajax.js";
+import Ajax from "../ajax.js";
 
 // Helper functions - to ease coding
 function id(id) {

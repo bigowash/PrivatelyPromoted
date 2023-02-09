@@ -14,7 +14,6 @@ const userSelected = function () {
     console.log("User profile selected.");
 
     window.location.href = "./profileSelector/profiles.html?type=" + encodeURIComponent("user");
-    window.location = "./userSelection.html";
 }
 
 const advertiserSelected = function () {
