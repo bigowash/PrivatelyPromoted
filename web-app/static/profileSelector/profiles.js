@@ -1,13 +1,6 @@
-import Ajax from "./ajax.js";
-// const path = require('path');
-
 // Helper functions - to ease coding
 function id(id) {
     return document.getElementById(id);
-}
-
-function qsa(selector) {
-    return document.querySelectorAll(selector);
 }
 
 const body = id("profile-selector");
@@ -15,26 +8,69 @@ const body = id("profile-selector");
 var profile_ids = [];
 var buttonElements = []
 
+// Get the information from the link (what user is selected)
+let params = new URLSearchParams(window.location.search);
+let userType = params.get("type");
+console.log("userType: ", userType);
+
+let dataFile;
+let nextPage;
+let subtitle;
+
+// Change the subtitle to the userType
+// Change the variables to that
+console.log(userType);
+switch (userType) {
+    case "insightGenerator":
+        dataFile = '../database/insightProfiles.csv'
+        nextPage = 'insightPage.html'
+        subtitle = 'Insight Generator'
+        break;
+    case "advertiser":
+        dataFile = '../database/advProfiles.csv'
+        nextPage = 'advPage.html'
+        subtitle = 'Advertiser'
+        break;
+    case "user":
+        dataFile = '../database/userProfiles.csv'
+        nextPage = 'userPage.html'
+        subtitle = 'User'
+        break;
+    case "website":
+        dataFile = '../database/webProfiles.csv'
+        nextPage = 'webPage.html'
+        subtitle = 'Website'
+        break;
+    default:
+        break;
+}
+
+id("subtitle").textContent = "Select the " + subtitle + " profile"
+
 async function setUp() {
-    const response = await fetch('../database/userProfiles.csv')
+    const response = await fetch(dataFile)
         .then(response => response.text())
         .then(data => {
             const lines = data.split('\n');
 
-            for (let i = 1; i < lines.length; i++) {
+            for (let i = 1; i < lines.length - 1; i++) {
                 const el = lines[i].split(", ");
                 let name = el[1];
                 let id = el[2];
+                console.log("el", el);
+
                 id = id.replace(/\r/g, "");
                 profile_ids.push(id)
-
+                console.log("el", el);
 
                 let a = document.createElement('button');
                 a.classList += "intro-button"
                 let link = "./img/user/" + id + ".jpeg"
                 a.innerHTML = '<img src = ' + link + ' alt = ' + name + '>'
                 a.id += "user-" + id
+
                 a.addEventListener('click', function () {
+
                     profileSelected(id);
                 })
 
@@ -44,33 +80,14 @@ async function setUp() {
 
     // setup the button elements
     for (let i = 0; i < profile_ids.length; i++) {
-        buttonElements[i] = id("user-" + profile_ids[i])
+        buttonElements[i] = id(userType + profile_ids[i])
     }
-
-    console.log("here")
-
-    // window.onload = function () {
-    //     console.log("element")
-
-    //     for (let i = 0; i < buttonElements.length; i++) {
-    //         const element = buttonElements[i];
-    //         console.log(element)
-    //         element.addEventListener("click", profileSelected(i));
-    //     }
-    // }
-
-    // for (let i = 0; i < buttonElements.length; i++) {
-    //     const element = buttonElements[i];
-    //     element.onlick = profileSelected(i);
-    // }
-
 }
 
 function profileSelected(userid) {
-    console.log("User profile selected: ", userid);
-    window.location.href = "userPage.html?id=" + encodeURIComponent(userid);
+    console.log("Pofile selected: ", userid);
+    window.location.href = nextPage + "?id=" + encodeURIComponent(userid);
 }
-
 
 setUp();
 

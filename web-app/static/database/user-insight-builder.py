@@ -18,7 +18,7 @@ with open('./web-app/static/database/preferences.json') as json_file:
     data = json.load(json_file)
     ke = list(data.keys())
 
-    for i in range(1, 5):
+    for i in range(1, 7):
         print(i)
         # create a user profile in json file
 
