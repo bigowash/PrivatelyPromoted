@@ -1,42 +1,21 @@
 {
+    "Occupation": "Soldier",
+    "Home ownership": "Rent",
     "Interests": [
-        "Photography",
-        "Swimming",
-        "Golf",
-        "Reading",
-        "Gardening"
-    ],
-    "Online behavior": [
-        "Searching for information using search engines"
-    ],
-    "Political affiliation": [
-        "Non-partisan"
-    ],
-    "Family size": [
-        "3"
-    ],
-    "Age": [
-        "15"
-    ],
-    "Religion": [
-        "Islam"
-    ],
-    "Gender": [
-        "Other"
-    ],
-    "Home ownership": [
-        "Own"
-    ],
-    "Income": [
-        "$40,000 to $59,999"
+        "Basketball",
+        "Cycling",
+        "Tennis",
+        "Crafting",
+        "Football"
     ],
     "Purchasing behavior": [
-        "Reading customer reviews and ratings",
-        "Window shopping or browsing products before making a purchase",
-        "Buying items in bulk to save money",
-        "Adding items to a shopping cart and leaving them there for later"
+        "Checking product specifications and details",
+        "Comparing prices and features of similar products",
+        "Searching for discounts or coupons before making a purchase"
     ],
-    "Location": [
-        "Birmingham, England, United Kingdom"
-    ]
+    "Location": "Bangkok, Bangkok, Thailand",
+    "Income": "$250,000 to $499,999",
+    "Education": "No formal education",
+    "Gender": "Female",
+    "Age": "32"
 }

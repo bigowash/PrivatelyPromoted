@@ -39,21 +39,6 @@ const userSelected = function () {
     console.log("User profile selected.");
 
     window.location = "./userSelection.html";
-
-    // // prepare request
-    // const request = {
-    //     task: "select-user",
-    // };
-
-    // const template = Ajax.query(request);
-    // console.log("Request: " + JSON.stringify(request));
-
-    // // upon the return of the request
-    // template.then(function (object) {
-    //     console.log("Response: " + JSON.stringify(object));
-
-    //     window.location = "./userSelection.html";
-    // });
 }
 
 const advertiserSelected = function () {

@@ -33,7 +33,9 @@ async function addPreferences() {
             // console.log(data)
 
             data = JSON.parse(data)
-            console.log(data['Age']);
+            // console.log(data['Age']);
+
+            console.log(Object.entries())
 
         })
 }

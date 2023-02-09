@@ -38,7 +38,7 @@ with open('./web-app/static/database/preferences.json') as json_file:
                 temp[j] = x
             else:
                 x = random.choice(data[j])
-                temp[j] = [x]
+                temp[j] = x
         # print(temp)
 
         for j in ['Gender', 'Location', 'Age']:
@@ -47,7 +47,7 @@ with open('./web-app/static/database/preferences.json') as json_file:
                 y = random.choice(data[j])
                 # print(y)
                 # print(temp[j])
-                temp[j] = [y]
+                temp[j] = y
     
 
         file_name = "user-"+str(i)
