@@ -25,7 +25,7 @@ async function addPreferences() {
 
     console.log("Preferences are loading");
 
-    const response = await fetch('../database/' + user_filename)
+    const response = await fetch('../database/userfiles/' + user_filename)
         .then(response => response.text())
         .then(data => {
             // data from file

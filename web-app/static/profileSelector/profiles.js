@@ -16,6 +16,7 @@ console.log("userType: ", userType);
 let dataFile;
 let nextPage;
 let subtitle;
+let img_file;
 
 // Change the subtitle to the userType
 // Change the variables to that
@@ -25,21 +26,25 @@ switch (userType) {
         dataFile = '../database/insightProfiles.csv'
         nextPage = '../insight-page/insightPage.html'
         subtitle = 'Insight Generator'
+        img_file = 'insight'
         break;
     case "advertiser":
         dataFile = '../database/advProfiles.csv'
         nextPage = '../advertiser-page/advPage.html'
         subtitle = 'Advertiser'
+        img_file = 'advertiser'
         break;
     case "user":
         dataFile = '../database/userProfiles.csv'
         nextPage = '../user-page/userPage.html'
         subtitle = 'User'
+        img_file = 'user'
         break;
     case "website":
         dataFile = '../database/webProfiles.csv'
-        nextPage = '../wen-page/webPage.html'
+        nextPage = '../web-page/webPage.html'
         subtitle = 'Website'
+        img_file = 'website'
         break;
     default:
         break;
@@ -65,13 +70,13 @@ async function setUp() {
 
                 let a = document.createElement('button');
                 a.classList += "intro-button"
-                let link = "../img/user/" + id + ".jpeg"
+                let link = "../img/" + img_file + "/" + id + ".jpeg"
                 a.innerHTML = '<img src = ' + link + ' alt = ' + name + '>'
                 a.id += "user-" + id
 
                 a.addEventListener('click', function () {
 
-                    profileSelected(id);
+                    profileSelected(id, name);
                 })
 
                 body.appendChild(a);
@@ -84,9 +89,9 @@ async function setUp() {
     }
 }
 
-function profileSelected(userid) {
+function profileSelected(userid, name) {
     console.log("Pofile selected: ", userid);
-    window.location.href = nextPage + "?id=" + encodeURIComponent(userid);
+    window.location.href = nextPage + "?id=" + encodeURIComponent(userid) + "&name=" + encodeURIComponent(name);
 }
 
 setUp();

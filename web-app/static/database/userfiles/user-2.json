@@ -1,0 +1,258 @@
+{
+    "Income": {
+        "selected": [
+            true
+        ],
+        "values": [
+            "$60,000 to $79,999"
+        ],
+        "source": [
+            "Google AdWords"
+        ],
+        "certainty": [
+            76
+        ]
+    },
+    "Marital status": {
+        "selected": [
+            true
+        ],
+        "values": [
+            "Widowed"
+        ],
+        "source": [
+            "Google AdWords"
+        ],
+        "certainty": [
+            53
+        ]
+    },
+    "Mobile Usage Behaviors": {
+        "values": [
+            "Connecting and communicating with others through social media and messaging apps",
+            "Using productivity and office apps such as email, calendar, and documents",
+            "Playing mobile games",
+            "Taking and sharing photos and videos"
+        ],
+        "certainty": [
+            82,
+            99,
+            94,
+            69
+        ],
+        "selected": [
+            true,
+            true,
+            true,
+            true
+        ],
+        "source": [
+            "Google AdWords",
+            "Google AdWords",
+            "Google AdWords",
+            "Google AdWords"
+        ]
+    },
+    "Gender": {
+        "selected": [
+            true
+        ],
+        "values": [
+            "Other"
+        ],
+        "source": [
+            "Google AdWords"
+        ],
+        "certainty": [
+            76
+        ]
+    },
+    "Online behavior": {
+        "values": [
+            "Using online tools and applications for productivity, such as email and office suites"
+        ],
+        "certainty": [
+            62
+        ],
+        "selected": [
+            true
+        ],
+        "source": [
+            "Instagram"
+        ]
+    },
+    "Age": {
+        "selected": [
+            true
+        ],
+        "values": [
+            "40"
+        ],
+        "source": [
+            "Google AdWords"
+        ],
+        "certainty": [
+            91
+        ]
+    },
+    "Purchasing behavior": {
+        "values": [
+            "Researching a brand's reputation and history before making a purchase",
+            "Comparing prices and features of similar products",
+            "Searching for discounts or coupons before making a purchase",
+            "Window shopping or browsing products before making a purchase"
+        ],
+        "certainty": [
+            58,
+            63,
+            53,
+            91
+        ],
+        "selected": [
+            true,
+            true,
+            true,
+            true
+        ],
+        "source": [
+            "Neustar",
+            "YouTube",
+            "Facebook",
+            "Acxiom"
+        ]
+    },
+    "Interests": {
+        "values": [
+            "Photography",
+            "Traveling"
+        ],
+        "certainty": [
+            71,
+            67
+        ],
+        "selected": [
+            true,
+            true
+        ],
+        "source": [
+            "Google AdWords",
+            "Google AdWords"
+        ]
+    },
+    "Language": {
+        "values": [
+            "ef",
+            "fheskfhsej"
+        ],
+        "certainty": [
+            86,
+            65
+        ],
+        "selected": [
+            false,
+            true
+        ],
+        "source": [
+            "Epsilon",
+            "Datalogix"
+        ]
+    },
+    "Family size": {
+        "selected": [
+            true
+        ],
+        "values": [
+            "4"
+        ],
+        "source": [
+            "Google AdWords"
+        ],
+        "certainty": [
+            60
+        ]
+    },
+    "Location": {
+        "selected": [
+            true
+        ],
+        "values": [
+            "Addis Ababa, Addis Ababa, Ethiopia"
+        ],
+        "source": [
+            "Google AdWords"
+        ],
+        "certainty": [
+            100
+        ]
+    },
+    "Education": {
+        "selected": [
+            true
+        ],
+        "values": [
+            "No formal education"
+        ],
+        "source": [
+            "Google AdWords"
+        ],
+        "certainty": [
+            58
+        ]
+    },
+    "Ethnicity": {
+        "selected": [
+            true
+        ],
+        "values": [
+            "Caucasian"
+        ],
+        "source": [
+            "Google AdWords"
+        ],
+        "certainty": [
+            56
+        ]
+    },
+    "Political affiliation": {
+        "selected": [
+            true
+        ],
+        "values": [
+            "Socialist"
+        ],
+        "source": [
+            "Google AdWords"
+        ],
+        "certainty": [
+            76
+        ]
+    },
+    "Religion": {
+        "selected": [
+            true
+        ],
+        "values": [
+            "Islam"
+        ],
+        "source": [
+            "Google AdWords"
+        ],
+        "certainty": [
+            51
+        ]
+    },
+    "Home ownership": {
+        "selected": [
+            true
+        ],
+        "values": [
+            "Rent"
+        ],
+        "source": [
+            "Google AdWords"
+        ],
+        "certainty": [
+            74
+        ]
+    }
+}
