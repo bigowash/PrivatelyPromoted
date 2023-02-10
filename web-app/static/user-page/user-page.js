@@ -74,7 +74,7 @@ async function addPreferences() {
 
             // create the body rows based of file info
             keys.forEach(category => {
-                console.log(data[category].length)
+                // console.log(data[category].length)
 
                 // console.log(Array.isArray(data[category]['values']))
                 for (let index = 0; index < data[category].length; index++) {
@@ -94,7 +94,7 @@ async function addPreferences() {
                                 'selected': element['selected'][i],
                                 'source': element['source'][i]
                             }
-                            const dataRow = makeTable(tempInfo, i)
+                            const dataRow = makeTable(tempInfo, i, index)
                             table.appendChild(dataRow);
                         }
                     } else {
@@ -105,19 +105,18 @@ async function addPreferences() {
                             'selected': element['selected'],
                             'source': element['source']
                         }
-                        const dataRow = makeTable(tempInfo, 1)
+                        // const dataRow = makeTable(tempInfo, 1)
+                        const dataRow = makeTable(tempInfo, 1, index)
                         table.appendChild(dataRow);
                     }
                 }
 
             });
-
+            // addSelector();
         })
 }
 
-function makeTable(values, i) {
-
-
+function makeTable(values, i, insightProvider) {
 
     const dataRow = document.createElement('tr');
 
@@ -126,8 +125,8 @@ function makeTable(values, i) {
     const input = document.createElement('input');
     input.setAttribute('type', 'checkbox');
     input.checked = values['selected'];
-    input.setAttribute('name', values["category"] + i);
-    input.setAttribute('id', values["category"] + i + 'check');
+    input.setAttribute('name', insightProvider + values["category"] + i);
+    input.setAttribute('id', insightProvider + values["category"] + i + 'check');
     inputSection.appendChild(input);
     dataRow.appendChild(inputSection);
 
@@ -140,7 +139,7 @@ function makeTable(values, i) {
     // value
     const valueSection = document.createElement('td');
     valueSection.textContent = values["values"];
-    valueSection.id = values["category"] + i + 'value';
+    valueSection.id = insightProvider + values["category"] + i + 'value';
     // console.log(valueSection.textContent)
     dataRow.appendChild(valueSection);
 
@@ -161,8 +160,8 @@ function makeTable(values, i) {
     const changeSection = document.createElement('td');
     const changeText = document.createElement('input');
     changeText.setAttribute('type', 'text');
-    changeText.setAttribute('name', values["category"]);
-    changeText.setAttribute('id', values["category"] + i + 'change');
+    changeText.setAttribute('name', insightProvider + values["category"]);
+    changeText.setAttribute('id', insightProvider + values["category"] + i + 'change');
     // changeText.setAttribute('id', values["category"] + '_id');
     changeSection.appendChild(changeText);
     dataRow.appendChild(changeSection);
@@ -171,9 +170,9 @@ function makeTable(values, i) {
     const submitSection = document.createElement('td');
     const submitButton = document.createElement('button');
     submitButton.classList += "submit-button"
-    submitButton.setAttribute('id', values["category"] + i + 'button');
+    submitButton.setAttribute('id', insightProvider + values["category"] + i + 'button');
     submitButton.addEventListener('click', function () {
-        changeValue(values["category"] + i);
+        changeValue(insightProvider + values["category"] + i, values["category"]);
     });
     submitSection.appendChild(submitButton);
     dataRow.appendChild(submitSection);
@@ -181,8 +180,63 @@ function makeTable(values, i) {
 
     return dataRow;
 }
+const tableCat = id("categories");
+console.log(tableCat);
+
+function addSelector() {
+    // console.log("in th sec");
+    // categories first
+    // console.log(categoriesList)
+    for (let i = 0; i < categoriesList.length; i++) {
+        const element = categoriesList[i];
+        const row = document.createElement('tr');
+
+        const col1 = document.createElement('td');
+        const input = document.createElement('input');
+        input.setAttribute('type', 'checkbox');
+        input.checked = true;
+        input.setAttribute('name', "categoriesList0" + element);
+        input.setAttribute('id', "categoriesList0" + element);
+        input.addEventListener('click', function () {
+            selectChange("category", element)
+        });
+        col1.appendChild(input);
+        row.appendChild(col1)
+
+        // category
+        const col2 = document.createElement('td');
+        col2.textContent = element;
+        row.appendChild(col2);
+        tableCat.appendChild(row);
+    }
+
+    for (let i = 0; i < sourcesList.length; i++) {
+        const element = sourcesList[i];
+        const row = document.createElement('tr');
+
+        const col1 = document.createElement('td');
+        const input = document.createElement('input');
+        input.setAttribute('type', 'checkbox');
+        input.checked = true;
+        input.setAttribute('name', "categoriesList0" + element);
+        input.setAttribute('id', "categoriesList0" + element);
+        input.addEventListener('click', function () {
+            selectChange("sources", element)
+        });
+        col1.appendChild(input);
+        row.appendChild(col1)
+
+        // category
+        const col2 = document.createElement('td');
+        col2.textContent = element;
+        row.appendChild(col2);
+        tableCat.appendChild(row);
+    }
+
+}
 
 addPreferences();
+
 
 const saveButton = document.getElementById("save");
 const selectAllButton = document.getElementById("selectAll");
@@ -222,19 +276,25 @@ deselectAllButton.addEventListener("click", function () {
     });
 });
 
-function changeValue(category) {
-
+function changeValue(idFinder, category) {
     // get the value from the text prompt
-    const text = id(category + "change").value;
+    const text = id(idFinder + "change").value;
+
+    console.log("In the change value function", idFinder)
 
     if (text.length != 0) {
         // change the value of the html element
-        id(category + "value").textContent = text
+        id(idFinder + "value").textContent = text
+
+        // console.log(userdata)
 
         // change the value of the data
-        const x = category.split(/(\d+)/)
-        userdata[x[0]]['values'][x[1]] = text;
+        const x = idFinder.split(/(\d+)/)
+        console.log(x)
+        // const x = category
+        userdata[x[2]][x[1]]['values'][x[3]] = text;
 
+        console.log(userdata)
         writeToFile(userdata, user_filename);
 
     } else {
@@ -253,7 +313,7 @@ async function writeToFile(data, filename) {
     };
 
     const template = Ajax.query(request);
-    console.log("Request: " + JSON.stringify(request));
+    // console.log("Request: " + JSON.stringify(request));
 
     // upon the return of the request
     template.then(function (object) {
@@ -278,6 +338,14 @@ async function writeToFile(data, filename) {
     //     })
     // console.log("made it rhur")
 }
+
+// function selectChange(v, el) {
+//     if (v == "sources") {
+
+//     } else if (v == "category") {
+
+//     }
+// }
 // using the user id information. need to build out the profile of the person.
 // need a boiler plate user dashboard page. what information to include, and then
 // chagne that dynamically using the userid. and the associaed data file.(user-1)
