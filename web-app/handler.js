@@ -16,7 +16,7 @@ const handler = function (obj) {
     }
     else if (task === "create-insights") {
         rtnObject.return = help.createInsights(obj.insightID, obj.userProfile);
-        console.log(rtnObject.return)
+        // console.log(rtnObject.return)
     }
     // else if (task === "undo_hyp") {
     //     rtnObject.undo_hyp = true;

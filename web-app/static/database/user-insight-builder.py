@@ -7,7 +7,7 @@ import math
 import sys 
 import json
 
-print("in the PYTHOM file")
+# print("in the PYTHOM file")
 
 insightID = sys.argv[1]
 userProfile = sys.argv[2]
@@ -30,17 +30,78 @@ keys_multiple = ['Interests', 'Language', 'Purchasing behavior', 'Online behavio
 # insight_gen = [    "Amazon",    "Netflix",    "Spotify",    "YouTube",    "Facebook",    "Google",    "Instagram",    "TikTok",    "Pinterest",    "Twitter", "Experian",    "Equifax",    "TransUnion",    "Acxiom",    "Epsilon",    "Oracle Data Cloud",    "Neustar",    "Datalogix",    "LiveRamp",    "Epsilon"]
 
 def add_to_json_file(file_path, data):
-    with open(file_path, 'r') as file:
-        existing_data = json.load(file)
-        print("exist", existing_data)
 
-    existing_data.update(data)
-    # print("exist", existing_data)
+    # print()
+    # print(data)
+    # print()
 
+    #if file does not currently exist, create one
+    if file_name+".json" in currentUsers:
+        # print("File exists")
+        with open(file_path, 'r') as file:
+            existing_data = json.load(file)
 
-    with open(file_path, 'w') as file:
-        # json.dump(existing_data, file)
-        json.dump(existing_data, file, indent=4)
+        r = {}
+        r.update(existing_data)
+
+        # print("Iterate thourhg the keys")
+        for key in data.keys():
+            # print(key)
+            if key in r:
+                print("category already exists")
+                flag = False
+                print("starting the loop", r[key])
+                if isinstance(r[key], list):
+                    d = len(r[key])
+                    isArray = True
+                    print("the category is an array already")
+                else:
+                    d = 1
+                    isArray = False
+                    print("the category is NOT an array")
+                for i in range(d):
+                    # print("in this section key:", existing_data[key]["source"])
+                    # print(insightID, r[key]["source"], data[key]["source"])
+                    if isArray:
+                        print("Check: ", insightID in r[key][i]["source"])
+                        if insightID in r[key][i]["source"]:
+                            # need to update this seciton
+                            flag = True
+                            print("changing the flag")
+                            print(r[key][i], [data[key]])
+                            r[key][i] = data[key]
+                    else:
+                        print("Check: ", insightID in r[key]["source"])
+                        if insightID in r[key]["source"]:
+                            # need to update this seciton
+                            flag = True
+                            print("changing the flag")
+                            r[key] = [data[key]]
+                            print("changing the e")
+
+                print("outside the loop")
+                # else: 
+                if not flag:
+                    print(insightID, "NOT IN")
+                    print(r[key])
+                    r[key].append(data[key])
+                    print(r[key])
+            else:
+                print("Key does not exist")
+                r[key]= [data[key]]
+
+        with open(file_path, 'w') as file:
+            json.dump(r, file)
+            # json.dump(existing_data, file, indent=4)
+    else:
+        r = {}
+        for key in data.keys():
+            r[key]= [data[key]]
+
+        with open(file_path, 'w') as file:
+            file.write(json.dumps(r))
+    print("Adding / Creating files")
+    
 
 # # Opening JSON file
 with open('./web-app/static/database/preferences.json') as json_file:
@@ -103,12 +164,13 @@ with open('./web-app/static/database/preferences.json') as json_file:
     
 
         file_name = "user-"+str(userProfile)
-        print("./web-app/static/database/userfiles/"+file_name+".json")
+        # print("./web-app/static/database/userfiles/"+file_name+".json")
 
         #erases current data
         # open("./web-app/static/database/"+file_name+".json", 'w').close()
-
+        print()
         print(temp)
+        print()
         add_to_json_file("./web-app/static/database/userfiles/"+file_name+".json", temp)
 
         # f = open("./web-app/static/database/userfiles/"+file_name+".json", "a")

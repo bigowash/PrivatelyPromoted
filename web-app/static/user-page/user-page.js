@@ -12,6 +12,9 @@ function qsa(selector) {
 // all the data here
 let userdata;
 
+let categoriesList = [];
+let sourcesList = [];
+
 // Get the information from the link (what user is selected)
 let params = new URLSearchParams(window.location.search);
 let userid = params.get("id");
@@ -57,6 +60,9 @@ async function addPreferences() {
             const headerCertainty = document.createElement('th');
             headerCertainty.textContent = 'Certainty';
             headerRow.appendChild(headerCertainty);
+            const headerSource = document.createElement('th');
+            headerSource.textContent = 'Source';
+            headerRow.appendChild(headerSource);
             const headerInput = document.createElement('th');
             headerInput.textContent = 'Change';
             headerRow.appendChild(headerInput);
@@ -68,40 +74,51 @@ async function addPreferences() {
 
             // create the body rows based of file info
             keys.forEach(category => {
-                // console.log(Array.isArray(data[category]['values']))
+                console.log(data[category].length)
 
-                if (Array.isArray(data[category]['values'])) {
-                    for (let i = 0; i < data[category]['values'].length; i++) {
+                // console.log(Array.isArray(data[category]['values']))
+                for (let index = 0; index < data[category].length; index++) {
+                    const element = data[category][index];
+
+                    // add to the list of categories
+                    if (!categoriesList.includes(category)) {
+                        categoriesList.push(category);
+                    }
+
+                    if (Array.isArray(element['values'])) {
+                        for (let i = 0; i < element['values'].length; i++) {
+                            const tempInfo = {
+                                "category": category,
+                                'values': element['values'][i],
+                                'certainty': element['certainty'][i],
+                                'selected': element['selected'][i],
+                                'source': element['source'][i]
+                            }
+                            const dataRow = makeTable(tempInfo, i)
+                            table.appendChild(dataRow);
+                        }
+                    } else {
                         const tempInfo = {
                             "category": category,
-                            'values': data[category]['values'][i],
-                            'certainty': data[category]['certainty'][i],
-                            'selected': data[category]['selected'][i],
-                            'source': data[category]['source'][i]
+                            'values': element['values'],
+                            'certainty': element['certainty'],
+                            'selected': element['selected'],
+                            'source': element['source']
                         }
-                        const dataRow = makeTable(tempInfo, i)
+                        const dataRow = makeTable(tempInfo, 1)
                         table.appendChild(dataRow);
                     }
-                } else {
-                    const tempInfo = {
-                        "category": category,
-                        'values': data[category]['values'],
-                        'certainty': data[category]['certainty'],
-                        'selected': data[category]['selected'],
-                        'source': data[category]['source']
-                    }
-                    const dataRow = makeTable(tempInfo, 1)
-                    table.appendChild(dataRow);
                 }
 
             });
-
-
 
         })
 }
 
 function makeTable(values, i) {
+
+
+
     const dataRow = document.createElement('tr');
 
     // check
@@ -132,7 +149,10 @@ function makeTable(values, i) {
     certaintySection.textContent = values["certainty"];
     dataRow.appendChild(certaintySection);
 
-    // source
+    // source + add to the sources list
+    if (!sourcesList.includes(values["source"])) {
+        sourcesList.push(values["source"]);
+    }
     const sourceSection = document.createElement('td');
     sourceSection.textContent = values["source"];
     dataRow.appendChild(sourceSection);
@@ -279,19 +299,4 @@ async function writeToFile(data, filename) {
  *
  */
 
-
-    // // prepare request
-    // const request = {
-    //     task: "get-user-data",
-    // };
-
-    // const template = Ajax.query(request);
-    // console.log("Request: " + JSON.stringify(request));
-
-    // // upon the return of the request
-    // template.then(function (object) {
-    //     console.log("Response: " + JSON.stringify(object));
-
-    //     // rest of the code here
-
-    // });
+// I WANT BUTTONS TO TOGGLE CERTAIN SOURCES, and certain categories
