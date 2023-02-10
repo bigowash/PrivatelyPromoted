@@ -1,0 +1,21 @@
+p {
+    display: inline-block;
+    margin: 0;
+    padding: 10px;
+    /* background-color: lightblue; */
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+}
+
+header {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+h1 {
+    font-size: 40pt;
+    margin-bottom: 20px;
+}

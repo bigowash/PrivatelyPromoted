@@ -134,10 +134,14 @@ with open('./web-app/static/database/preferences.json') as json_file:
                 y['certainty'] = []
                 y['selected'] = []
                 y['source'] = []
+                y['money'] = []
+                y['times'] = []
                 for u in range(len(x)):
                     y['selected'].append(True)
                     y['certainty'].append(random.randint(49, 100))
                     y['source'].append(insightID)
+                    y['money'].append(0)
+                    y['times'].append(0)
                 temp[j] = y
             else:
                 x = random.choice(data[j])
@@ -146,6 +150,8 @@ with open('./web-app/static/database/preferences.json') as json_file:
                 y['values'] = [x]
                 y['source'] = [insightID]
                 y['certainty'] = [random.randint(49, 100)]
+                y['money'] = [0]
+                y['times'] = [0]
                 temp[j] = y
         # print(temp)
 
@@ -159,7 +165,8 @@ with open('./web-app/static/database/preferences.json') as json_file:
                 y['values'] = [x]
                 y['source'] = [insightID]
                 y['certainty'] = [random.randint(49, 100)]
-
+                y['money'] = [0]
+                y['times'] = [0]
                 temp[j] = y
     
 

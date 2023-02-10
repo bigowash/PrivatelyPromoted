@@ -4,15 +4,23 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="insight-style.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Insight Generator</title>
     </head>
 
     <body>
+        <h1 id="header_name"></h1>
+        <div id="userButtons"></div>
         <button id="button_trial">
-            Click me!
+            Create insights for a user:
         </button>
         <input type="text" id="userProfile-input"></input>
+        <p>Total Money:</p>
+        <p id="money_total"></p>
+        <p>Total Uses:</p>
+        <p id="uses_total"></p>
+        <div id="table"></div>
     </body>
     <script type="module" src="./insight-page.js"></script>
 
