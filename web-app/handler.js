@@ -1,6 +1,5 @@
 import { func } from "fast-check";
 import help from "./helper.cjs";
-// const fs = require('fs')
 
 
 const handler = function (obj) {
@@ -13,8 +12,7 @@ const handler = function (obj) {
     // Each task corresponds to a different function call in the help file.
     // A new options board is always returned, to update the web app page
     if (task === "get-user-data") {
-
-        rtnObject.result = help.getData(obj.data, obj.filename)
+        rtnObject.success = help.getData(obj.data, obj.filename)
     }
     // else if (task === "undo_hyp") {
     //     rtnObject.undo_hyp = true;
