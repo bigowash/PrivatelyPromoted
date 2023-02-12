@@ -1,1 +1,184 @@
-{"Occupation": [{"selected": [true], "values": ["Firefighter"], "source": ["Facebook Ads"], "certainty": [61], "money": [0], "times": [0]}], "Purchasing behavior": [{"values": ["Checking product specifications and details", "Comparing prices and features of similar products"], "certainty": [92, 81], "selected": [true, true], "source": ["Facebook Ads", "Facebook Ads"], "money": [0, 0], "times": [0, 0]}], "Location": [{"selected": [true], "values": ["Johannesburg, Gauteng, South Africa"], "source": ["Facebook Ads"], "certainty": [88], "money": [0], "times": [0]}], "Mobile Usage Behaviors": [{"values": ["Making and receiving phone calls and text messages", "Playing mobile games", "Using productivity and office apps such as email, calendar, and documents"], "certainty": [65, 92, 86], "selected": [true, true, true], "source": ["Facebook Ads", "Facebook Ads", "Facebook Ads"], "money": [0, 0, 0], "times": [0, 0, 0]}], "Religion": [{"selected": [true], "values": ["Buddhism"], "source": ["Facebook Ads"], "certainty": [51], "money": [0], "times": [0]}], "Language": [{"values": ["Arabic", "German", "Spanish", "Mandarin"], "certainty": [67, 96, 65, 74], "selected": [true, true, true, true], "source": ["Facebook Ads", "Facebook Ads", "Facebook Ads", "Facebook Ads"], "money": [0, 0, 0, 0], "times": [0, 0, 0, 0]}], "Family size": [{"selected": [true], "values": ["3"], "source": ["Facebook Ads"], "certainty": [87], "money": [0], "times": [0]}], "Ethnicity": [{"selected": [true], "values": ["Pacific Islander"], "source": ["Facebook Ads"], "certainty": [59], "money": [0], "times": [0]}], "Gender": [{"selected": [true], "values": ["Male"], "source": ["Facebook Ads"], "certainty": [76], "money": [0], "times": [0]}], "Income": [{"selected": [true], "values": ["$150,000 to $199,999"], "source": ["Facebook Ads"], "certainty": [85], "money": [0], "times": [0]}], "Online behavior": [{"values": ["Streaming video and music content"], "certainty": [79], "selected": [true], "source": ["Facebook Ads"], "money": [0], "times": [0]}], "Marital status": [{"selected": [true], "values": ["In a Civil Union"], "source": ["Facebook Ads"], "certainty": [87], "money": [0], "times": [0]}], "Age": [{"selected": [true], "values": ["27"], "source": ["Facebook Ads"], "certainty": [99], "money": [0], "times": [0]}], "Political affiliation": [{"selected": [true], "values": ["Conservative"], "source": ["Facebook Ads"], "certainty": [81], "money": [0], "times": [0]}], "Home ownership": [{"selected": [true], "values": ["Own"], "source": ["Facebook Ads"], "certainty": [53], "money": [0], "times": [0]}], "Interests": [{"values": ["Fishing"], "certainty": [97], "selected": [true], "source": ["Facebook Ads"], "money": [0], "times": [0]}], "Education": [{"selected": [true], "values": ["Post-secondary non-tertiary education"], "source": ["Facebook Ads"], "certainty": [80], "money": [0], "times": [0]}]}
+{
+    "Occupation": [
+        {
+            "selected": [true],
+            "values": ["Firefighter"],
+            "source": ["Facebook Ads"],
+            "certainty": [61],
+            "money": [0],
+            "times": [0]
+        }
+    ],
+    "Purchasing behavior": [
+        {
+            "values": [
+                "Checking product specifications and details",
+                "Comparing prices and features of similar products"
+            ],
+            "certainty": [92, 81],
+            "selected": [true, true],
+            "source": ["Facebook Ads", "Facebook Ads"],
+            "money": [0, 0],
+            "times": [0, 0]
+        }
+    ],
+    "Location": [
+        {
+            "selected": [true],
+            "values": ["Johannesburg, Gauteng, South Africa"],
+            "source": ["Facebook Ads"],
+            "certainty": [88],
+            "money": [0],
+            "times": [0]
+        }
+    ],
+    "Mobile Usage Behaviors": [
+        {
+            "values": [
+                "Making and receiving phone calls and text messages",
+                "Playing mobile games",
+                "Using productivity and office apps such as email, calendar, and documents"
+            ],
+            "certainty": [65, 92, 86],
+            "selected": [true, true, true],
+            "source": ["Facebook Ads", "Facebook Ads", "Facebook Ads"],
+            "money": [0, 0, 0],
+            "times": [0, 0, 0]
+        }
+    ],
+    "Religion": [
+        {
+            "selected": [true],
+            "values": ["Buddhism"],
+            "source": ["Facebook Ads"],
+            "certainty": [51],
+            "money": [0],
+            "times": [0]
+        }
+    ],
+    "Language": [
+        {
+            "values": ["Arabic", "German", "Spanish", "Mandarin"],
+            "certainty": [67, 96, 65, 74],
+            "selected": [true, true, true, true],
+            "source": [
+                "Facebook Ads",
+                "Facebook Ads",
+                "Facebook Ads",
+                "Facebook Ads"
+            ],
+            "money": [0, 0, 0, 0],
+            "times": [0, 0, 0, 0]
+        }
+    ],
+    "Family size": [
+        {
+            "selected": [true],
+            "values": ["3"],
+            "source": ["Facebook Ads"],
+            "certainty": [87],
+            "money": [0],
+            "times": [0]
+        }
+    ],
+    "Ethnicity": [
+        {
+            "selected": [true],
+            "values": ["Pacific Islander"],
+            "source": ["Facebook Ads"],
+            "certainty": [59],
+            "money": [0],
+            "times": [0]
+        }
+    ],
+    "Gender": [
+        {
+            "selected": [true],
+            "values": ["Male"],
+            "source": ["Facebook Ads"],
+            "certainty": [76],
+            "money": [0],
+            "times": [0]
+        }
+    ],
+    "Income": [
+        {
+            "selected": [true],
+            "values": ["$150,000 to $199,999"],
+            "source": ["Facebook Ads"],
+            "certainty": [85],
+            "money": [0],
+            "times": [0]
+        }
+    ],
+    "Online behavior": [
+        {
+            "values": ["Streaming video and music content"],
+            "certainty": [79],
+            "selected": [true],
+            "source": ["Facebook Ads"],
+            "money": [0],
+            "times": [0]
+        }
+    ],
+    "Marital status": [
+        {
+            "selected": [true],
+            "values": ["In a Civil Union"],
+            "source": ["Facebook Ads"],
+            "certainty": [87],
+            "money": [0],
+            "times": [0]
+        }
+    ],
+    "Age": [
+        {
+            "selected": [true],
+            "values": ["27"],
+            "source": ["Facebook Ads"],
+            "certainty": [99],
+            "money": [0],
+            "times": [0]
+        }
+    ],
+    "Political affiliation": [
+        {
+            "selected": [true],
+            "values": ["Conservative"],
+            "source": ["Facebook Ads"],
+            "certainty": [81],
+            "money": [0],
+            "times": [0]
+        }
+    ],
+    "Home ownership": [
+        {
+            "selected": [true],
+            "values": ["Own"],
+            "source": ["Facebook Ads"],
+            "certainty": [53],
+            "money": [0],
+            "times": [0]
+        }
+    ],
+    "Interests": [
+        {
+            "values": ["Fishing"],
+            "certainty": [97],
+            "selected": [true],
+            "source": ["Facebook Ads"],
+            "money": [0],
+            "times": [0]
+        }
+    ],
+    "Education": [
+        {
+            "selected": [true],
+            "values": ["Post-secondary non-tertiary education"],
+            "source": ["Facebook Ads"],
+            "certainty": [80],
+            "money": [0],
+            "times": [0]
+        }
+    ]
+}

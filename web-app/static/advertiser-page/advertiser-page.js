@@ -1,30 +1,47 @@
-// Imports
-// import {
-//     fastButton,
-//     fastCard,
-//     provideFASTDesignSystem
-// } from "@microsoft/fast-components";
-
-// provideFASTDesignSystem()
-//     .register(
-//         fastButton(),
-//         fastCard()
-//     );
-
 // Helper functions
 
-const id = function (value) {
+const getID = function (value) {
     return document.getElementById(value);
 };
 
+// Get the information from the link (what user is selected)
+const urlParams = new URLSearchParams(window.location.search);
+const profileName = urlParams.get("name");
+const profilegetID = urlParams.get("id");
+
+console.log("Profile Name: ", profileName);
+console.log("Profile getID: ", profilegetID);
+
 // Customise subtitle text
-const subtitle = id("subtitle");
-subtitle.textContent =
-    "Welcome back to Privately Protected Google, please select from the following options.";
+const subtitle = getID("subtitle");
+subtitle.textContent = `Welcome back ${profileName}, please select from the following options:`;
 
-// Link to homepage
-id("header").onclick(function () {
-    window.location.href = "../index.html";
-});
+// Add links to buttons
+const new_adv_button = getID("new-adv-button");
+const manage_adv_button = getID("manage-adv-button");
 
-console.log("script is working");
+new_adv_button.onclick = function () {
+    // Debug Statement
+    console.log("Create new advert selected");
+
+    // Send to new-advert page
+    window.location.href =
+        "./new-advert/new-advert.html" +
+        "?id=" +
+        encodeURIComponent(profilegetID) +
+        "&name=" +
+        encodeURIComponent(profileName);
+};
+
+manage_adv_button.onclick = function () {
+    // Debug Statement
+    console.log("Manage existing adverts selected");
+
+    // Send to manage-existing-adverts page
+    window.location.href =
+        "./manage-existing-adverts/manage-adverts.html" +
+        "?id=" +
+        encodeURIComponent(profilegetID) +
+        "&name=" +
+        encodeURIComponent(profileName);
+};

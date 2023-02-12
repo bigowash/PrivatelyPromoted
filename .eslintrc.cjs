@@ -11,7 +11,10 @@ module.exports = {
         sourceType: "module"
     },
     rules: {
-        quotes: ["error", "double"],
+        quotes: ["error", "double", {
+            avoidEscape: true,
+            allowTemplateLiterals: true
+        }],
         indent: ["error", 4],
         semi: [2, "always"],
         camelcase: "off"
