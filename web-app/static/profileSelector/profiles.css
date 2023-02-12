@@ -63,3 +63,12 @@ footer {
 .intro-button-description {
     display: block;
 }
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-label {
+    margin: auto;
+}

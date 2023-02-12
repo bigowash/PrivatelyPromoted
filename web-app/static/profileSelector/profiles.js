@@ -1,10 +1,13 @@
 // Helper functions - to ease coding
+// This function returns the DOM element with the given ID
 const id = function (id) {
     return document.getElementById(id);
 };
 
+// Get the container for the buttons
 const body = id("profile-selector");
 
+// Initialize arrays for the profile IDs and button elements
 const profileIDs = [];
 const buttonElements = [];
 
@@ -19,8 +22,6 @@ let subtitle;
 let imgFile;
 
 // Change the values of various variables, depending on the userType
-console.log(userType);
-
 switch (userType) {
 case "insightGenerator":
     dataFile = "../database/insightProfiles.csv";
@@ -56,61 +57,67 @@ id("subtitle").textContent = "Select the " + subtitle + " profile";
 // Filling in the content in body
 // Creating profile options the user will pick from
 const setUp = async function () {
+    // Fetch the data file and convert it to a text string
     const response = await fetch(dataFile)
         .then((response) => response.text())
         .then(function (data) {
-            // Splitting returned data into an array by line
+            // Split the data string into an array of lines
             const lines = data.split("\n");
 
-            // Iterate through array
+            // Iterate through the array of lines
             for (let i = 1; i < lines.length - 1; i++) {
                 // Create an array for each data line, splitting at comma
                 const el = lines[i].split(", ");
 
-                // Extracting name
+                // Extract the profile name and ID
                 const name = el[1];
-
-                // Extracting id
                 let id = el[2];
                 console.log(id);
 
+                // Remove any carriage returns from the ID
                 id = id.replace(/\r/g, "");
+
+                // Add the ID to the array of profile IDs
                 profileIDs.push(id);
                 console.log("el", el);
 
-                // Setting up buttons
-                const a = document.createElement("button");
-                a.classList += "intro-button";
+                // Create a div to hold the button and label
+                const container = document.createElement("div");
+                container.classList += "button-container";
+
+                // Create a button element
+                const button = document.createElement("button");
+                button.classList += "intro-button";
                 const link = "../img/" + imgFile + "/" + id + ".jpeg";
-                a.innerHTML = "<img src = " + link + " alt = " + name + ">";
-                a.id += "user-" + id;
+                button.innerHTML =
+                    "<img src = " + link + " alt = " + name + ">";
+                button.id += "user-" + id;
 
-                const label = document.createElement("div");
-                label.textContent = name;
-                label.classList.add("button-label");
-                a.appendChild(label);
+                // Create a label element with the profile name
+                const label = document.createElement("p");
+                label.classList += "profile-label";
+                label.innerHTML = name;
 
-                a.addEventListener("click", function () {
+                // Add the button and label to the container
+                container.appendChild(button);
+                container.appendChild(label);
+
+                // Add an event listener to the button
+                button.addEventListener("click", function () {
                     profileSelected(id, name);
                 });
 
-                body.appendChild(a);
+                body.appendChild(container);
             }
         });
 
-    // setup the button elements
-    for (let i = 0; i < profileIDs.length; i++) {
-        buttonElements[i] = id(userType + profileIDs[i]);
-    }
-
-    // setup the button elements
     for (let i = 0; i < profileIDs.length; i++) {
         buttonElements[i] = id(userType + profileIDs[i]);
     }
 };
 
-function profileSelected(userid, name) {
-    console.log("Pofile selected: ", userid);
+function profileSelected (userid, name) {
+    console.log("Profile Selected: ", userid);
     window.location.href =
         nextPage +
         "?id=" +
@@ -120,32 +127,3 @@ function profileSelected(userid, name) {
 }
 
 setUp();
-
-// function userSelected() {
-//     // update selected profile
-//     console.log("User profile selected.");
-
-//     window.location = "./userSelection.html";
-
-//     // // prepare request
-//     // const request = {
-//     //     task: "select-user",
-//     // };
-
-//     // const template = Ajax.query(request);
-//     // console.log("Request: " + JSON.stringify(request));
-
-//     // // upon the return of the request
-//     // template.then(function (object) {
-//     //     console.log("Response: " + JSON.stringify(object));
-
-//     //     window.location = "./userSelection.html";
-//     // });
-// }
-
-// Equivalent of .onclick = function ()
-// (idk why that doesnt seem to work for me but this does)
-// window.onload = function () {
-//     // option_1.addEventListener("click", singleOption);
-//     user_profile.addEventListener("click", userSelected);
-// };
