@@ -1,7 +1,7 @@
 // Helper functions - to ease coding
-function id (id) {
+const id = function (id) {
     return document.getElementById(id);
-}
+};
 
 const body = id("profile-selector");
 
@@ -18,9 +18,9 @@ let nextPage;
 let subtitle;
 let imgFile;
 
-// Change the subtitle to the userType
-// Change the variables to that
+// Change the values of various variables, depending on the userType
 console.log(userType);
+
 switch (userType) {
 case "insightGenerator":
     dataFile = "../database/insightProfiles.csv";
@@ -50,17 +50,27 @@ default:
     break;
 }
 
+// Fill in the text content of the page subtitle with prior variable
 id("subtitle").textContent = "Select the " + subtitle + " profile";
 
-async function setUp () {
+// Filling in the content in body
+// Creating profile options the user will pick from
+const setUp = async function () {
     const response = await fetch(dataFile)
         .then((response) => response.text())
-        .then((data) => {
+        .then(function (data) {
+            // Splitting returned data into an array by line
             const lines = data.split("\n");
 
+            // Iterate through array
             for (let i = 1; i < lines.length - 1; i++) {
+                // Create an array for each data line, splitting at comma
                 const el = lines[i].split(", ");
+
+                // Extracting name
                 const name = el[1];
+
+                // Extracting id
                 let id = el[2];
                 console.log(id);
 
@@ -68,11 +78,17 @@ async function setUp () {
                 profileIDs.push(id);
                 console.log("el", el);
 
+                // Setting up buttons
                 const a = document.createElement("button");
                 a.classList += "intro-button";
                 const link = "../img/" + imgFile + "/" + id + ".jpeg";
                 a.innerHTML = "<img src = " + link + " alt = " + name + ">";
                 a.id += "user-" + id;
+
+                const label = document.createElement("div");
+                label.textContent = name;
+                label.classList.add("button-label");
+                a.appendChild(label);
 
                 a.addEventListener("click", function () {
                     profileSelected(id, name);
@@ -86,9 +102,14 @@ async function setUp () {
     for (let i = 0; i < profileIDs.length; i++) {
         buttonElements[i] = id(userType + profileIDs[i]);
     }
-}
 
-function profileSelected (userid, name) {
+    // setup the button elements
+    for (let i = 0; i < profileIDs.length; i++) {
+        buttonElements[i] = id(userType + profileIDs[i]);
+    }
+};
+
+function profileSelected(userid, name) {
     console.log("Pofile selected: ", userid);
     window.location.href =
         nextPage +
