@@ -6,7 +6,8 @@
     "main": "server.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node server.js"
+        "start": "node server.js",
+        "lint": "eslint"
     },
     "author": "Freddie Page",
     "license": "MIT",
@@ -14,10 +15,15 @@
         "@microsoft/fast-components": "^2.30.6",
         "express": "^4.17.1",
         "express-session": "^1.17.1",
-        "jslint": "^0.12.1",
         "nedb": "^1.8.0"
     },
     "devDependencies": {
+        "eslint": "^8.34.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-config-standard": "^17.0.0",
+        "eslint-plugin-import": "^2.27.5",
+        "eslint-plugin-n": "^15.6.1",
+        "eslint-plugin-promise": "^6.1.1",
         "fast-check": "^2.14.0",
         "mocha": "^8.3.2",
         "underscore": ">=1.12.1"

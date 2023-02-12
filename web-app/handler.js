@@ -1,10 +1,9 @@
-import { func } from "fast-check";
+// import { func } from "fast-check";
 import help from "./helper.cjs";
-
 
 const handler = function (obj) {
     const rtnObject = {
-        makeitnotempty: true,
+        makeitnotempty: true
     };
 
     const task = obj.task;
@@ -12,9 +11,8 @@ const handler = function (obj) {
     // Each task corresponds to a different function call in the help file.
     // A new options board is always returned, to update the web app page
     if (task === "get-user-data") {
-        rtnObject.success = help.getData(obj.data, obj.filename)
-    }
-    else if (task === "create-insights") {
+        rtnObject.success = help.getData(obj.data, obj.filename);
+    } else if (task === "create-insights") {
         rtnObject.return = help.createInsights(obj.insightID, obj.userProfile);
         // console.log(rtnObject.return)
     }
