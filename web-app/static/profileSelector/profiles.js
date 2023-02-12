@@ -87,11 +87,13 @@ const setUp = async function () {
 
                 // Create a button element
                 const button = document.createElement("button");
-                button.classList += "intro-button";
+                button.classList.add("intro-button");
                 const link = "../img/" + imgFile + "/" + id + ".jpeg";
-                button.innerHTML =
-                    "<img src = " + link + " alt = " + name + ">";
-                button.id += "user-" + id;
+                const img = document.createElement("img");
+                img.src = link;
+                img.alt = name;
+                button.id = "user-" + id;
+                button.appendChild(img);
 
                 // Create a label element with the profile name
                 const label = document.createElement("p");
