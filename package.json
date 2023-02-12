@@ -12,7 +12,8 @@
     "author": "Freddie Page",
     "license": "MIT",
     "dependencies": {
-        "@microsoft/fast-components": "^2.30.6",
+        "@microsoft/fast-components": "^1.21.8",
+        "@microsoft/fast-element": "^1.11.0",
         "express": "^4.17.1",
         "express-session": "^1.17.1",
         "nedb": "^1.8.0"

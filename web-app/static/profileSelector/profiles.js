@@ -31,7 +31,7 @@ case "insightGenerator":
     break;
 case "advertiser":
     dataFile = "../database/advProfiles.csv";
-    nextPage = "../advertiser-page/advPage.html";
+    nextPage = "../advertiser-page/advertiser-dashboard.html";
     subtitle = "Advertiser";
     imgFile = "advertiser";
     break;
