@@ -20,8 +20,8 @@ h2 {
 
 .intro-button {
     margin: 10px;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     background-color: transparent;
     border-color: rgb(214, 214, 214);
     border-style: solid;
@@ -70,5 +70,10 @@ footer {
 }
 
 .profile-label {
+    margin: auto;
+}
+
+#profile-selector {
+    width: 80%;
     margin: auto;
 }
