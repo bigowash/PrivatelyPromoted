@@ -16,13 +16,16 @@ h1 {
 h2 {
     font-size: larger;
     font-weight: bold;
-    margin: 0px;
 }
 
 h3 {
-    font-size:smaller;
-    font-weight: bolder;
-    margin: 0px;
+    font-size: smaller;
+    font-weight: 450;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 5px;
+    color: #555;
 }
 
 main {
@@ -46,8 +49,133 @@ main {
 .padding-div {
     padding-left: 20px;
     padding-right: 10px;
-    padding-top: 20px;
+    padding-top: 15px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 250px;
+}
+
+/* Single line text input */
+
+.text-input-container {
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.text-input-container label {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-size: smaller;
+    font-weight: 450;
+    color: #555;
+    pointer-events: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.text-input-container input {
+    border: 0;
+    border-bottom: 1px solid #555;
+    background: transparent;
+    width: 100%;
+    padding: 8px 0 5px 0;
+    font-size: smaller;
+    color: #555;
+}
+
+.text-input-container input:focus {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #e74c3c;
+}
+
+.text-input-container input:hover {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #e74c3c;
+}
+
+.text-input-container input:focus ~ label,
+.text-input-container input:valid ~ label {
+    top: -12px;
+    font-size: 12px;
+}
+
+.ad-replacement-text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Replacement text box */
+
+.text-box {
+    border: 1px solid #555;
+    width: 100%;
+    height: 70px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.text-box:focus {
+    border: none;
+    outline: none;
+    border: 1px solid #e74c3c;
+}
+
+.text-box:hover {
+    border: 1px solid #e74c3c
+}
+
+/* Advert Upload */
+.file-input-wrapper {
+    display: flex; /* Set the display property to flex */
+    align-items: center; /* Center items vertically */
+    color: #555;
+    font-size: smaller;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid #555;
+    margin-top: 8px;
+}
+
+.file-input-wrapper:hover {
+    border: 1px solid #e74c3c;
+}
+
+.file-input-label {
+    margin-right: 10px;
+}
+
+.file-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.file-input-name {
+    flex: 1; /* Set the flex property to 1 to take up remaining space */
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-left: 10px;
+}
+
+.file-input-wrapper.has-file {
+    border: 1px solid #4caf50;
+}
+
+/* .file-input-wrapper.has-file:hover {
+    background-color: #3d8b3d;
+} */
+
+/* New CSS code to display the message to the right */
+.file-input-label {
+    display: flex;
+}
+
+.file-input-name {
+    flex: 0 0 auto; /* Set the flex property to 0 to prevent the item from growing or shrinking */
 }
