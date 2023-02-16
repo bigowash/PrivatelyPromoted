@@ -53,7 +53,9 @@ async function addDropDown () {
 
                 // Create the first option for the dropdown with the key name
                 const firstOption = document.createElement("option");
-                firstOption.value = "";
+                firstOption.classList.add("dropDownOption");
+                firstOption.classList.add("firstOption");
+                firstOption.value = key;
                 firstOption.text = key;
                 select.appendChild(firstOption);
 

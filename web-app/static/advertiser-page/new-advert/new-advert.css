@@ -36,10 +36,18 @@ main {
 
 .advert-creation {
     width: fit-content;
-    height: 550px;
+    height: fit-content;
     display: flex;
+    flex-direction: column;
+    gap: 1px;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     justify-content: flex-start;
+}
+
+.advert-body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .banner-img {
@@ -54,6 +62,17 @@ main {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 300px;
+}
+
+.padding-div-2 {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    /* display: flex;
+    flex-direction: column; */
+    /* gap: 10px; */
     width: 300px;
 }
 
@@ -181,23 +200,32 @@ main {
     position: relative;
     display: inline-block;
     width: fit-content;
+    max-width: 150px;
+    word-wrap: break-word;
 }
 
 .select select {
     padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
+    border: 1px solid #555;
+    /* border-radius: 5px; */
+    /* background-color: #fff; */
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     cursor: pointer;
+    max-width: 150px;
+    word-wrap: break-word;
+    color: #555;
+}
+
+.select select:hover {
+    border: 1px solid #e74c3c;
 }
 
 .targetingWrapper {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 7px;
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
@@ -206,14 +234,14 @@ main {
     margin-bottom: 8px;
 }
 
-#targetingWrapperLabel {
-    margin: 0px;
-    padding: 0px;
+.dropDownOption {
+    max-width: 150px;
+    word-wrap: break-word;
 }
 
-/* .dropDownOption {
-    max-width: 20px;
-} */
+.firstOption {
+    font-weight: 450;
+}
 
 /* Number of times ad can be shown */
 .no-spinners {
