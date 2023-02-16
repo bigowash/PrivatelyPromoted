@@ -55,7 +55,7 @@
                     title="Visual description of the advert, used by screenreaders or if the image is not correctly loaded."
                 >
                     <label for="ad-replacement-text">
-                        <h3>Ad Replacement Text (Accessibility)</h3>
+                        <h3>Advert Replacement Text (Accessibility)</h3>
                     </label>
 
                     <input
@@ -82,6 +82,37 @@
                         <span class="file-input-name"></span>
                     </div>
                 </div>
+
+                <!-- Targeted demographic selection -->
+
+                <div>
+                    <label for="select" id="targetingWrapperLabel">
+                        <h3>Select Demographics to Target</h3>
+                    </label>
+
+                    <div class="targetingWrapper" name="select" id="targetingWrapper">
+                        <!-- To be filled with JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Number of time the advert can be shown -->
+                <div class="text-input-container">
+                    <input
+                        type="number"
+                        required
+                        id="numberTimesShown"
+                        class="no-spinners"
+                    />
+                    <label>Number of Times The Advert Can Be Shown</label>
+                </div>
+
+                <!-- Maximum amount of money allowed to be spent on each ad -->
+                <div class="text-input-container">
+                    <input type="number" required id="max-money-per-ad" class="no-spinners"/>
+                    <label>Maximum Spend Per Advert (USD)</label>
+                </div>
+
+
             </div>
         </div>
     </main>

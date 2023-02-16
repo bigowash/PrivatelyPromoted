@@ -35,8 +35,8 @@ main {
 }
 
 .advert-creation {
-    width: 700px;
-    height: 500px;
+    width: fit-content;
+    height: 550px;
     display: flex;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     justify-content: flex-start;
@@ -48,12 +48,13 @@ main {
 
 .padding-div {
     padding-left: 20px;
-    padding-right: 10px;
+    padding-right: 20px;
     padding-top: 15px;
+    padding-bottom: 15px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 250px;
+    width: 300px;
 }
 
 /* Single line text input */
@@ -125,7 +126,7 @@ main {
 }
 
 .text-box:hover {
-    border: 1px solid #e74c3c
+    border: 1px solid #e74c3c;
 }
 
 /* Advert Upload */
@@ -167,15 +168,60 @@ main {
     border: 1px solid #4caf50;
 }
 
-/* .file-input-wrapper.has-file:hover {
-    background-color: #3d8b3d;
-} */
-
-/* New CSS code to display the message to the right */
 .file-input-label {
-    display: flex;
+    display: flex; /* New CSS code to display the message to the right */
 }
 
 .file-input-name {
     flex: 0 0 auto; /* Set the flex property to 0 to prevent the item from growing or shrinking */
+}
+
+/* Dropdown Menu Styling */
+.select {
+    position: relative;
+    display: inline-block;
+    width: fit-content;
+}
+
+.select select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.targetingWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 0px;
+    padding: 0px;
+    margin-bottom: 8px;
+}
+
+#targetingWrapperLabel {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* .dropDownOption {
+    max-width: 20px;
+} */
+
+/* Number of times ad can be shown */
+.no-spinners {
+    appearance: textfield;
+}
+
+.no-spinners::-webkit-outer-spin-button,
+.no-spinners::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }

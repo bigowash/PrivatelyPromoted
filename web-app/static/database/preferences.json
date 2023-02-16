@@ -55,11 +55,7 @@
         "65",
         "66"
     ],
-    "Gender": [
-        "Male",
-        "Female",
-        "Other"
-    ],
+    "Gender": ["Male", "Female", "Other"],
     "Location": [
         "Bronx, NY, United States",
         "Brooklyn, NY, United States",
@@ -155,20 +151,8 @@
         "In a Domestic Partnership",
         "In a Civil Union"
     ],
-    "Family size": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6"
-    ],
-    "Home ownership": [
-        "Own",
-        "Rent",
-        "Live with family",
-        "Boarding"
-    ],
+    "Family size": ["1", "2", "3", "4", "5", "6"],
+    "Home ownership": ["Own", "Rent", "Live with family", "Boarding"],
     "Language": [
         "Mandarin",
         "Spanish",

@@ -74,6 +74,6 @@ footer {
 }
 
 #profile-selector {
-    width: 80%;
+    max-width: 700px;
     margin: auto;
 }
