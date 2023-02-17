@@ -158,6 +158,7 @@ main {
     cursor: pointer;
     border: 1px solid #555;
     margin-top: 8px;
+    margin-bottom: 10px;
 }
 
 .file-input-wrapper:hover {
@@ -184,7 +185,7 @@ main {
 }
 
 .file-input-wrapper.has-file {
-    border: 1px solid #4caf50;
+    border: 2px solid #4caf50;
 }
 
 .file-input-label {
@@ -222,6 +223,14 @@ main {
     border: 1px solid #e74c3c;
 }
 
+.select select:focus {
+    border: 1px solid #e74c3c;
+}
+
+.select select.selected {
+    border: 2px solid #4caf50;
+}
+
 .targetingWrapper {
     display: flex;
     flex-wrap: wrap;
@@ -229,7 +238,7 @@ main {
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
-    margin-top: 0px;
+    margin-top: 12px;
     padding: 0px;
     margin-bottom: 8px;
 }

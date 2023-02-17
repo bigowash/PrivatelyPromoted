@@ -25,25 +25,27 @@ fileInput.addEventListener("change", (event) => {
 // Get elements
 const targetingWrapper = document.getElementById("targetingWrapper");
 
-
 // Get the json data
-async function addDropDown () {
+async function addDropDown() {
     console.log("fetching insight options");
 
     // response
     const response = await fetch("../../database/preferences.json")
-        .then(response => response.json())
-        .then(data => {
+        .then((response) => response.json())
+        .then((data) => {
             // Iterate over the json keys and create a dropdown for each one
-            Object.keys(data).forEach(key => {
+            Object.keys(data).forEach((key) => {
                 // Create parent div
                 const parentDiv = document.createElement("div");
+
+                // Add class to parent div
+                parentDiv.classList.add("select");
 
                 // Create a new select element
                 const select = document.createElement("select");
 
-                // Add class to parent div
-                parentDiv.classList.add("select");
+                // Add class to select element
+                select.classList.add("selectElement");
 
                 // Add a specific id to the select element
                 select.setAttribute("id", String(key + "Select"));
@@ -55,12 +57,12 @@ async function addDropDown () {
                 const firstOption = document.createElement("option");
                 firstOption.classList.add("dropDownOption");
                 firstOption.classList.add("firstOption");
-                firstOption.value = key;
+                firstOption.value = "";
                 firstOption.text = key;
                 select.appendChild(firstOption);
 
                 // Iterate over the json values and add them as options to the dropdown
-                data[key].forEach(value => {
+                data[key].forEach((value) => {
                     const option = document.createElement("option");
                     option.classList.add("dropDownOption");
                     option.value = value;
@@ -78,9 +80,23 @@ async function addDropDown () {
 }
 
 // Activate function
-addDropDown();
+addDropDown().then(() => {
+    // Add class .selected if select element is changed from default option
+    const selectElements = document.querySelectorAll(".selectElement");
 
-const updateValue = function () {
-    const selectedValue = document.getElementById("mySelect").value;
-    document.getElementById("selectedValue").innerHTML = selectedValue;
-};
+    selectElements.forEach((selectElement) => {
+        selectElement.addEventListener("change", () => {
+            if (selectElement.value === "") {
+                selectElement.classList.remove("selected");
+            } else if (selectElement.value !== "") {
+                selectElement.classList.add("selected");
+            }
+        });
+    });
+
+    // Function that will be run on upload
+    const updateValue = function () {
+        const selectedValue = document.getElementById("mySelect").value;
+        document.getElementById("selectedValue").innerHTML = selectedValue;
+    };
+});
