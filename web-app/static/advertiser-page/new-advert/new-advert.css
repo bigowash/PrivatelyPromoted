@@ -32,6 +32,8 @@ main {
     display: flex;
     justify-content: center;
     margin-top: 15px;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .advert-creation {
@@ -48,10 +50,12 @@ main {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .banner-img {
-    height: 100%;
+    height: 456px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
 .padding-div {
