@@ -74,3 +74,7 @@ main {
 .user-choice-button:hover {
     opacity: 0.75;
 }
+
+#subtitle {
+    margin-bottom: 15px;
+}

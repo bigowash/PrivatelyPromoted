@@ -69,6 +69,9 @@ async function addDropDown () {
                 // Add a specific id to the select element
                 select.setAttribute("id", String(key + "Select"));
 
+                // Add a specific name to the select element
+                select.setAttribute("name", String(key + "Select"));
+
                 // Add onchance function to select
                 select.setAttribute("onchange", "updateValue()");
 

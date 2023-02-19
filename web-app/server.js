@@ -56,6 +56,14 @@ const generateRandomNumber = function () {
 // Set up a route to handle form submissions
 app.post("/submit-form", upload.single("advert-image"), (req, res) => {
     const { body, file } = req;
+    // Extract the demographic targeting data from the form data
+    const demographics = {};
+
+    Object.keys(body).forEach((key) => {
+        if (key.endsWith("Select")) {
+            demographics[key] = body[key];
+        }
+    });
 
     // Create an object to store the form data and image path
     const formData = {
@@ -67,35 +75,45 @@ app.post("/submit-form", upload.single("advert-image"), (req, res) => {
         image: file ? `/images/${file.filename}` : null,
         numTimesShown: body.numberTimesShown,
         maxSpend: body["max-money-per-ad"],
-        demographics: body.targetingWrapper,
+        targetedDemographic: demographics,
         advertID: generateRandomNumber()
     };
 
     // Append the form data to the JSON file
     fs.readFile(filePath, "utf8", (err, data) => {
-        // Push to JSON
+        // Push to JSONs
         const jsonData = JSON.parse(data);
         jsonData.push(formData);
+
+        // Update JSON file
+        fs.writeFile(filePath, JSON.stringify(jsonData), "utf8", (err) => {
+            if (err) {
+                console.error(err);
+                return res.status(500).send("Server error");
+            }
+        });
 
         // Handle error
         if (err) {
             console.error(err);
-            res.redirect("./advertiser-page/advertiser-dashboard.html" +
-            "?id=" +
-            encodeURIComponent(body.profileId) +
-            "&name=" +
-            encodeURIComponent(body.profileName) +
-            "&error=" +
-            encodeURIComponent(1)
+            res.redirect(
+                "./advertiser-page/advertiser-dashboard.html" +
+                    "?id=" +
+                    encodeURIComponent(body.profileId) +
+                    "&name=" +
+                    encodeURIComponent(body.profileName) +
+                    "&error=" +
+                    encodeURIComponent(1)
             );
         } else {
-            res.redirect("./advertiser-page/advertiser-dashboard.html" +
-            "?id=" +
-            encodeURIComponent(body.profileId) +
-            "&name=" +
-            encodeURIComponent(body.profileName) +
-            "&error=" +
-            encodeURIComponent(0)
+            res.redirect(
+                "./advertiser-page/advertiser-dashboard.html" +
+                    "?id=" +
+                    encodeURIComponent(body.profileId) +
+                    "&name=" +
+                    encodeURIComponent(body.profileName) +
+                    "&error=" +
+                    encodeURIComponent(0)
             );
         }
     });
