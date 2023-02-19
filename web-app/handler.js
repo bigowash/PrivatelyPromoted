@@ -13,8 +13,10 @@ const handler = function (obj) {
     if (task === "get-user-data") {
         rtnObject.success = help.getData(obj.data, obj.filename);
     } else if (task === "create-insights") {
+
         rtnObject.return = help.createInsights(obj.insightID, obj.userProfile);
-        // console.log(rtnObject.return)
+        console.log(rtnObject.return)
+        rtnObject.hlei = "yes"
     }
     // else if (task === "undo_hyp") {
     //     rtnObject.undo_hyp = true;

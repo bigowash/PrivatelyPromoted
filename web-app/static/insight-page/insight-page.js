@@ -15,34 +15,17 @@ let totalUses = 0;
 const moneyText = document.getElementById("money_total");
 const usesText = document.getElementById("uses_total");
 
-button.addEventListener("click", function () {
-    console.log("BUtton Clicked");
-
-    console.log(input);
-    const userid = input.value;
-
-    // prepare request
-    const request = {
-        task: "create-insights",
-        insightID: name,
-        userProfile: userid
-    };
-
-    const template = Ajax.query(request);
-    console.log("Request: " + JSON.stringify(request));
-
-    // upon the return of the request
-    template.then(function (object) {
-        console.log("Response: " + JSON.stringify(object));
-
-        // rest of the code here
-    });
-});
-
 const userButtons = document.getElementById("userButtons");
 const table = document.getElementById("table");
-async function addPreferences () {
+
+async function addPreferences() {
     console.log("Preferences are loading");
+
+
+    // delete current buttons
+    while (userButtons.firstChild) {
+        userButtons.removeChild(userButtons.firstChild);
+    }
 
     const response = await fetch("../database/userProfiles.csv")
         .then(response => response.text())
@@ -63,19 +46,45 @@ async function addPreferences () {
                 a.classList += "intro-button";
                 // let link = "../img/" + img_file + "/" + id + ".jpeg"
                 // a.innerHTML = '<img src = ' + link + ' alt = ' + name + '>'
-                a.textContent = i;
+                a.textContent = id;
                 a.id += "user-" + id;
 
                 a.addEventListener("click", function () {
                     profileSelected(id);
                 });
-                console.log("in here");
+                // console.log("in here");
                 userButtons.appendChild(a);
             }
         });
 }
 
-async function profileSelected (id) {
+
+button.addEventListener("click", function () {
+    console.log("Button Clicked");
+
+    console.log(input);
+    const userid = input.value;
+
+    // prepare request
+    const request = {
+        task: "create-insights",
+        insightID: name,
+        userProfile: userid
+    };
+
+    const template = Ajax.query(request);
+    console.log("Request: " + JSON.stringify(request));
+
+    // upon the return of the request
+    template.then(function (object) {
+        console.log("Response: " + JSON.stringify(object));
+        // rest of the code here
+        addPreferences();
+    });
+
+});
+
+async function profileSelected(id) {
     console.log("Clear our the table");
     while (table.firstChild) {
         table.removeChild(table.firstChild);
@@ -170,7 +179,7 @@ async function profileSelected (id) {
         });
 }
 
-function makeTable (values, i, insightProvider) {
+function makeTable(values, i, insightProvider) {
     // console.log(values, i, insightProvider)
     const dataRow = document.createElement("tr");
 

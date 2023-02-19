@@ -1,5 +1,5 @@
-userType, name, id
-user, John Doe, 1
-user, John Doe, 2
-user, John Doe, 3
-user, John Doe, 4
+user, name, 0
+user, name, 1
+user, name, 2
+user, name, 3
+user, name, 4

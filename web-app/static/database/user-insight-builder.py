@@ -102,6 +102,34 @@ def add_to_json_file(file_path, data):
             file.write(json.dumps(r))
     print("Adding / Creating files")
     
+def add_to_csv_user_file(userid):
+    print("user: ", userid)
+    # user, John Doe, 4
+    content = []
+    with open("./web-app/static/database/userProfiles.csv") as file:
+        content = file.readlines()
+        print("content")
+        print(content)
+    
+    text = "user, name, " + userid+ "\n"
+    # print("test", text)
+    if text not in content:
+        # print("in here")
+        with open("./web-app/static/database/userProfiles.csv", 'w') as file:
+            # print(file.readline())
+            for i in content:
+                file.write(i)
+                # print("written")
+            file.write(text)
+    else: 
+        print("user already exists")
+            # print("writfinalten")
+            # file.write(content + "\n user, name, " + user)
+            # print(type(lines), lines)
+    # print("file written")
+
+    # r = {}
+    # r.update(existing_data)
 
 # # Opening JSON file
 with open('./web-app/static/database/preferences.json') as json_file:
@@ -179,6 +207,7 @@ with open('./web-app/static/database/preferences.json') as json_file:
         print(temp)
         print()
         add_to_json_file("./web-app/static/database/userfiles/"+file_name+".json", temp)
+        add_to_csv_user_file(file_name[5:])
 
         # f = open("./web-app/static/database/userfiles/"+file_name+".json", "a")
         # f.write(json.dumps(temp))

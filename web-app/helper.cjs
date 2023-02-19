@@ -28,9 +28,9 @@ help.createInsights = function (insightID, userProfile) {
     ]);
     let returnedData;
     pythonProcess.stdout.on("data", (data) => {
-        // returnedData = data;
+        returnedData = data;
         console.log(`Python output: ${data}`);
-        console.log("data", data);
+        console.log("data", returnedData);
     });
     return returnedData;
 };
