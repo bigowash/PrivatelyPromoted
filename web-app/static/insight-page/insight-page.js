@@ -133,7 +133,7 @@ async function profileSelected (id) {
 
                     if (Array.isArray(element.values)) {
                         for (let i = 0; i < element.values.length; i++) {
-                            if (element.source[i] == name) {
+                            if (element.source[i] === name) {
                                 const tempInfo = {
                                     category,
                                     values: element.values[i],

@@ -26,7 +26,7 @@ fileInput.addEventListener("change", (event) => {
 const targetingWrapper = document.getElementById("targetingWrapper");
 
 // Get the json data
-async function addDropDown() {
+async function addDropDown () {
     console.log("fetching insight options");
 
     // response
