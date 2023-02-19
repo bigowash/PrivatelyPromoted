@@ -8,6 +8,7 @@ const getID = function (value) {
 const urlParams = new URLSearchParams(window.location.search);
 const profileName = urlParams.get("name");
 const profilegetID = urlParams.get("id");
+const serverError = urlParams.get("error");
 
 console.log("Profile Name: ", profileName);
 console.log("Profile getID: ", profilegetID);
@@ -15,6 +16,17 @@ console.log("Profile getID: ", profilegetID);
 // Customise subtitle text
 const subtitle = getID("subtitle");
 subtitle.textContent = `Welcome back ${profileName}, please select from the following options:`;
+
+// Display server error if it exists
+addEventListener("load", function (event) {
+    if (serverError) {
+        if (serverError === "1") {
+            window.alert("Server Error");
+        } else if (serverError === "0") {
+            window.alert("Advert Successfully Submitted");
+        }
+    }
+});
 
 // Add links to buttons
 const new_adv_button = getID("new-adv-button");

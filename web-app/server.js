@@ -73,22 +73,31 @@ app.post("/submit-form", upload.single("advert-image"), (req, res) => {
 
     // Append the form data to the JSON file
     fs.readFile(filePath, "utf8", (err, data) => {
-        if (err) {
-            console.error(err);
-            return res.status(500).send("Server error");
-        }
-
+        // Push to JSON
         const jsonData = JSON.parse(data);
         jsonData.push(formData);
 
-        fs.writeFile(filePath, JSON.stringify(jsonData), "utf8", (err) => {
-            if (err) {
-                console.error(err);
-                return res.status(500).send("Server error");
-            }
-
-            res.send("Form submitted successfully!");
-        });
+        // Handle error
+        if (err) {
+            console.error(err);
+            res.redirect("./advertiser-page/advertiser-dashboard.html" +
+            "?id=" +
+            encodeURIComponent(body.profileId) +
+            "&name=" +
+            encodeURIComponent(body.profileName) +
+            "&error=" +
+            encodeURIComponent(1)
+            );
+        } else {
+            res.redirect("./advertiser-page/advertiser-dashboard.html" +
+            "?id=" +
+            encodeURIComponent(body.profileId) +
+            "&name=" +
+            encodeURIComponent(body.profileName) +
+            "&error=" +
+            encodeURIComponent(0)
+            );
+        }
     });
 });
 
