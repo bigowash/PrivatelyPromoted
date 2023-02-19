@@ -36,6 +36,10 @@
             <h2 style="padding-left: 20px">New Advert</h2>
 
             <form id="form" action="/submit-form" method="POST" enctype="multipart/form-data">
+                <!-- Hidden input elements, to store profile name and id -->
+                <input type="hidden" id="profileName" name="profileName" value="">
+                <input type="hidden" id="profileId" name="profileId" value="">
+
                 <div class="advert-body">
                     <!-- Padding -->
                     <div class="padding-div">

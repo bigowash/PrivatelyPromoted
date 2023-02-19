@@ -69,5 +69,26 @@
         "image": "/images/advert-image-1676826178299-26616185.png",
         "numTimesShown": "5",
         "maxSpend": "6"
+    },
+    {
+        "advertiserName": "Instagram Ads",
+        "advertiserId": "3",
+        "title": "Yes an advert",
+        "description": "an advert description",
+        "replacementText": "some accessibility text",
+        "image": "/images/advert-image-1676827285992-810147991.png",
+        "numTimesShown": "5",
+        "maxSpend": "7"
+    },
+    {
+        "advertiserName": "Snapchat Ads",
+        "advertiserId": "4",
+        "title": "dvrdvsrf",
+        "description": "esfvsr",
+        "replacementText": "grndhjrsu",
+        "image": "/images/advert-image-1676827643945-107855237.png",
+        "numTimesShown": "5",
+        "maxSpend": "8",
+        "advertID": "075867"
     }
 ]

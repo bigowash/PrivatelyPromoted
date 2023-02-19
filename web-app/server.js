@@ -27,7 +27,10 @@ app.post("/", function (req, res) {
 
 // Set up the JSON file path and storage location for uploaded images
 const __dirname = path.resolve();
-const filePath = path.join(__dirname, "web-app/static/database/adverts/data.json");
+const filePath = path.join(
+    __dirname,
+    "web-app/static/database/adverts/data.json"
+);
 const storage = multer.diskStorage({
     destination: "web-app/static/database/adverts/images",
     filename: function (req, file, cb) {
@@ -36,10 +39,19 @@ const storage = multer.diskStorage({
         cb(null, file.fieldname + "-" + uniqueSuffix + extension);
     }
 });
-const upload = multer({ storage: storage });
 
-// Serve static files from the 'static' folder
-app.use(express.static("static"));
+const upload = multer({ storage });
+
+// Generate random number for advert id
+const generateRandomNumber = function () {
+    // Generate a random number between 0 and 999999 (inclusive)
+    const randomNumber = Math.floor(Math.random() * 1000000);
+
+    // Convert the number to a 6-digit string by padding with leading zeros
+    const sixDigitNumber = randomNumber.toString().padStart(6, "0");
+
+    return sixDigitNumber;
+};
 
 // Set up a route to handle form submissions
 app.post("/submit-form", upload.single("advert-image"), (req, res) => {
@@ -47,13 +59,16 @@ app.post("/submit-form", upload.single("advert-image"), (req, res) => {
 
     // Create an object to store the form data and image path
     const formData = {
+        advertiserName: body.profileName,
+        advertiserId: body.profileId,
         title: body["advert-title"],
         description: body["advert-description"],
         replacementText: body["ad-replacement-text"],
         image: file ? `/images/${file.filename}` : null,
-        numTimesShown: body["numberTimesShown"],
+        numTimesShown: body.numberTimesShown,
         maxSpend: body["max-money-per-ad"],
-        demographics: body["targetingWrapper"]
+        demographics: body.targetingWrapper,
+        advertID: generateRandomNumber()
     };
 
     // Append the form data to the JSON file
@@ -76,6 +91,10 @@ app.post("/submit-form", upload.single("advert-image"), (req, res) => {
         });
     });
 });
+
+///
+// Serve Web App
+///
 
 app.listen(port, function () {
     console.log(`Listening on port ${port} – http://localhost:${port}`);

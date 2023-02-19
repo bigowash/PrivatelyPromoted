@@ -1,4 +1,23 @@
 ///
+// Add profile information to form
+///
+
+// Get the information from the link (what user is selected)
+const urlParams = new URLSearchParams(window.location.search);
+const profileName = urlParams.get("name");
+const profilegetID = urlParams.get("id");
+
+console.log("Profile Name: ", profileName);
+console.log("Profile getID: ", profilegetID);
+
+// Add profile info
+const profileNameInput = document.getElementById("profileName");
+profileNameInput.value = profileName;
+
+const profileIdInput = document.getElementById("profileId");
+profileIdInput.value = profilegetID;
+
+///
 // File upload button functionality
 ///
 
