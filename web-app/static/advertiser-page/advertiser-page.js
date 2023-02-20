@@ -57,3 +57,9 @@ manage_adv_button.onclick = function () {
         "&name=" +
         encodeURIComponent(profileName);
 };
+
+// Add homepage link to title
+const title = getID("title");
+title.addEventListener("click", function () {
+    window.location.href = "../";
+});

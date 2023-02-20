@@ -128,4 +128,10 @@ function profileSelected (userid, name) {
         encodeURIComponent(name);
 }
 
+// Add homepage link to title
+const title = document.getElementById("title");
+title.addEventListener("click", function () {
+    window.location.href = "../";
+});
+
 setUp();
