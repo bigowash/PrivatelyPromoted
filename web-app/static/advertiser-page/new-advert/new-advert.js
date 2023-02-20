@@ -1,4 +1,23 @@
 ///
+// Add profile information to form
+///
+
+// Get the information from the link (what user is selected)
+const urlParams = new URLSearchParams(window.location.search);
+const profileName = urlParams.get("name");
+const profilegetID = urlParams.get("id");
+
+console.log("Profile Name: ", profileName);
+console.log("Profile getID: ", profilegetID);
+
+// Add profile info
+const profileNameInput = document.getElementById("profileName");
+profileNameInput.value = profileName;
+
+const profileIdInput = document.getElementById("profileId");
+profileIdInput.value = profilegetID;
+
+///
 // File upload button functionality
 ///
 
@@ -26,7 +45,7 @@ fileInput.addEventListener("change", (event) => {
 const targetingWrapper = document.getElementById("targetingWrapper");
 
 // Get the json data
-async function addDropDown() {
+async function addDropDown () {
     console.log("fetching insight options");
 
     // response
@@ -49,6 +68,9 @@ async function addDropDown() {
 
                 // Add a specific id to the select element
                 select.setAttribute("id", String(key + "Select"));
+
+                // Add a specific name to the select element
+                select.setAttribute("name", String(key + "Select"));
 
                 // Add onchance function to select
                 select.setAttribute("onchange", "updateValue()");

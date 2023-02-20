@@ -54,7 +54,7 @@ main {
 }
 
 .banner-img {
-    height: 456px;
+    height: 516px;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
@@ -265,4 +265,23 @@ main {
 .no-spinners::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+/* Form submit button */
+.submit-button {
+    font-weight: 600;
+    height: 40px;
+    width: 100px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    border: 1.5px solid #555;
+    color: #555;
+}
+
+.submit-button:hover {
+    border: 1.5px solid #e74c3c;
+}
+
+.submit-button:focus {
+    border: 2px solid #4caf50;
 }
