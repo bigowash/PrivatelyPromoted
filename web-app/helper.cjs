@@ -26,13 +26,12 @@ help.createInsights = function (insightID, userProfile) {
         insightID,
         userProfile
     ]);
-    let returnedData;
+    // let returnedData;
     pythonProcess.stdout.on("data", (data) => {
-        returnedData = data;
+        // returnedData = data;
         console.log(`Python output: ${data}`);
-        console.log("data", returnedData);
+        return { data };
     });
-    return returnedData;
 };
 
 module.exports = help;

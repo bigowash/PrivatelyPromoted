@@ -48,46 +48,46 @@ def add_to_json_file(file_path, data):
         for key in data.keys():
             # print(key)
             if key in r:
-                print("category already exists")
+                # print("category already exists")
                 flag = False
-                print("starting the loop", r[key])
+                # print("starting the loop", r[key])
                 if isinstance(r[key], list):
                     d = len(r[key])
                     isArray = True
-                    print("the category is an array already")
+                    # print("the category is an array already")
                 else:
                     d = 1
                     isArray = False
-                    print("the category is NOT an array")
+                    # print("the category is NOT an array")
                 for i in range(d):
                     # print("in this section key:", existing_data[key]["source"])
                     # print(insightID, r[key]["source"], data[key]["source"])
                     if isArray:
-                        print("Check: ", insightID in r[key][i]["source"])
+                        # print("Check: ", insightID in r[key][i]["source"])
                         if insightID in r[key][i]["source"]:
                             # need to update this seciton
                             flag = True
-                            print("changing the flag")
-                            print(r[key][i], [data[key]])
+                            # print("changing the flag")
+                            # print(r[key][i], [data[key]])
                             r[key][i] = data[key]
                     else:
-                        print("Check: ", insightID in r[key]["source"])
+                        # print("Check: ", insightID in r[key]["source"])
                         if insightID in r[key]["source"]:
                             # need to update this seciton
                             flag = True
-                            print("changing the flag")
+                            # print("changing the flag")
                             r[key] = [data[key]]
-                            print("changing the e")
+                            # print("changing the e")
 
-                print("outside the loop")
+                # print("outside the loop")
                 # else: 
                 if not flag:
-                    print(insightID, "NOT IN")
-                    print(r[key])
+                    # print(insightID, "NOT IN")
+                    # print(r[key])
                     r[key].append(data[key])
-                    print(r[key])
+                    # print(r[key])
             else:
-                print("Key does not exist")
+                # print("Key does not exist")
                 r[key]= [data[key]]
 
         with open(file_path, 'w') as file:
@@ -103,13 +103,13 @@ def add_to_json_file(file_path, data):
     print("Adding / Creating files")
     
 def add_to_csv_user_file(userid):
-    print("user: ", userid)
+    # print("user: ", userid)
     # user, John Doe, 4
     content = []
     with open("./web-app/static/database/userProfiles.csv") as file:
         content = file.readlines()
-        print("content")
-        print(content)
+        # print("content")
+        # print(content)
     
     text = "user, name, " + userid+ "\n"
     # print("test", text)
@@ -203,9 +203,9 @@ with open('./web-app/static/database/preferences.json') as json_file:
 
         #erases current data
         # open("./web-app/static/database/"+file_name+".json", 'w').close()
-        print()
-        print(temp)
-        print()
+        # print()
+        # print(temp)
+        # print()
         add_to_json_file("./web-app/static/database/userfiles/"+file_name+".json", temp)
         add_to_csv_user_file(file_name[5:])
 

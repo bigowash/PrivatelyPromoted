@@ -1,11 +1,11 @@
 import Ajax from "../ajax.js";
 
 // Helper functions - to ease coding
-function id (id) {
+function id(id) {
     return document.getElementById(id);
 }
 
-function qsa (selector) {
+function qsa(selector) {
     return document.querySelectorAll(selector);
 }
 
@@ -24,7 +24,7 @@ console.log("filename: ", user_filename);
 
 // Make the preferences table from the user file
 const table = id("preferences-table");
-async function addPreferences () {
+async function addPreferences() {
     console.log("Preferences are loading");
 
     const response = await fetch("../database/userfiles/" + user_filename)
@@ -114,7 +114,7 @@ async function addPreferences () {
         });
 }
 
-function makeTable (values, i, insightProvider) {
+function makeTable(values, i, insightProvider) {
     const dataRow = document.createElement("tr");
 
     // check
@@ -191,7 +191,7 @@ function makeTable (values, i, insightProvider) {
 const tableCat = id("categories");
 console.log(tableCat);
 
-function addSelector () {
+function addSelector() {
     // console.log("in th sec");
     // categories first
     // console.log(categoriesList)
@@ -255,11 +255,11 @@ saveButton.addEventListener("click", function () {
     checkboxes.forEach(function (checkbox) {
         // console.log("checkboc", checkbox.name);
         const category = checkbox.name.split(/(\d+)/);
-        console.log(userdata, category);
+        console.log(userdata[category[2]][category[1]].selected);
         if (checkbox.checked) {
-            userdata[category[0]].selected[category[1]] = true;
+            userdata[category[2]][category[1]].selected[category[3]] = true;
         } else {
-            userdata[category[0]].selected[category[1]] = false;
+            userdata[category[2]][category[1]].selected[category[3]] = false;
         }
     });
 
@@ -282,7 +282,7 @@ deselectAllButton.addEventListener("click", function () {
     });
 });
 
-function changeValue (idFinder, category) {
+function changeValue(idFinder, category) {
     // get the value from the text prompt
     const text = id(idFinder + "change").value;
 
@@ -307,7 +307,7 @@ function changeValue (idFinder, category) {
     }
 }
 
-async function writeToFile (data, filename) {
+async function writeToFile(data, filename) {
     console.log(data);
 
     // prepare request
