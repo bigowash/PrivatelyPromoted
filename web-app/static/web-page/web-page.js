@@ -118,8 +118,25 @@ async function writeToFile(data, filename) {
 }
 
 button.addEventListener("click", function () {
-    // console.log("ere")
+    // prepare request
+    const request = {
+        task: "makeImpression",
+        website_data: website_data
+    };
 
+    const template = Ajax.query(request);
+    // console.log("Request: " + JSON.stringify(request));
+
+    // upon the return of the request
+    template.then(function (object) {
+        console.log("Response: " + JSON.stringify(object));
+
+        // should get the money recieved
+        // advertisement displayed (and display it)
+        // update stats on how much money has been recieved and number of total impressions
+        // maybe the theme aswell
+
+    });
 })
 
 loadPage();

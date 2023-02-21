@@ -46,4 +46,18 @@ help.changeFile = function (data, filename) {
     );
 }
 
+help.generateImpression = function (website_data) {
+    console.log("Generating an impression");
+    console.log("Here is the website data", website_data);
+
+    // need to get a random user
+    // get the list of filtered insights
+
+    // need to look through available advertisments
+    // look at what insights are required. 
+
+    // stable marriage algorithm part, match an ad to the user
+    // how to do the ad selection. 
+}
+
 module.exports = help;

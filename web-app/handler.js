@@ -19,6 +19,8 @@ const handler = function (obj) {
         rtnObject.hlei = "yes"
     } else if (task === "updateFile") {
         rtnObject.return = help.changeFile(obj.data, obj.filename)
+    } else if (task === "makeImpression") {
+        rtnObject.return = help.generateImpression(obj.website_data)
     }
     // will always return something
     return rtnObject;
