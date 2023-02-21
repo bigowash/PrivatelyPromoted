@@ -58,7 +58,6 @@ async function addPreferences() {
         });
 }
 
-
 button.addEventListener("click", function () {
     console.log("Button Clicked");
 
@@ -80,6 +79,8 @@ button.addEventListener("click", function () {
         console.log("Response: " + JSON.stringify(object));
         // rest of the code here
         addPreferences();
+        // console.log(userid)
+        profileSelected(userid);
     });
 
 });
@@ -104,6 +105,7 @@ async function profileSelected(id) {
             keys.sort();
 
             console.log("building the table");
+            // console.log("data", data)
 
             // build the table
 
@@ -126,7 +128,7 @@ async function profileSelected(id) {
             headerRow.appendChild(headerTimes);
 
             table.appendChild(headerRow);
-            console.log("element");
+            // console.log("element");
 
             // create the body rows based of file info
             keys.forEach(category => {
@@ -135,7 +137,7 @@ async function profileSelected(id) {
                 // console.log(Array.isArray(data[category]['values']))
                 for (let index = 0; index < data[category].length; index++) {
                     const element = data[category][index];
-                    console.log("element");
+                    // console.log("element");
                     // console.log(element);
                     // console.log(element["source"]);
                     // add to the list of categories
@@ -201,7 +203,7 @@ function makeTable(values, i, insightProvider) {
     certaintySection.textContent = values.certainty;
     dataRow.appendChild(certaintySection);
 
-    console.log("values");
+    // console.log("values");
     // money
     const moneySec = document.createElement("td");
     moneySec.textContent = values.money;

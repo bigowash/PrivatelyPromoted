@@ -98,22 +98,22 @@ app.post("/submit-form", upload.single("advert-image"), (req, res) => {
             console.error(err);
             res.redirect(
                 "./advertiser-page/advertiser-dashboard.html" +
-                    "?id=" +
-                    encodeURIComponent(body.profileId) +
-                    "&name=" +
-                    encodeURIComponent(body.profileName) +
-                    "&error=" +
-                    encodeURIComponent(1)
+                "?id=" +
+                encodeURIComponent(body.profileId) +
+                "&name=" +
+                encodeURIComponent(body.profileName) +
+                "&error=" +
+                encodeURIComponent(1)
             );
         } else {
             res.redirect(
                 "./advertiser-page/advertiser-dashboard.html" +
-                    "?id=" +
-                    encodeURIComponent(body.profileId) +
-                    "&name=" +
-                    encodeURIComponent(body.profileName) +
-                    "&error=" +
-                    encodeURIComponent(0)
+                "?id=" +
+                encodeURIComponent(body.profileId) +
+                "&name=" +
+                encodeURIComponent(body.profileName) +
+                "&error=" +
+                encodeURIComponent(0)
             );
         }
     });
