@@ -34,4 +34,16 @@ help.createInsights = function (insightID, userProfile) {
     });
 };
 
+help.changeFile = function (data, filename) {
+    console.log(filename);
+    fs.writeFile(
+        "./web-app/static/database/websites/" + filename,
+        JSON.stringify(data),
+        (err, data) => {
+            if (err) throw err;
+            console.log("The file has been saved!");
+        }
+    );
+}
+
 module.exports = help;

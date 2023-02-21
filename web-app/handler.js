@@ -17,21 +17,9 @@ const handler = function (obj) {
         rtnObject.return = help.createInsights(obj.insightID, obj.userProfile);
         console.log(rtnObject.return)
         rtnObject.hlei = "yes"
+    } else if (task === "updateFile") {
+        rtnObject.return = help.changeFile(obj.data, obj.filename)
     }
-    // else if (task === "undo_hyp") {
-    //     rtnObject.undo_hyp = true;
-    //     hyp_number = obj.hyp_number;
-    //     hyp_row = obj.hyp_row;
-    //     hyp_col = obj.hyp_col;
-    //     options = obj.options;
-    //     rtnObject.options = help.hypothesis_undo(
-    //         options,
-    //         hyp_number,
-    //         hyp_row,
-    //         hyp_col
-    //     );
-    // }
-
     // will always return something
     return rtnObject;
 };
