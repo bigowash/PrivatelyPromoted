@@ -39,6 +39,7 @@ async function addPreferences() {
         console.log("Response: " + JSON.stringify(object));
         // rest of the code here
         const data = object.data
+        // console.log(data)
 
         const lines = data.split("\n");
 

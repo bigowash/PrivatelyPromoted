@@ -15,8 +15,8 @@ const app = express();
 app.use("/", express.static("web-app/static"));
 
 app.use("/", express.json());
-app.post("/", function (req, res) {
-    const responseObj = handler(req.body);
+app.post("/", async function (req, res) {
+    const responseObj = await handler(req.body);
     res.setHeader("Content-Type", "application/json");
     res.end(JSON.stringify(responseObj));
 });

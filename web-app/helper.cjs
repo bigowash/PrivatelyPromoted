@@ -155,6 +155,20 @@ help.generateImpression = async function (website_data) {
     // how to do the ad selection. 
 }
 
+
+help.getUserButtonFromCSV = function () {
+    return new Promise((resolve, reject) => {
+        fs.readFile('./web-app/static/database/userProfiles.csv', 'utf8', (err, data) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(data);
+            }
+        });
+    });
+};
+
+
 function getSelectedPreferences(obj) {
     const rtn = [];
     for (const key in obj) {
