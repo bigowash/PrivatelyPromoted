@@ -285,3 +285,8 @@ main {
 .submit-button:focus {
     border: 2px solid #4caf50;
 }
+
+/* Sector Select */
+#advert-theme-select-wrapper {
+    width: 100%;
+}
