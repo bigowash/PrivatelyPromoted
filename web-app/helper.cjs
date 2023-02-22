@@ -167,6 +167,17 @@ help.getUserButtonFromCSV = function () {
         });
     });
 };
+help.getUserDataFromFile = function (id) {
+    return new Promise((resolve, reject) => {
+        fs.readFile('./web-app/static/database/userfiles/user-' + id + '.json', 'utf8', (err, data) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(data);
+            }
+        });
+    });
+}
 
 
 function getSelectedPreferences(obj) {
