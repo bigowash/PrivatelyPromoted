@@ -23,32 +23,32 @@ let imgFile;
 
 // Change the values of various variables, depending on the userType
 switch (userType) {
-    case "insightGenerator":
-        dataFile = "../database/insightProfiles.csv";
-        nextPage = "../insight-page/insightPage.html";
-        subtitle = "Insight Generator";
-        imgFile = "insight";
-        break;
-    case "advertiser":
-        dataFile = "../database/advProfiles.csv";
-        nextPage = "../advertiser-page/advertiser-dashboard.html";
-        subtitle = "Advertiser";
-        imgFile = "advertiser";
-        break;
-    case "user":
-        dataFile = "../database/userProfiles.csv";
-        nextPage = "../user-page/userPage.html";
-        subtitle = "User";
-        imgFile = "user";
-        break;
-    case "website":
-        dataFile = "../database/webProfiles.csv";
-        nextPage = "../web-page/webPage.html";
-        subtitle = "Website";
-        imgFile = "website";
-        break;
-    default:
-        break;
+case "insightGenerator":
+    dataFile = "../database/insightProfiles.csv";
+    nextPage = "../insight-page/insightPage.html";
+    subtitle = "Insight Generator";
+    imgFile = "insight";
+    break;
+case "advertiser":
+    dataFile = "../database/advProfiles.csv";
+    nextPage = "../advertiser-page/advertiser-dashboard.html";
+    subtitle = "Advertiser";
+    imgFile = "advertiser";
+    break;
+case "user":
+    dataFile = "../database/userProfiles.csv";
+    nextPage = "../user-page/userPage.html";
+    subtitle = "User";
+    imgFile = "user";
+    break;
+case "website":
+    dataFile = "../database/webProfiles.csv";
+    nextPage = "../web-page/webPage.html";
+    subtitle = "Website";
+    imgFile = "website";
+    break;
+default:
+    break;
 }
 
 // Fill in the text content of the page subtitle with prior variable
@@ -118,7 +118,7 @@ const setUp = async function () {
     }
 };
 
-function profileSelected(userid, name) {
+function profileSelected (userid, name) {
     console.log("Profile Selected: ", userid);
     window.location.href =
         nextPage +
