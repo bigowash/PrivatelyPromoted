@@ -292,8 +292,6 @@ function changeValue(idFinder, category) {
         // change the value of the html element
         id(idFinder + "value").textContent = text;
 
-        // console.log(userdata)
-
         // change the value of the data
         const x = idFinder.split(/(\d+)/);
         console.log(x);
@@ -318,7 +316,7 @@ async function writeToFile(data, filename) {
     };
 
     const template = Ajax.query(request);
-    // console.log("Request: " + JSON.stringify(request));
+    console.log("Request: " + JSON.stringify(request));
 
     // upon the return of the request
     template.then(function (object) {
@@ -326,20 +324,6 @@ async function writeToFile(data, filename) {
 
         // rest of the code here
     });
-
-    // const response = await fetch('./database/' + user_filename,
-    //     {
-    //         method: 'POST',
-    //         body: JSON.stringify(data)
-    //     })
-    //     .then(response => console.log(response.json()))
-    //     .then(data => {
-    //         console.log("successfully writtent o file")
-    //     })
-    //     .catch(error => {
-    //         console.error(error)
-    //     })
-    // console.log("made it rhur")
 }
 
 // function selectChange(v, el) {
@@ -370,4 +354,3 @@ async function writeToFile(data, filename) {
  *
  */
 
-// I WANT BUTTONS TO TOGGLE CERTAIN SOURCES, and certain categories

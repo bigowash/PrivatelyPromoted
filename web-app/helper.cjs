@@ -46,18 +46,152 @@ help.changeFile = function (data, filename) {
     );
 }
 
-help.generateImpression = function (website_data) {
+async function readUserFile(user) {
+    return new Promise((resolve, reject) => {
+        const filePath = `./web-app/static/database/userFiles/user-${user}.json`;
+        fs.readFile(filePath, 'utf8', (err, data) => {
+            if (err) {
+                reject(err);
+            } else {
+                const userObject = JSON.parse(data);
+                resolve(userObject);
+            }
+        });
+    });
+}
+
+async function getAdverts() {
+    return new Promise((resolve, reject) => {
+        const filePath = `./web-app/static/database/adverts/data.json`;
+        fs.readFile(filePath, 'utf8', (err, data) => {
+            if (err) {
+                reject(err);
+            } else {
+                const userObject = JSON.parse(data);
+                resolve(userObject);
+            }
+        });
+    });
+}
+
+function readDataFromCSV() {
+    return new Promise((resolve, reject) => {
+        fs.readFile('./web-app/static/database/userProfiles.csv', 'utf8', (err, data) => {
+            if (err) {
+                reject(err);
+            } else {
+                const rows = data.split('\n');
+                const headers = rows[0].split(',');
+                const results = [];
+                for (let i = 1; i < rows.length - 1; i++) {
+                    const values = rows[i].split(',');
+                    const rowObject = {};
+                    for (let j = 0; j < headers.length; j++) {
+                        rowObject[headers[j]] = values[j];
+                    }
+                    results.push(rowObject);
+                }
+                resolve(results);
+            }
+        });
+    });
+}
+
+help.generateImpression = async function (website_data) {
     console.log("Generating an impression");
     console.log("Here is the website data", website_data);
 
     // need to get a random user
-    // get the list of filtered insights
+    // look through the csv file 
+    const users = [];
 
-    // need to look through available advertisments
-    // look at what insights are required. 
+    readDataFromCSV()
+        .then((data) => {
+            data.forEach(el => {
+                users.push(el.id.substring(1))
+            });
+
+            const user = users[Math.floor(Math.random() * users.length)]
+
+            readUserFile(user)
+                .then((userObject) => {
+                    // console.log(userObject);
+
+                    // got the preferences of the user
+                    const totalPref = getTotalPreferences(userObject)
+                    const selectedPref = getSelectedPreferences(userObject)
+
+                    // console.log(totalPref)
+                    // console.log(selectedPref)
+
+                    // website_data has the preferences of the advertisers
+
+                    // get the advertisements
+                    getAdverts()
+                        .then((advertList) => {
+                            console.log(advertList)
+                            // code here
+
+
+
+                        })
+                        .catch((err) => {
+                            console.error(err);
+                        });
+
+
+                })
+                .catch((err) => {
+                    console.error(err);
+                });
+
+        })
+        .catch((err) => {
+            console.error('Error while reading data from CSV:', err);
+        });
+
 
     // stable marriage algorithm part, match an ad to the user
     // how to do the ad selection. 
 }
 
+function getSelectedPreferences(obj) {
+    const rtn = [];
+    for (const key in obj) {
+        const category = obj[key];
+        const catKey = key;
+        // console.log(key);
+
+        // iterate through the different insight generators on the same key
+        for (let i = 0; i < category.length; i++) {
+            const el = category[i];
+            //iterate though the different sections in a insight like the different types of hobbies
+            for (let j = 0; j < el.selected.length; j++) {
+                const e = el.selected[j];
+                // console.log(e)
+                if (e) {
+                    const objecte = {
+                        [catKey]: {
+                            "certainty": el.certainty,
+                            "value": el.values,
+                            "source": el.source
+                        }
+                    }
+                    rtn.push(objecte)
+                }
+            }
+        }
+    }
+    return rtn
+}
+
+function getTotalPreferences(obj) {
+    const rtn = [];
+    for (const key in obj) {
+        // console.log(key);
+        // console.log(category);
+        rtn.push(key);
+    }
+    return rtn
+}
 module.exports = help;

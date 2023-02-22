@@ -80,7 +80,7 @@ button.addEventListener("click", function () {
         // rest of the code here
         addPreferences();
         // console.log(userid)
-        profileSelected(userid);
+        // profileSelected(userid);
     });
 
 });
