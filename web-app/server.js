@@ -61,7 +61,9 @@ app.post("/submit-form", upload.single("advert-image"), (req, res) => {
 
     Object.keys(body).forEach((key) => {
         if (key.endsWith("Required_Select")) {
-            required_demographics[key] = body[key];
+            if (body[key] != "") {
+                required_demographics[key] = body[key];
+            }
         }
     });
 
@@ -70,7 +72,9 @@ app.post("/submit-form", upload.single("advert-image"), (req, res) => {
 
     Object.keys(body).forEach((key) => {
         if (key.endsWith("Recommended_Select")) {
-            recommended_demographics[key] = body[key];
+            if (body[key] != "") {
+                recommended_demographics[key] = body[key];
+            }
         }
     });
 
