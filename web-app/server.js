@@ -73,7 +73,7 @@ app.post("/submit-form", upload.single("advert-image"), (req, res) => {
         description: body["advert-description"],
         replacementText: body["ad-replacement-text"],
         image: file ? `/images/${file.filename}` : null,
-        numTimesShown: body.numberTimesShown,
+        totalSpend: body.totalSpend,
         maxSpend: body["max-money-per-ad"],
         targetedDemographic: demographics,
         advertID: generateRandomNumber()
