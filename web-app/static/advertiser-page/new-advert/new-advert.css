@@ -212,8 +212,6 @@ main {
 .select select {
     padding: 5px;
     border: 1px solid #555;
-    /* border-radius: 5px; */
-    /* background-color: #fff; */
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -284,4 +282,9 @@ main {
 
 .submit-button:focus {
     border: 2px solid #4caf50;
+}
+
+/* Sector Select */
+#advert-theme-select-wrapper {
+    margin-bottom: 10px;
 }

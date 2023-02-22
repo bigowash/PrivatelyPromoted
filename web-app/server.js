@@ -76,6 +76,7 @@ app.post("/submit-form", upload.single("advert-image"), (req, res) => {
         totalSpend: body.totalSpend,
         maxSpend: body["max-money-per-ad"],
         targetedDemographic: demographics,
+        advertTheme: body.themeSelect,
         advertID: generateRandomNumber()
     };
 
