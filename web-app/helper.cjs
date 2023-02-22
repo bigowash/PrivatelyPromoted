@@ -48,7 +48,7 @@ help.changeFile = function (data, filename) {
 
 async function readUserFile(user) {
     return new Promise((resolve, reject) => {
-        const filePath = `./web-app/static/database/userFiles/user-${user}.json`;
+        const filePath = `./web-app/static/database/userfiles/user-${user}.json`;
         fs.readFile(filePath, 'utf8', (err, data) => {
             if (err) {
                 reject(err);
@@ -167,6 +167,7 @@ help.getUserButtonFromCSV = function () {
         });
     });
 };
+
 help.getUserDataFromFile = function (id) {
     return new Promise((resolve, reject) => {
         fs.readFile('./web-app/static/database/userfiles/user-' + id + '.json', 'utf8', (err, data) => {
@@ -178,7 +179,6 @@ help.getUserDataFromFile = function (id) {
         });
     });
 }
-
 
 function getSelectedPreferences(obj) {
     const rtn = [];
