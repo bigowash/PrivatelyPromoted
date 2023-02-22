@@ -56,12 +56,21 @@ const generateRandomNumber = function () {
 // Set up a route to handle form submissions
 app.post("/submit-form", upload.single("advert-image"), (req, res) => {
     const { body, file } = req;
-    // Extract the demographic targeting data from the form data
-    const demographics = {};
+    // Extract the required demographic targeting data from the form data
+    const required_demographics = {};
 
     Object.keys(body).forEach((key) => {
-        if (key.endsWith("Select")) {
-            demographics[key] = body[key];
+        if (key.endsWith("Required_Select")) {
+            required_demographics[key] = body[key];
+        }
+    });
+
+    // Extract the recommended demographic targeting data from the form data
+    const recommended_demographics = {};
+
+    Object.keys(body).forEach((key) => {
+        if (key.endsWith("Recommended_Select")) {
+            recommended_demographics[key] = body[key];
         }
     });
 
@@ -75,7 +84,8 @@ app.post("/submit-form", upload.single("advert-image"), (req, res) => {
         image: file ? `/images/${file.filename}` : null,
         totalSpend: body.totalSpend,
         maxSpend: body["max-money-per-ad"],
-        targetedDemographic: demographics,
+        requiredTargetedDemographic: required_demographics,
+        recommendedTargetedDemographic: recommended_demographics,
         advertTheme: body.themeSelect,
         advertID: generateRandomNumber()
     };
