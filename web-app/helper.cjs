@@ -21,7 +21,7 @@ help.createInsights = function (insightID, userProfile) {
         userProfile
     );
 
-    const pythonProcess = spawn("python", [
+    const pythonProcess = spawn("python3", [
         "./web-app/static/database/user-insight-builder.py",
         insightID,
         userProfile
