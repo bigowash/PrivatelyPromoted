@@ -111,7 +111,7 @@ def add_to_csv_user_file(userid):
         # print("content")
         # print(content)
     
-    text = "user, name, " + userid+ "\n"
+    text = "user, "+ userid+", " + userid+ "\n"
     # print("test", text)
     if text not in content:
         # print("in here")
