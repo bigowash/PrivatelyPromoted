@@ -21,41 +21,82 @@ const table = document.getElementById("table");
 async function addPreferences() {
     console.log("Preferences are loading");
 
-
     // delete current buttons
     while (userButtons.firstChild) {
         userButtons.removeChild(userButtons.firstChild);
     }
 
-    const response = await fetch("../database/userProfiles.csv")
-        .then(response => response.text())
-        .then(data => {
-            const lines = data.split("\n");
+    // prepare request
+    const request = {
+        task: "get-user-buttons",
+    };
 
-            for (let i = 1; i < lines.length - 1; i++) {
-                const el = lines[i].split(", ");
-                const name = el[1];
-                let id = el[2];
-                // console.log(id);
+    const template = Ajax.query(request);
+    console.log("Request: " + JSON.stringify(request));
 
-                id = id.replace(/\r/g, "");
-                // profile_ids.push(id)
-                // console.log("el", el);
+    // upon the return of the request
+    template.then(function (object) {
+        console.log("Response: " + JSON.stringify(object));
+        // rest of the code here
+        const data = object.data
 
-                const a = document.createElement("button");
-                a.classList += "intro-button";
-                // let link = "../img/" + img_file + "/" + id + ".jpeg"
-                // a.innerHTML = '<img src = ' + link + ' alt = ' + name + '>'
-                a.textContent = id;
-                a.id += "user-" + id;
+        const lines = data.split("\n");
 
-                a.addEventListener("click", function () {
-                    profileSelected(id);
-                });
-                // console.log("in here");
-                userButtons.appendChild(a);
-            }
-        });
+        for (let i = 1; i < lines.length - 1; i++) {
+            const el = lines[i].split(", ");
+            const name = el[1];
+            let id = el[2];
+            // console.log(id);
+
+            id = id.replace(/\r/g, "");
+            // profile_ids.push(id)
+            // console.log("el", el);
+
+            const a = document.createElement("button");
+            a.classList += "intro-button";
+            // let link = "../img/" + img_file + "/" + id + ".jpeg"
+            // a.innerHTML = '<img src = ' + link + ' alt = ' + name + '>'
+            a.textContent = id;
+            a.id += "user-" + id;
+
+            a.addEventListener("click", function () {
+                profileSelected(id);
+            });
+            // console.log("in here");
+            userButtons.appendChild(a);
+        }
+    });
+
+
+    // const response = await fetch("../database/userProfiles.csv")
+    //     .then(response => response.text())
+    //     .then(data => {
+    //         const lines = data.split("\n");
+
+    //         for (let i = 1; i < lines.length - 1; i++) {
+    //             const el = lines[i].split(", ");
+    //             const name = el[1];
+    //             let id = el[2];
+    //             // console.log(id);
+
+    //             id = id.replace(/\r/g, "");
+    //             // profile_ids.push(id)
+    //             // console.log("el", el);
+
+    //             const a = document.createElement("button");
+    //             a.classList += "intro-button";
+    //             // let link = "../img/" + img_file + "/" + id + ".jpeg"
+    //             // a.innerHTML = '<img src = ' + link + ' alt = ' + name + '>'
+    //             a.textContent = id;
+    //             a.id += "user-" + id;
+
+    //             a.addEventListener("click", function () {
+    //                 profileSelected(id);
+    //             });
+    //             // console.log("in here");
+    //             userButtons.appendChild(a);
+    //         }
+    //     });
 }
 
 button.addEventListener("click", function () {
