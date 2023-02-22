@@ -143,7 +143,7 @@ async function profileSelected(id) {
     // upon the return of the request
     template.then(function (object) {
         console.log("Response: " + JSON.stringify(object));
-        const data = object.data
+        let data = object.data
         // data from file
         data = JSON.parse(data);
 
