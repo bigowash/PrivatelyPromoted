@@ -121,8 +121,6 @@ button.addEventListener("click", function () {
         console.log("Response: " + JSON.stringify(object));
         // rest of the code here
         addPreferences();
-        // console.log(userid)
-        // profileSelected(userid);
     });
 
 });
@@ -133,94 +131,193 @@ async function profileSelected(id) {
         table.removeChild(table.firstChild);
     }
 
-    const response = await fetch("../database/userfiles/user-" + id + ".json")
-        .then(response => response.text())
-        .then(data => {
-            // data from file
-            data = JSON.parse(data);
+    // prepare request
+    const request = {
+        task: "get-user-file",
+        userid: id
+    };
 
-            // get insights categories and sort alphabetically
-            const keys = [];
-            for (const i in data) {
-                keys.push(i);
-            }
-            keys.sort();
+    const template = Ajax.query(request);
+    console.log("Request: " + JSON.stringify(request));
 
-            console.log("building the table");
-            // console.log("data", data)
+    // upon the return of the request
+    template.then(function (object) {
+        console.log("Response: " + JSON.stringify(object));
+        const data = object.data
+        // data from file
+        data = JSON.parse(data);
 
-            // build the table
+        // get insights categories and sort alphabetically
+        const keys = [];
+        for (const i in data) {
+            keys.push(i);
+        }
+        keys.sort();
 
-            // Create the header row
-            const headerRow = document.createElement("tr");
-            const headerCategory = document.createElement("th");
-            headerCategory.textContent = "Category";
-            headerRow.appendChild(headerCategory);
-            const headerValue = document.createElement("th");
-            headerValue.textContent = "Value";
-            headerRow.appendChild(headerValue);
-            const headerCertainty = document.createElement("th");
-            headerCertainty.textContent = "Certainty";
-            headerRow.appendChild(headerCertainty);
-            const headerMoney = document.createElement("th");
-            headerMoney.textContent = "MoneyIn";
-            headerRow.appendChild(headerMoney);
-            const headerTimes = document.createElement("th");
-            headerTimes.textContent = "#ofTimesUsed";
-            headerRow.appendChild(headerTimes);
+        console.log("building the table");
+        // console.log("data", data)
 
-            table.appendChild(headerRow);
-            // console.log("element");
+        // build the table
 
-            // create the body rows based of file info
-            keys.forEach(category => {
-                // console.log(data[category].length)
+        // Create the header row
+        const headerRow = document.createElement("tr");
+        const headerCategory = document.createElement("th");
+        headerCategory.textContent = "Category";
+        headerRow.appendChild(headerCategory);
+        const headerValue = document.createElement("th");
+        headerValue.textContent = "Value";
+        headerRow.appendChild(headerValue);
+        const headerCertainty = document.createElement("th");
+        headerCertainty.textContent = "Certainty";
+        headerRow.appendChild(headerCertainty);
+        const headerMoney = document.createElement("th");
+        headerMoney.textContent = "MoneyIn";
+        headerRow.appendChild(headerMoney);
+        const headerTimes = document.createElement("th");
+        headerTimes.textContent = "#ofTimesUsed";
+        headerRow.appendChild(headerTimes);
 
-                // console.log(Array.isArray(data[category]['values']))
-                for (let index = 0; index < data[category].length; index++) {
-                    const element = data[category][index];
-                    // console.log("element");
-                    // console.log(element);
-                    // console.log(element["source"]);
-                    // add to the list of categories
+        table.appendChild(headerRow);
+        // console.log("element");
 
-                    if (Array.isArray(element.values)) {
-                        for (let i = 0; i < element.values.length; i++) {
-                            if (element.source[i] === name) {
-                                const tempInfo = {
-                                    category,
-                                    values: element.values[i],
-                                    certainty: element.certainty[i],
-                                    selected: element.selected[i],
-                                    source: element.source[i],
-                                    money: element.money[i],
-                                    times: element.times[i]
-                                };
-                                const dataRow = makeTable(tempInfo, i, index);
-                                table.appendChild(dataRow);
-                            }
-                        }
-                    } else {
-                        if (element.source == name) {
+        // create the body rows based of file info
+        keys.forEach(category => {
+            // console.log(data[category].length)
+
+            // console.log(Array.isArray(data[category]['values']))
+            for (let index = 0; index < data[category].length; index++) {
+                const element = data[category][index];
+                // console.log("element");
+                // console.log(element);
+                // console.log(element["source"]);
+                // add to the list of categories
+
+                if (Array.isArray(element.values)) {
+                    for (let i = 0; i < element.values.length; i++) {
+                        if (element.source[i] === name) {
                             const tempInfo = {
                                 category,
-                                values: element.values,
-                                certainty: element.certainty,
-                                selected: element.selected,
-                                source: element.source,
-                                money: element.money,
-                                times: element.times
+                                values: element.values[i],
+                                certainty: element.certainty[i],
+                                selected: element.selected[i],
+                                source: element.source[i],
+                                money: element.money[i],
+                                times: element.times[i]
                             };
-                            // const dataRow = makeTable(tempInfo, 1)
-                            const dataRow = makeTable(tempInfo, 1, index);
+                            const dataRow = makeTable(tempInfo, i, index);
                             table.appendChild(dataRow);
                         }
                     }
+                } else {
+                    if (element.source == name) {
+                        const tempInfo = {
+                            category,
+                            values: element.values,
+                            certainty: element.certainty,
+                            selected: element.selected,
+                            source: element.source,
+                            money: element.money,
+                            times: element.times
+                        };
+                        // const dataRow = makeTable(tempInfo, 1)
+                        const dataRow = makeTable(tempInfo, 1, index);
+                        table.appendChild(dataRow);
+                    }
                 }
-            });
-            moneyText.textContent = totalMoney;
-            usesText.textContent = totalUses;
+            }
         });
+        moneyText.textContent = totalMoney;
+        usesText.textContent = totalUses;
+    })
+
+    // const response = await fetch("../database/userfiles/user-" + id + ".json")
+    //     .then(response => response.text())
+    //     .then(data => {
+    //         // data from file
+    //         data = JSON.parse(data);
+
+    //         // get insights categories and sort alphabetically
+    //         const keys = [];
+    //         for (const i in data) {
+    //             keys.push(i);
+    //         }
+    //         keys.sort();
+
+    //         console.log("building the table");
+    //         // console.log("data", data)
+
+    //         // build the table
+
+    //         // Create the header row
+    //         const headerRow = document.createElement("tr");
+    //         const headerCategory = document.createElement("th");
+    //         headerCategory.textContent = "Category";
+    //         headerRow.appendChild(headerCategory);
+    //         const headerValue = document.createElement("th");
+    //         headerValue.textContent = "Value";
+    //         headerRow.appendChild(headerValue);
+    //         const headerCertainty = document.createElement("th");
+    //         headerCertainty.textContent = "Certainty";
+    //         headerRow.appendChild(headerCertainty);
+    //         const headerMoney = document.createElement("th");
+    //         headerMoney.textContent = "MoneyIn";
+    //         headerRow.appendChild(headerMoney);
+    //         const headerTimes = document.createElement("th");
+    //         headerTimes.textContent = "#ofTimesUsed";
+    //         headerRow.appendChild(headerTimes);
+
+    //         table.appendChild(headerRow);
+    //         // console.log("element");
+
+    //         // create the body rows based of file info
+    //         keys.forEach(category => {
+    //             // console.log(data[category].length)
+
+    //             // console.log(Array.isArray(data[category]['values']))
+    //             for (let index = 0; index < data[category].length; index++) {
+    //                 const element = data[category][index];
+    //                 // console.log("element");
+    //                 // console.log(element);
+    //                 // console.log(element["source"]);
+    //                 // add to the list of categories
+
+    //                 if (Array.isArray(element.values)) {
+    //                     for (let i = 0; i < element.values.length; i++) {
+    //                         if (element.source[i] === name) {
+    //                             const tempInfo = {
+    //                                 category,
+    //                                 values: element.values[i],
+    //                                 certainty: element.certainty[i],
+    //                                 selected: element.selected[i],
+    //                                 source: element.source[i],
+    //                                 money: element.money[i],
+    //                                 times: element.times[i]
+    //                             };
+    //                             const dataRow = makeTable(tempInfo, i, index);
+    //                             table.appendChild(dataRow);
+    //                         }
+    //                     }
+    //                 } else {
+    //                     if (element.source == name) {
+    //                         const tempInfo = {
+    //                             category,
+    //                             values: element.values,
+    //                             certainty: element.certainty,
+    //                             selected: element.selected,
+    //                             source: element.source,
+    //                             money: element.money,
+    //                             times: element.times
+    //                         };
+    //                         // const dataRow = makeTable(tempInfo, 1)
+    //                         const dataRow = makeTable(tempInfo, 1, index);
+    //                         table.appendChild(dataRow);
+    //                     }
+    //                 }
+    //             }
+    //         });
+    //         moneyText.textContent = totalMoney;
+    //         usesText.textContent = totalUses;
+    //     });
 }
 
 function makeTable(values, i, insightProvider) {
