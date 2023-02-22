@@ -14,7 +14,7 @@ const json = (response) => response.json();
 //         .then(json);
 // };
 
-Ajax.query = function (requestObj) {
+Ajax.query = async function (requestObj) {
     return new Promise(function (resolve, reject) {
         window
             .fetch("/", {

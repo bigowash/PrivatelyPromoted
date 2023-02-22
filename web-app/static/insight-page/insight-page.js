@@ -100,7 +100,7 @@ async function addPreferences() {
     //     });
 }
 
-button.addEventListener("click", function () {
+button.addEventListener("click", async function () {
     console.log("Button Clicked");
 
     console.log(input);
@@ -113,15 +113,17 @@ button.addEventListener("click", function () {
         userProfile: userid
     };
 
-    const template = Ajax.query(request);
     console.log("Request: " + JSON.stringify(request));
+    const template = await Ajax.query(request);
 
-    // upon the return of the request
-    template.then(function (object) {
-        console.log("Response: " + JSON.stringify(object));
-        // rest of the code here
-        addPreferences();
-    });
+    // // upon the return of the request
+    // template.then(function (object) {
+    //     console.log("Response: " + JSON.stringify(object));
+    //     // rest of the code here
+    //     addPreferences();
+    // });
+    console.log("Response: " + JSON.stringify(template));
+    addPreferences()
 
 });
 
