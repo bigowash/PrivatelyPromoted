@@ -9,14 +9,16 @@
         "totalSpend": "4567",
         "maxSpend": "456",
         "requiredTargetedDemographic": {
-            "theme_Select": "Education and Training",
-            "Income_Select": "$60,000 to $79,999",
-            "Marital status_Select": "Married",
-            "Online behavior_Select": "Reading and writing reviews and ratings of products and services"
+            "Income": "$60,000 to $79,999",
+            "Marital status": "Married",
+            "Online behavior": "Reading and writing reviews and ratings of products and services"
         },
         "recommendedTargetedDemographic": {},
         "advertTheme": "Education and Training",
-        "advertID": "212575"
+        "advertID": "212575",
+        "numViews": 1,
+        "numClickthroughs": 1,
+        "viewerDemographics": {}
     },
     {
         "advertiserName": "Monzo",
@@ -28,14 +30,17 @@
         "totalSpend": "345678",
         "maxSpend": "1",
         "requiredTargetedDemographic": {
-            "AgeRequired_Select": "17",
-            "LanguageRequired_Select": "Mandarin"
+            "Age": "17",
+            "Language": "Mandarin"
         },
         "recommendedTargetedDemographic": {
-            "Marital statusRecommended_Select": "In a Domestic Partnership"
+            "Marital status": "In a Domestic Partnership"
         },
         "advertTheme": "Manufacturing and Industrial",
-        "advertID": "245030"
+        "advertID": "245030",
+        "numViews": 1,
+        "numClickthroughs": 1,
+        "viewerDemographics": {}
     },
     {
         "advertiserName": "Disney+",
@@ -47,12 +52,12 @@
         "totalSpend": "483944",
         "maxSpend": "45",
         "requiredTargetedDemographic": {
-            "AgeRequired_Select": "17",
-            "Purchasing behaviorRequired_Select": "Making impulsive purchases"
+            "Age": "17",
+            "Purchasing behavior": "Making impulsive purchases"
         },
         "recommendedTargetedDemographic": {
-            "Marital statusRecommended_Select": "Widowed",
-            "Purchasing behaviorRecommended_Select": "Buying items in bulk to save money"
+            "Marital status": "Widowed",
+            "Purchasing behavior": "Buying items in bulk to save money"
         },
         "advertTheme": "Defense and Security",
         "advertID": "314511",
@@ -70,11 +75,47 @@
         "totalSpend": "45",
         "maxSpend": "5",
         "requiredTargetedDemographic": {
-            "AgeRequired_Select": "64"
+            "Age": "64"
         },
         "recommendedTargetedDemographic": {},
         "advertTheme": "Defense and Security",
         "advertID": "655477",
+        "numViews": 1,
+        "numClickthroughs": 1,
+        "viewerDemographics": {}
+    },
+    {
+        "advertiserName": "Monzo",
+        "advertiserId": "5",
+        "title": "title",
+        "description": "sss",
+        "replacementText": "rfesees",
+        "image": "/images/advert-image-1677080158320-386184883.jpg",
+        "totalSpend": "345678",
+        "maxSpend": "1",
+        "requiredTargetedDemographic": {},
+        "recommendedTargetedDemographic": {
+            "Marital status": "In a Domestic Partnership"
+        },
+        "advertTheme": "Manufacturing and Industrial",
+        "advertID": "245039",
+        "numViews": 1,
+        "numClickthroughs": 1,
+        "viewerDemographics": {}
+    },
+    {
+        "advertiserName": "Monzo",
+        "advertiserId": "5",
+        "title": "title",
+        "description": "hhhhh",
+        "replacementText": "njk",
+        "image": "/images/advert-image-1677080158320-386184883.jpg",
+        "totalSpend": "345678",
+        "maxSpend": "1",
+        "requiredTargetedDemographic": {},
+        "recommendedTargetedDemographic": {},
+        "advertTheme": "Manufacturing and Industrial",
+        "advertID": "245040",
         "numViews": 1,
         "numClickthroughs": 1,
         "viewerDemographics": {}
