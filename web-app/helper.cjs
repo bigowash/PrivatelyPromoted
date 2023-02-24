@@ -82,6 +82,7 @@ function readDataFromCSV() {
             } else {
                 const rows = data.split('\n');
                 const headers = rows[0].split(',');
+                headers[2] = headers[2].replace(/\r/g, "");
                 const results = [];
                 for (let i = 1; i < rows.length - 1; i++) {
                     const values = rows[i].split(',');
@@ -136,11 +137,14 @@ help.generateImpression = async function (website_data) {
     return new Promise((resolve, reject) => {
         readDataFromCSV()
             .then((data) => {
+                console.log(data)
                 data.forEach(el => {
                     users.push(el.id.substring(1))
                 });
 
-                const user = users[Math.floor(Math.random() * users.length)]
+                let user = users[Math.floor(Math.random() * users.length)]
+                console.log(user)
+                user = user.replace(/\r/g, "");
 
                 readUserFile(user)
                     .then((userObject) => {
