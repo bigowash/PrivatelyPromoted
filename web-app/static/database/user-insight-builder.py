@@ -113,7 +113,14 @@ def add_to_csv_user_file(userid):
     
     text = "user, "+ userid+", " + userid+ "\n"
     # print("test", text)
-    if userid not in content:
+
+    flag = True
+    for i in range(len(content)):
+        if userid in content[i]:
+            flag = False
+            break
+
+    if flag:
         # print("in here")
         with open("./web-app/static/database/userProfiles.csv", 'w') as file:
             # print(file.readline())
