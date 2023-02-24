@@ -74,10 +74,11 @@ main {
     padding-right: 20px;
     padding-top: 15px;
     padding-bottom: 15px;
-    /* display: flex;
-    flex-direction: column; */
-    /* gap: 10px; */
-    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 470px;
+    min-width: 300px;
 }
 
 /* Single line text input */
@@ -162,7 +163,7 @@ main {
     cursor: pointer;
     border: 1px solid #555;
     margin-top: 8px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 
 .file-input-wrapper:hover {
@@ -286,5 +287,5 @@ main {
 
 /* Sector Select */
 #advert-theme-select-wrapper {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }

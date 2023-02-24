@@ -9,9 +9,15 @@
         <title>Privately Promoted</title>
         <link rel="stylesheet" href="new-advert.css" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap"
+            rel="stylesheet"
+        />
         <script type="module" src="new-advert.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        />
     </head>
 
     <!-- Content -->
@@ -30,35 +36,62 @@
             <!-- Div Title -->
             <h2 style="padding-left: 20px">New Advert</h2>
 
-            <form id="form" action="/submit-form" method="POST" enctype="multipart/form-data">
+            <form
+                id="form"
+                action="/submit-form"
+                method="POST"
+                enctype="multipart/form-data"
+            >
                 <!-- Hidden input elements, to store profile name and id -->
-                <input type="hidden" id="profileName" name="profileName" value="">
-                <input type="hidden" id="profileId" name="profileId" value="">
+                <input
+                    type="hidden"
+                    id="profileName"
+                    name="profileName"
+                    value=""
+                />
+                <input type="hidden" id="profileId" name="profileId" value="" />
 
                 <div class="advert-body">
                     <!-- Padding -->
                     <div class="padding-div">
                         <!-- Ad Title -->
                         <div class="text-input-container">
-                            <input type="text" required id="advert-title" name="advert-title" />
+                            <input
+                                type="text"
+                                required
+                                id="advert-title"
+                                name="advert-title"
+                            />
                             <label>Advert Title</label>
                         </div>
 
                         <!-- Ad Description -->
                         <div class="text-input-container">
-                            <input type="text" required id="advert-description" name="advert-description" />
+                            <input
+                                type="text"
+                                required
+                                id="advert-description"
+                                name="advert-description"
+                            />
                             <label>Advert Description</label>
                         </div>
 
                         <!-- Ad Replacement Text -->
-                        <div class="ad-replacement-text-container"
-                            title="Visual description of the advert, used by screenreaders or if the image is not correctly loaded.">
+                        <div
+                            class="ad-replacement-text-container"
+                            title="Visual description of the advert, used by screenreaders or if the image is not correctly loaded."
+                        >
                             <label for="ad-replacement-text">
                                 <h3>Advert Replacement Text (Accessibility)</h3>
                             </label>
 
-                            <input type="text" class="text-box" id="ad-replacement-text" name="ad-replacement-text"
-                                required />
+                            <input
+                                type="text"
+                                class="text-box"
+                                id="ad-replacement-text"
+                                name="ad-replacement-text"
+                                required
+                            />
                         </div>
 
                         <!-- Advert Upload -->
@@ -68,60 +101,105 @@
                                 <h3>Advert Image Upload</h3>
                             </label>
 
-                            <div class="file-input-wrapper" name="file-input-wrapper">
-                                <label for="file-input" class="file-input-label">
+                            <div
+                                class="file-input-wrapper"
+                                name="file-input-wrapper"
+                            >
+                                <label
+                                    for="file-input"
+                                    class="file-input-label"
+                                >
                                     <i class="fa fa-cloud-upload"></i> Choose a
                                     file
                                 </label>
-                                <input type="file" id="file-input" class="file-input" name="advert-image" required />
+                                <input
+                                    type="file"
+                                    id="file-input"
+                                    class="file-input"
+                                    name="advert-image"
+                                    required
+                                />
                                 <span class="file-input-name"></span>
                             </div>
                         </div>
 
                         <!-- Industry Sector of Advert -->
-                        <div id="advert-theme-select-wrapper">
-                            <label for="themeSelect">
+
+                        <div>
+                            <label for="advert-theme-select-wrapper">
                                 <h3>Corporate Sector of Advert</h3>
                             </label>
 
-                            <!-- Fill with JavaScript -->
-
+                            <div id="advert-theme-select-wrapper">
+                                <!-- Fill with JavaScript -->
+                            </div>
                         </div>
 
                         <!-- Total amount to be spent of ad campaign -->
                         <div class="text-input-container">
-                            <input type="number" required id="totalSpend" class="no-spinners" name="totalSpend" />
-                            <label>Budget for Advertisement Campaign (USD)</label>
+                            <input
+                                type="number"
+                                required
+                                id="totalSpend"
+                                class="no-spinners"
+                                name="totalSpend"
+                            />
+                            <label
+                                >Budget for Advertisement Campaign (USD)</label
+                            >
                         </div>
 
                         <!-- Maximum amount of money allowed to be spent on each ad -->
                         <div class="text-input-container">
-                            <input type="number" required id="max-money-per-ad" class="no-spinners"
-                                name="max-money-per-ad" />
+                            <input
+                                type="number"
+                                required
+                                id="max-money-per-ad"
+                                class="no-spinners"
+                                name="max-money-per-ad"
+                            />
                             <label>Maximum Spend Per Advert (USD)</label>
                         </div>
                     </div>
 
                     <div class="padding-div-2">
-                        <!-- Requried targeted demographic selection -->
-                        <label for="requiredTargetWrapper" id="requiredTargetWrapperLabel">
-                            <h3>Select Required Demographics to Target</h3>
-                        </label>
+                        <div>
+                            <!-- Requried targeted demographic selection -->
+                            <label
+                                for="requiredTargetWrapper"
+                                id="requiredTargetWrapperLabel"
+                            >
+                                <h3>Select Required Demographics to Target</h3>
+                            </label>
 
-                        <div class="targetingWrapper" name="requiredTargetWrapper" id="requiredTargetWrapper">
-                            <!-- To be filled with JavaScript -->
+                            <div
+                                class="targetingWrapper"
+                                name="requiredTargetWrapper"
+                                id="requiredTargetWrapper"
+                            >
+                                <!-- To be filled with JavaScript -->
+                            </div>
                         </div>
 
-                        <!-- Recommended targeted demographic selection -->
-                        <label for="recommendedTargetWrapper" id="recommendedTargetWrapperLabel">
-                            <h3>Select Recommended Demographics to Target</h3>
-                        </label>
+                        <div>
+                            <!-- Recommended targeted demographic selection -->
+                            <label
+                                for="recommendedTargetWrapper"
+                                id="recommendedTargetWrapperLabel"
+                            >
+                                <h3>
+                                    Select Recommended Demographics to Target
+                                </h3>
+                            </label>
 
-                        <div class="targetingWrapper" name="recommendedTargetWrapper" id="recommendedTargetWrapper">
-                            <!-- To be filled with JavaScript -->
+                            <div
+                                class="targetingWrapper"
+                                name="recommendedTargetWrapper"
+                                id="recommendedTargetWrapper"
+                            >
+                                <!-- To be filled with JavaScript -->
+                            </div>
                         </div>
-
-
                     </div>
                 </div>
 
@@ -130,5 +208,4 @@
             </form>
         </div>
     </main>
-
 </html>
