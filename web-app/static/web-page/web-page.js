@@ -131,6 +131,13 @@ button.addEventListener("click", function () {
     template.then(function (object) {
         console.log("Response: " + JSON.stringify(object));
 
+        const area = document.getElementById("displayed-ad");
+        const myImage = document.createElement("img");
+        myImage.src = "../database/adverts/" + object.image;
+        myImage.alt = "money made: " + object.money;
+
+        area.appendChild(myImage)
+
         // should get the money recieved
         // advertisement displayed (and display it)
         // update stats on how much money has been recieved and number of total impressions

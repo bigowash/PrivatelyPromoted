@@ -21,7 +21,9 @@ const handler = async function (obj) {
     } else if (task === "updateFile") {
         rtnObject.return = help.changeFile(obj.data, obj.filename)
     } else if (task === "makeImpression") {
-        rtnObject.adObj = await help.generateImpression(obj.website_data)
+        const d = await help.generateImpression(obj.website_data)
+        rtnObject.image = d[0];
+        rtnObject.money = d[1];
         // return rtnObject.adObj
     } else if (task === "get-user-data") {
         rtnObject.success = help.getData(obj.data, obj.filename);

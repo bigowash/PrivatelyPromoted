@@ -315,7 +315,7 @@ help.generateImpression = async function (website_data) {
                                 updateDataJSON(ad, advertList)
                                 addToDisplayHistory(ad, userObject, website_data);
 
-                                resolve(ad);
+                                resolve([ad.image, ad.maxSpend]);
                             })
                             .catch((err) => {
                                 console.error(err);
