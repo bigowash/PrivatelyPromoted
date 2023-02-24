@@ -74,10 +74,11 @@ main {
     padding-right: 20px;
     padding-top: 15px;
     padding-bottom: 15px;
-    /* display: flex;
-    flex-direction: column; */
-    /* gap: 10px; */
-    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 470px;
+    min-width: 300px;
 }
 
 /* Single line text input */
@@ -162,7 +163,7 @@ main {
     cursor: pointer;
     border: 1px solid #555;
     margin-top: 8px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 
 .file-input-wrapper:hover {
@@ -286,5 +287,45 @@ main {
 
 /* Sector Select */
 #advert-theme-select-wrapper {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
+
+.themeWrapper {
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+/* Tooltips */
+.icon {
+    height: 24px;
+    width: 24px;
+    position: relative;
+    cursor: pointer;
+}
+
+.icon:hover .tooltip {
+    display: block;
+}
+
+.tooltip {
+    padding: 10px;
+    position: absolute;
+    width: auto;
+    white-space: nowrap;
+    word-wrap: no-wrap;
+    box-shadow: 1px 1px 20px #aaa;
+    /* border-radius: 5px; */
+    background-color: #fff;
+    top: 40px;
+    left: 50%;
+    transform: translate(-50%);
+    transform-style: preserve-3d;
+    z-index: 200;
+    display: none;
+    font-size: smaller;
+    font-weight: 450;
+}
+
