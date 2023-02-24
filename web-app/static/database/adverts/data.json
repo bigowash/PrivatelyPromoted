@@ -9,10 +9,10 @@
         "totalSpend": "4567",
         "maxSpend": "456",
         "requiredTargetedDemographic": {
-            "themeSelect": "Education and Training",
-            "IncomeSelect": "$60,000 to $79,999",
-            "Marital statusSelect": "Married",
-            "Online behaviorSelect": "Reading and writing reviews and ratings of products and services"
+            "theme_Select": "Education and Training",
+            "Income_Select": "$60,000 to $79,999",
+            "Marital status_Select": "Married",
+            "Online behavior_Select": "Reading and writing reviews and ratings of products and services"
         },
         "recommendedTargetedDemographic": {},
         "advertTheme": "Education and Training",
