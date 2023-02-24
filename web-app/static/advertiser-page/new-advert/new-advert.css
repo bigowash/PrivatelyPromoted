@@ -293,39 +293,46 @@ main {
 .themeWrapper {
     display: flex;
     flex-direction: row;
-    align-content: flex-start;
+    align-content: center;
     justify-content: flex-start;
     gap: 20px;
 }
 
 /* Tooltips */
 .icon {
-    height: 24px;
-    width: 24px;
+    height: 30px;
+    width: 30px;
     position: relative;
     cursor: pointer;
 }
 
-.icon:hover .tooltip {
+.tooltip {
+    position: relative;
     display: block;
 }
 
-.tooltip {
+.themeWrapper .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 300px; /* increase width */
+    background-color: #fff;
+    text-align: left;
     padding: 10px;
     position: absolute;
-    width: auto;
-    white-space: nowrap;
-    word-wrap: no-wrap;
-    box-shadow: 1px 1px 20px #aaa;
-    /* border-radius: 5px; */
-    background-color: #fff;
-    top: 40px;
+    z-index: 1;
+    top: -95px;
     left: 50%;
     transform: translate(-50%);
     transform-style: preserve-3d;
-    z-index: 200;
-    display: none;
-    font-size: smaller;
-    font-weight: 450;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: small;
+    color: #555;
+    font-weight: normal;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+        rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
 }
 
+.themeWrapper .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
