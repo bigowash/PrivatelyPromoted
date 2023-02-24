@@ -7,7 +7,7 @@ import math
 import sys 
 import json
 
-# print("in the PYTHOM file")
+print("in the PYTHOM file")
 
 insightID = sys.argv[1]
 userProfile = sys.argv[2]
@@ -113,7 +113,7 @@ def add_to_csv_user_file(userid):
     
     text = "user, "+ userid+", " + userid+ "\n"
     # print("test", text)
-    if text not in content:
+    if userid not in content:
         # print("in here")
         with open("./web-app/static/database/userProfiles.csv", 'w') as file:
             # print(file.readline())
