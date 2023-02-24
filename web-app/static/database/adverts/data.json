@@ -8,12 +8,13 @@
         "image": "/images/advert-image-1677077219705-741808804.jpg",
         "totalSpend": "4567",
         "maxSpend": "456",
-        "targetedDemographic": {
+        "requiredTargetedDemographic": {
             "themeSelect": "Education and Training",
             "IncomeSelect": "$60,000 to $79,999",
             "Marital statusSelect": "Married",
             "Online behaviorSelect": "Reading and writing reviews and ratings of products and services"
         },
+        "recommendedTargetedDemographic": {},
         "advertTheme": "Education and Training",
         "advertID": "212575"
     },
