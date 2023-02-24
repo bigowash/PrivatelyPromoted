@@ -21,7 +21,7 @@ help.createInsights = function (insightID, userProfile) {
         userProfile
     );
 
-    const pythonProcess = spawn("python3", [
+    const pythonProcess = spawn("python", [
         "./web-app/static/database/user-insight-builder.py",
         insightID,
         userProfile
@@ -308,6 +308,7 @@ help.generateImpression = async function (website_data) {
 
                                 console.log("Going in to add history")
                                 // need to append it to the history file
+                                updateDataJSON(ad, advertList)
                                 addToDisplayHistory(ad, userObject, website_data);
 
                                 resolve(ad);
@@ -327,6 +328,24 @@ help.generateImpression = async function (website_data) {
                 console.error('Error while reading data from CSV:', err);
             });
     })
+}
+
+function updateDataJSON(ad, advertList) {
+    for (let i = 0; i < advertList.length; i++) {
+        const add = advertList[i];
+        if (add.advertID == ad.advertID) {
+            advertList[i] = ad
+        }
+    }
+
+    fs.writeFile(
+        "./web-app/static/database/adverts/data.json",
+        JSON.stringify(advertList),
+        (err, data) => {
+            if (err) throw err;
+            console.log("The file has been saved!");
+        }
+    );
 }
 
 async function readHistory() {
