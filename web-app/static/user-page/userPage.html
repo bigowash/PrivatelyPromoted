@@ -1,44 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    <!-- Document head -->
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link rel="stylesheet" src="./user-style.css" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>User</title>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Privately Promoted</title>
+        <link rel="stylesheet" href="user-style.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap"
+            rel="stylesheet"
+        />
+        <script type="module" src="user-page.js"></script>
+        <title>Privately Promoted</title>
     </head>
 
-    <body>
-        <!-- <table id="categories">
-            <tr>
-                <th>Include?</th>
-                <th>Categories</th>
-            </tr>
+    <!-- Content -->
+    <header>
+        <h1 id="title">Privately Promoted</h1>
+        <div id="subtitle"></div>
+    </header>
 
-        </table>
-        <table id="companies">
-            <tr>
-                <th>Include?</th>
-                <th>Companies</th>
-            </tr>
-
-        </table> -->
-        <div id="preferences-table">
-
+    <main>
+        <!-- Table wrapper -->
+        <div class="tableWrapper">
+            <table id="preferences-table">
+                <!-- Fill with JavaScript -->
+            </table>
+            <div>
+                <form>
+                    <button type="button" id="selectAll">Select All</button>
+                    <button type="button" id="deselectAll">Deselect All</button>
+                    <button type="button" id="save">Save</button>
+                </form>
+            </div>
         </div>
-        <div>
-            <form>
-                <button type="button" id="selectAll">Select All</button>
-                <button type="button" id="deselectAll">Deselect All</button>
-                <button type="button" id="save">Save</button>
-            </form>
-        </div>
+    </main>
 
-        <div id="advertisment-section">
-
-        </div>
-    </body>
-    <script type="module" src="./user-page.js"></script>
-
+    <footer>
+        Imperial College London - Group 08 <br />
+        Theo Bui | Maximilian Matthews | Chinene Chukwuma | Zyque (Zhao Qi) So
+    </footer>
 </html>

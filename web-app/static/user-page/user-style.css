@@ -1,11 +1,11 @@
-/* * {
+* {
     font-family: "Inter", sans-serif;
     background-color: #ffffff;
 }
 
 header {
     text-align: center;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
 }
 
 h1 {
@@ -18,35 +18,67 @@ h2 {
     font-weight: normal;
 }
 
-.intro-button {
-    margin: 10px;
-    width: 200px;
-    height: 200px;
-    background-color: transparent;
-    border-color: rgb(214, 214, 214);
-    border-style: solid;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+#title {
+    cursor: pointer;
 }
 
-.intro-button img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-}
-
-.intro-button:hover img {
-    opacity: 0.75;
-}
-
-div {
+main {
+    margin: auto;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
 }
 
+/*  */
+/* Table Styling */
+/*  */
+
+table {
+    border: none;
+    border-collapse: collapse;
+}
+
+
+.tableWrapper {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    width: 800px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+/* Header */
+.headerCell {
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-weight: 450;
+    font-size: normal;
+    text-align: center;
+    background-color: inherit;
+}
+
+.headerRow {
+    background-color: #fc4445;
+}
+/* General Cell */
+.tableBodyCell {
+    color: #555;
+    font-weight: normal;
+    font-size: smaller;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Checkbox */
+
+
+/* Change Value */
+
+
+
+/* Footer */
 footer {
     padding-top: 10em;
     background-color: white;
@@ -54,12 +86,3 @@ footer {
     font-size: x-small;
     font-weight: normal;
 }
-
-.intro-button-container {
-    display: inline-block;
-    text-align: center;
-}
-
-.intro-button-description {
-    display: block;
-} */
