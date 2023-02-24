@@ -336,3 +336,34 @@ main {
     visibility: visible;
     opacity: 1;
 }
+
+.writtenTooltip {
+    border-bottom: 1.5px dotted #fc4445;
+    cursor: help;
+}
+
+#requiredTargetWrapperLabel .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 300px; /* increase width */
+    background-color: #fff;
+    text-align: left;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    top: -60px;
+    left: 50%;
+    transform: translate(-100%);
+    transform-style: preserve-3d;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: small;
+    color: #555;
+    font-weight: normal;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+        rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
+#requiredTargetWrapperLabel .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
