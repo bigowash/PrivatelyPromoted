@@ -47,7 +47,7 @@ const adminSelected = function () {
     console.log("Website profile selected");
 
     // Send to page
-    window.location.href = "./adminPage.html";
+    window.location.href = "./admin-page/adminPage.html";
 };
 
 // Get button elements by id

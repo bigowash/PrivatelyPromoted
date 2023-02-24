@@ -16,7 +16,7 @@ const handler = async function (obj) {
         }
     } else if (task === "create-insights") {
         rtnObject.return = help.createInsights(obj.insightID, obj.userProfile);
-        console.log(rtnObject.return)
+        // console.log(rtnObject.return)
         rtnObject.hlei = "yes"
     } else if (task === "updateFile") {
         rtnObject.return = help.changeFile(obj.data, obj.filename)
