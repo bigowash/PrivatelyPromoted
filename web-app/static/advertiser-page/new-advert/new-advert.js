@@ -18,6 +18,15 @@ const profileIdInput = document.getElementById("profileId");
 profileIdInput.value = profilegetID;
 
 ///
+// Add link to homepage
+///
+
+const title = document.getElementById("title");
+title.addEventListener("click", function () {
+    window.location.href = "../../";
+});
+
+///
 // File upload button functionality
 ///
 

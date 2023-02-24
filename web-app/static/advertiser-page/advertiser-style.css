@@ -82,3 +82,11 @@ main {
 #subtitle {
     margin-bottom: 15px;
 }
+
+footer {
+    padding-top: 10em;
+    background-color: white;
+    text-align: center;
+    font-size: x-small;
+    font-weight: normal;
+}

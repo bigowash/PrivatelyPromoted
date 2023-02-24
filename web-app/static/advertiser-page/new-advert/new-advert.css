@@ -13,6 +13,10 @@ h1 {
     margin-bottom: 20px;
 }
 
+#title {
+    cursor: pointer;
+}
+
 h2 {
     font-size: larger;
     font-weight: bold;
@@ -34,6 +38,14 @@ main {
     margin-top: 15px;
     gap: 10px;
     flex-wrap: wrap;
+}
+
+footer {
+    padding-top: 10em;
+    background-color: white;
+    text-align: center;
+    font-size: x-small;
+    font-weight: normal;
 }
 
 .advert-creation {
