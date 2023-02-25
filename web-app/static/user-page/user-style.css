@@ -147,7 +147,7 @@ table {
 /* Change Value */
 .changeTextCell input {
     border: 1px solid #555;
-    width: 100%;
+    width: 150px;
     height: 35px;
     padding: 10px;
     box-sizing: border-box;
@@ -166,12 +166,12 @@ table {
 /* Submit change button */
 .submit-button input {
     border: 1.5px solid #555;
-    /* width: 150px; */
     height: 35px;
-    /* padding: 10px; */
-    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
     font-weight: 600;
     color: #555;
+    cursor: pointer;
 }
 
 .submit-button input:focus {
@@ -191,6 +191,7 @@ form {
     flex-direction: row;
     gap: 15px;
     padding: 10px;
+    align-items: center;
 }
 
 .formButton {
@@ -198,6 +199,9 @@ form {
     height: 35px;
     font-weight: 600;
     color: #555;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
 }
 
 .formButton:hover {
@@ -217,4 +221,43 @@ footer {
     text-align: center;
     font-size: x-small;
     font-weight: normal;
+}
+
+/* Tooltips */
+.icon {
+    height: 30px;
+    width: 30px;
+    position: relative;
+    cursor: help;
+}
+
+.tooltip {
+    position: relative;
+    display: block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 300px; /* increase width */
+    background-color: #fff;
+    text-align: left;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    top: -95px;
+    left: 50%;
+    transform: translate(-50%);
+    transform-style: preserve-3d;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: small;
+    color: #555;
+    font-weight: normal;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+        rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
 }
