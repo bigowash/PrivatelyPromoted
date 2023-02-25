@@ -148,15 +148,24 @@ const makeTable = function (values, i, insightProvider) {
 
     /// check
     const inputSection = document.createElement("td");
+    inputSection.classList.add("checkbox");
+    inputSection.classList.add("tableBodyCell");
+
     const input = document.createElement("input");
     input.setAttribute("type", "checkbox");
     input.checked = values.selected;
     input.setAttribute("name", insightProvider + values.category + i);
     input.setAttribute("id", insightProvider + values.category + i + "check");
 
-    inputSection.classList.add("checkbox");
-    inputSection.classList.add("tableBodyCell");
+    const label = document.createElement("label");
+    label.setAttribute("for", insightProvider + values.category + i + "check");
+
+    const span = document.createElement("span");
+
+    label.appendChild(span);
+
     inputSection.appendChild(input);
+    inputSection.appendChild(label);
     dataRow.appendChild(inputSection);
 
     /// category
@@ -208,7 +217,9 @@ const makeTable = function (values, i, insightProvider) {
 
     // submit button
     const submitSection = document.createElement("td");
-    const submitButton = document.createElement("button");
+    const submitButton = document.createElement("input");
+    submitButton.setAttribute("type", "button");
+    submitButton.setAttribute("value", "Submit Change");
     submitSection.classList.add("submit-button");
     submitSection.classList.add("tableBodyCell");
     submitButton.setAttribute(

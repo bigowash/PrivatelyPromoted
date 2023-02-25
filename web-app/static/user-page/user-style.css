@@ -3,6 +3,14 @@
     background-color: #ffffff;
 }
 
+:root {
+    --white: #e8e9ed;
+    --gray: #434257;
+    --blue: #18172c;
+    --green: #00d084;
+    --pink: #ff4b77;
+}
+
 header {
     text-align: center;
     padding-bottom: 20px;
@@ -36,7 +44,6 @@ table {
     border: none;
     border-collapse: collapse;
 }
-
 
 .tableWrapper {
     box-sizing: border-box;
@@ -72,11 +79,136 @@ table {
 }
 
 /* Checkbox */
+[type="checkbox"] {
+    position: absolute;
+    left: -9999px;
+}
 
+.checkbox label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.checkbox span:last-child {
+    position: relative;
+    width: 50px;
+    height: 26px;
+    border-radius: 15px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.4);
+    background: var(--gray);
+    transition: all 0.3s;
+}
+
+.checkbox span:last-child::before,
+.checkbox span:last-child::after {
+    content: "";
+    position: absolute;
+}
+
+.checkbox span:last-child::before {
+    left: 1px;
+    top: 1px;
+    width: 24px;
+    height: 24px;
+    background: var(--white);
+    border-radius: 50%;
+    z-index: 1;
+    transition: transform 0.3s;
+}
+
+.checkbox span:last-child::after {
+    top: 50%;
+    right: 8px;
+    width: 12px;
+    height: 12px;
+    transform: translateY(-50%);
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/uncheck-switcher.svg);
+    background-size: 12px 12px;
+}
+
+.checkbox [type="checkbox"]:checked + label span:last-child {
+    background: var(--green);
+}
+
+.checkbox [type="checkbox"]:checked + label span:last-child::before {
+    transform: translateX(24px);
+}
+
+.checkbox [type="checkbox"]:checked + label span:last-child::after {
+    width: 14px;
+    height: 14px;
+    left: 8px;
+    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/checkmark-switcher.svg);
+    background-size: 14px 14px;
+}
 
 /* Change Value */
+.changeTextCell input {
+    border: 1px solid #555;
+    width: 100%;
+    height: 35px;
+    padding: 10px;
+    box-sizing: border-box;
+}
 
+.changeTextCell input:focus {
+    border: none;
+    outline: none;
+    border: 1px solid #e74c3c;
+}
 
+.changeTextCell input:hover {
+    border: 1px solid #e74c3c;
+}
+
+/* Submit change button */
+.submit-button input {
+    border: 1.5px solid #555;
+    /* width: 150px; */
+    height: 35px;
+    /* padding: 10px; */
+    box-sizing: border-box;
+    font-weight: 600;
+    color: #555;
+}
+
+.submit-button input:focus {
+    border: none;
+    outline: none;
+    border: 1.5px solid #e74c3c;
+}
+
+.submit-button input:hover {
+    border: 1.5px solid #e74c3c;
+}
+
+/* Form Buttons */
+
+form {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    padding: 10px;
+}
+
+.formButton {
+    border: 1.5px solid #555;
+    height: 35px;
+    font-weight: 600;
+    color: #555;
+}
+
+.formButton:hover {
+    border: 1.5px solid #e74c3c;
+}
+
+.formButton:focus {
+    border: none;
+    outline: none;
+    border: 1.5px solid #e74c3c;
+}
 
 /* Footer */
 footer {
