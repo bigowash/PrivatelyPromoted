@@ -5,7 +5,7 @@
 
 header {
     text-align: center;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
 }
 
 h1 {
@@ -13,9 +13,23 @@ h1 {
     margin-bottom: 20px;
 }
 
+#title {
+    cursor: pointer;
+}
+
 h2 {
     font-size: large;
     font-weight: normal;
+}
+
+h3 {
+    font-size: smaller;
+    font-weight: 450;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 5px;
+    color: #555;
 }
 
 main {
@@ -23,4 +37,87 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+}
+
+/*  */
+/* Table Styling */
+/*  */
+
+.advTable {
+    border: none;
+    border-collapse: collapse;
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    width: fit-content;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+/* Header */
+.tableHead {
+    background-color: #fc4445;
+}
+
+.headerRow {
+    background-color: inherit;
+}
+
+.headerCell {
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-weight: 450;
+    font-size: normal;
+    text-align: center;
+    background-color: inherit;
+    width: fit-content;
+}
+
+/* General Cell */
+.bodyCell {
+    color: #555;
+    font-weight: normal;
+    font-size: smaller;
+    padding: 10px;
+    text-align: left;
+}
+
+footer {
+    padding-top: 10em;
+    background-color: white;
+    text-align: center;
+    font-size: x-small;
+    font-weight: normal;
+}
+
+/* Image */
+.image {
+    width: 100px;
+}
+
+.image img {
+    width: 100%;
+}
+
+/* Number of Views */
+.numViews {
+    max-width: 70px;
+}
+
+/* Number of Clicks */
+.numClicks {
+    max-width: 70px;
+}
+
+/* Insights sub table */
+.subTableKeyCell {
+    width: 100px;
+    padding: 5px;
+}
+
+.subtableValueCell {
+    width: 100px;
+    padding: 5px;
 }

@@ -96,8 +96,8 @@ app.post("/submit-form", upload.single("advert-image"), (req, res) => {
         recommendedTargetedDemographic: recommended_demographics,
         advertTheme: body.themeSelect,
         advertID: generateRandomNumber(),
-        numViews: 1, // Placeholder value
-        numClickthroughs: 1, // Placeholder value
+        numViews: 0, // Placeholder value
+        numClickthroughs: 0, // Placeholder value
         viewerDemographics: {} // Demographic data on advert viewers, how closely they match required and recommended demographics
     };
 

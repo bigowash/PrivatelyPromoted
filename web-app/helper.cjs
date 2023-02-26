@@ -44,12 +44,12 @@ help.changeFile = function (data, filename) {
             console.log("The file has been saved!");
         }
     );
-}
+};
 
 async function readUserFile(user) {
     return new Promise((resolve, reject) => {
         const filePath = `./web-app/static/database/userfiles/user-${user}.json`;
-        fs.readFile(filePath, 'utf8', (err, data) => {
+        fs.readFile(filePath, "utf8", (err, data) => {
             if (err) {
                 reject(err);
             } else {
@@ -63,7 +63,7 @@ async function readUserFile(user) {
 async function getAdverts() {
     return new Promise((resolve, reject) => {
         const filePath = `./web-app/static/database/adverts/data.json`;
-        fs.readFile(filePath, 'utf8', (err, data) => {
+        fs.readFile(filePath, "utf8", (err, data) => {
             if (err) {
                 reject(err);
             } else {
@@ -76,25 +76,29 @@ async function getAdverts() {
 
 function readDataFromCSV() {
     return new Promise((resolve, reject) => {
-        fs.readFile('./web-app/static/database/userProfiles.csv', 'utf8', (err, data) => {
-            if (err) {
-                reject(err);
-            } else {
-                const rows = data.split('\n');
-                const headers = rows[0].split(',');
-                headers[2] = headers[2].replace(/\r/g, "");
-                const results = [];
-                for (let i = 1; i < rows.length - 1; i++) {
-                    const values = rows[i].split(',');
-                    const rowObject = {};
-                    for (let j = 0; j < headers.length; j++) {
-                        rowObject[headers[j]] = values[j];
+        fs.readFile(
+            "./web-app/static/database/userProfiles.csv",
+            "utf8",
+            (err, data) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    const rows = data.split("\n");
+                    const headers = rows[0].split(",");
+                    headers[2] = headers[2].replace(/\r/g, "");
+                    const results = [];
+                    for (let i = 1; i < rows.length - 1; i++) {
+                        const values = rows[i].split(",");
+                        const rowObject = {};
+                        for (let j = 0; j < headers.length; j++) {
+                            rowObject[headers[j]] = values[j];
+                        }
+                        results.push(rowObject);
                     }
-                    results.push(rowObject);
+                    resolve(results);
                 }
-                resolve(results);
             }
-        });
+        );
     });
 }
 
@@ -113,7 +117,11 @@ function sortLists(list1, list2) {
 function randomizeLists(list1, list2) {
     var combinedList = [];
     for (var i = 0; i < list1.length; i++) {
-        combinedList.push({ key: Math.random(), value1: list1[i], value2: list2[i] });
+        combinedList.push({
+            key: Math.random(),
+            value1: list1[i],
+            value2: list2[i]
+        });
     }
     combinedList.sort(function (a, b) {
         return a.key - b.key;
@@ -132,53 +140,58 @@ help.generateImpression = async function (website_data) {
     console.log("Here is the website data", website_data);
 
     // need to get a random user
-    // look through the csv file 
+    // look through the csv file
     const users = [];
     return new Promise((resolve, reject) => {
         readDataFromCSV()
             .then((data) => {
-                console.log(data)
-                data.forEach(el => {
-                    users.push(el.id.substring(1))
+                console.log(data);
+                data.forEach((el) => {
+                    users.push(el.id.substring(1));
                 });
 
-                let user = users[Math.floor(Math.random() * users.length)]
-                console.log(user)
+                let user = users[Math.floor(Math.random() * users.length)];
+                console.log(user);
                 user = user.replace(/\r/g, "");
 
                 readUserFile(user)
                     .then((userObject) => {
                         // got the preferences of the user
-                        const totalPref = getTotalPreferences(userObject)
-                        const selectedPref = getSelectedPreferences(userObject)
+                        const totalPref = getTotalPreferences(userObject);
+                        const selectedPref = getSelectedPreferences(userObject);
                         const values = [];
 
                         for (let i = 0; i < selectedPref.length; i++) {
                             values.push(Object.keys(selectedPref[i]));
                         }
 
-                        const listSelectedCat = values
+                        const listSelectedCat = values;
 
-                        const arr1d = listSelectedCat.map(item => item[0]);
-                        console.log("User list", arr1d)
+                        const arr1d = listSelectedCat.map((item) => item[0]);
+                        console.log("User list", arr1d);
 
                         // website_data has the preferences of the advertisers
 
                         // get the advertisements
                         getAdverts()
                             .then((advertList) => {
-
                                 const newAdvList = [];
 
                                 for (let i = 0; i < advertList.length; i++) {
                                     let flag = true;
 
                                     // skip if the website does not like that theme
-                                    if (!website_data.selectedThemes.includes(advertList[i].advertTheme)) {
+                                    if (
+                                        !website_data.selectedThemes.includes(
+                                            advertList[i].advertTheme
+                                        )
+                                    ) {
                                         continue;
                                     }
 
-                                    const l = advertList[i].requiredTargetedDemographic;
+                                    const l =
+                                        advertList[i]
+                                            .requiredTargetedDemographic;
 
                                     for (const key in l) {
                                         // console.log(key)
@@ -188,20 +201,26 @@ help.generateImpression = async function (website_data) {
                                             break;
                                         } else {
                                             // iterate through the list selectedPref
-                                            flag = false
-                                            for (let j = 0; j < selectedPref.length; j++) {
+                                            flag = false;
+                                            for (
+                                                let j = 0;
+                                                j < selectedPref.length;
+                                                j++
+                                            ) {
                                                 const el = selectedPref[j];
                                                 // console.log(typeof el, el)
                                                 // console.log(j)
-                                                const catgeory = Object.keys(el)[0]
+                                                const catgeory =
+                                                    Object.keys(el)[0];
                                                 // console.log(catgeory, key)
                                                 // check if this value matches
                                                 if (key == catgeory) {
-                                                    const val = el[catgeory].value[0]
+                                                    const val =
+                                                        el[catgeory].value[0];
                                                     // console.log("cat IS THE SAME")
                                                     // console.log(val, l[key])
                                                     if (l[key] == val) {
-                                                        flag = true
+                                                        flag = true;
                                                         continue;
                                                     }
                                                 }
@@ -209,31 +228,46 @@ help.generateImpression = async function (website_data) {
                                         }
                                     }
                                     if (flag) {
-                                        newAdvList.push(advertList[i])
+                                        newAdvList.push(advertList[i]);
                                     }
                                 }
-                                console.log("number of possible adverts that fit", newAdvList.length)
-                                // all ads have the required things, 
+                                console.log(
+                                    "number of possible adverts that fit",
+                                    newAdvList.length
+                                );
+                                // all ads have the required things,
                                 // check which has the most recommended
 
                                 let rates = {};
 
                                 for (let i = 0; i < newAdvList.length; i++) {
-                                    const l = newAdvList[i].recommendedTargetedDemographic;
-                                    rates[newAdvList[i].advertID] = 0
+                                    const l =
+                                        newAdvList[i]
+                                            .recommendedTargetedDemographic;
+                                    rates[newAdvList[i].advertID] = 0;
 
                                     for (const key in l) {
                                         if (arr1d.includes(key)) {
                                             // check if the values are the same
-                                            console.log(key)
-                                            console.log(selectedPref)
-                                            for (let j = 0; j < selectedPref.length; j++) {
+                                            console.log(key);
+                                            console.log(selectedPref);
+                                            for (
+                                                let j = 0;
+                                                j < selectedPref.length;
+                                                j++
+                                            ) {
                                                 const el = selectedPref[j];
-                                                const catgeory = Object.keys(el)[0]
+                                                const catgeory =
+                                                    Object.keys(el)[0];
                                                 if (catgeory == key) {
-                                                    const val = el[catgeory].value[0]
+                                                    const val =
+                                                        el[catgeory].value[0];
                                                     if (l[key] == val) {
-                                                        rates[newAdvList[i].advertID] += 1
+                                                        rates[
+                                                            newAdvList[
+                                                                i
+                                                            ].advertID
+                                                        ] += 1;
                                                     }
                                                     break;
                                                 }
@@ -242,30 +276,37 @@ help.generateImpression = async function (website_data) {
                                     }
                                 }
 
-                                console.log(rates)
+                                console.log(rates);
 
-                                const listOfRates = []
-                                const listOfIds = []
-                                for (const [key, value] of Object.entries(rates)) {
+                                const listOfRates = [];
+                                const listOfIds = [];
+                                for (const [key, value] of Object.entries(
+                                    rates
+                                )) {
                                     listOfRates.push(value);
                                     listOfIds.push(key);
-
                                 }
 
                                 if (listOfRates.length == 0) {
-                                    console.log("No adverts match :(")
+                                    console.log("No adverts match :(");
                                     return null;
                                 }
                                 // in case they both have the same rate (i.e 0) so that its not always the same one that 'wins
-                                const randomLists = randomizeLists(listOfRates, listOfIds)
-                                const sortedLists = sortLists(randomLists[0], randomLists[1])
+                                const randomLists = randomizeLists(
+                                    listOfRates,
+                                    listOfIds
+                                );
+                                const sortedLists = sortLists(
+                                    randomLists[0],
+                                    randomLists[1]
+                                );
 
-                                console.log(sortedLists)
-                                // so now i have rates.length advertisements that 
+                                console.log(sortedLists);
+                                // so now i have rates.length advertisements that
                                 // are rated in terms of how much the recommended features match up
 
                                 // the first element should be the displayed ad
-                                const selectedAd = sortedLists[1][0]
+                                const selectedAd = sortedLists[1][0];
 
                                 // now i need to return the advert to the page
                                 // need to update its stats
@@ -273,72 +314,91 @@ help.generateImpression = async function (website_data) {
                                 let ad;
                                 for (let j = 0; j < advertList.length; j++) {
                                     if (advertList[j].advertID == selectedAd) {
-                                        ad = advertList[j]
+                                        ad = advertList[j];
                                     }
                                 }
-                                console.log(ad)
+                                console.log(ad);
 
                                 // update stats
-                                ad.numViews += 1
-                                website_data.money += parseFloat(ad.maxSpend)
-                                website_data.times += 1
+                                ad.numViews += 1;
+                                website_data.money += parseFloat(ad.maxSpend);
+                                website_data.times += 1;
 
                                 // console.log(userObject);
-                                // user object update is a bit more complicated, 
+                                // user object update is a bit more complicated,
                                 // need to iterate thorugh the required and reccomeneed insights and change the values
                                 for (key in ad.requiredTargetedDemographic) {
                                     console.log(key);
-                                    for (let i = 0; i < userObject[key].length; i++) {
+                                    for (
+                                        let i = 0;
+                                        i < userObject[key].length;
+                                        i++
+                                    ) {
                                         const element = userObject[key][i];
                                         console.log(element.value);
-                                        if (element.values[0] == ad.requiredTargetedDemographic[key]) {
-                                            userObject[key][i].times[0] += 1
-                                            userObject[key][i].money[0] += parseFloat(ad.maxSpend)
+                                        if (
+                                            element.values[0] ==
+                                            ad.requiredTargetedDemographic[key]
+                                        ) {
+                                            userObject[key][i].times[0] += 1;
+                                            userObject[key][i].money[0] +=
+                                                parseFloat(ad.maxSpend);
                                         }
                                     }
                                 }
 
                                 for (key in ad.recommendedTargetedDemographic) {
                                     console.log(key);
-                                    for (let i = 0; i < userObject[key].length; i++) {
+                                    for (
+                                        let i = 0;
+                                        i < userObject[key].length;
+                                        i++
+                                    ) {
                                         const element = userObject[key][i];
                                         console.log(element.value);
-                                        if (element.values[0] == ad.recommendedTargetedDemographic[key]) {
-                                            userObject[key][i].times[0] += 1
-                                            userObject[key][i].money[0] += parseFloat(ad.maxSpend)
+                                        if (
+                                            element.values[0] ==
+                                            ad.recommendedTargetedDemographic[
+                                                key
+                                            ]
+                                        ) {
+                                            userObject[key][i].times[0] += 1;
+                                            userObject[key][i].money[0] +=
+                                                parseFloat(ad.maxSpend);
                                         }
                                     }
                                 }
 
-                                console.log("Going in to add history")
+                                console.log("Going in to add history");
                                 // need to append it to the history file
-                                updateDataJSON(ad, advertList)
-                                addToDisplayHistory(ad, userObject, website_data);
+                                updateDataJSON(ad, advertList);
+                                addToDisplayHistory(
+                                    ad,
+                                    userObject,
+                                    website_data
+                                );
 
                                 resolve([ad.image, ad.maxSpend]);
                             })
                             .catch((err) => {
                                 console.error(err);
                             });
-
-
                     })
                     .catch((err) => {
                         console.error(err);
                     });
-
             })
             .catch((err) => {
-                console.error('Error while reading data from CSV:', err);
+                console.error("Error while reading data from CSV:", err);
             });
-    })
-}
+    });
+};
 
 function updateDataJSON(ad, advertList) {
     for (let i = 0; i < advertList.length; i++) {
         const add = advertList[i];
         if (add.advertID == ad.advertID) {
-            advertList[i] = ad
+            advertList[i] = ad;
         }
     }
 
@@ -355,7 +415,7 @@ function updateDataJSON(ad, advertList) {
 async function readHistory() {
     return new Promise((resolve, reject) => {
         const filePath = `./web-app/static/database/history.json`;
-        fs.readFile(filePath, 'utf8', (err, data) => {
+        fs.readFile(filePath, "utf8", (err, data) => {
             if (err) {
                 reject(err);
             } else {
@@ -366,54 +426,60 @@ async function readHistory() {
     });
 }
 
-
 function addToDisplayHistory(ad, user, website) {
-    readHistory()
-        .then((history) => {
-            // history = JSON.parse(history)
-            console.log(history)
-            objToAdd = {
-                "userdata": user,
-                "ad": ad,
-                "website": website
-            }
-            history.push(objToAdd);
+    readHistory().then((history) => {
+        // history = JSON.parse(history)
+        console.log(history);
+        objToAdd = {
+            userdata: user,
+            ad: ad,
+            website: website
+        };
+        history.push(objToAdd);
 
-            //add to file
-            fs.writeFile(
-                "./web-app/static/database/history.json",
-                JSON.stringify(history),
-                (err, data) => {
-                    if (err) throw err;
-                    console.log("The file has been saved!");
-                }
-            );
-        })
+        //add to file
+        fs.writeFile(
+            "./web-app/static/database/history.json",
+            JSON.stringify(history),
+            (err, data) => {
+                if (err) throw err;
+                console.log("The file has been saved!");
+            }
+        );
+    });
 }
 
 help.getUserButtonFromCSV = function () {
     return new Promise((resolve, reject) => {
-        fs.readFile('./web-app/static/database/userProfiles.csv', 'utf8', (err, data) => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve(data);
+        fs.readFile(
+            "./web-app/static/database/userProfiles.csv",
+            "utf8",
+            (err, data) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(data);
+                }
             }
-        });
+        );
     });
 };
 
 help.getUserDataFromFile = function (id) {
     return new Promise((resolve, reject) => {
-        fs.readFile('./web-app/static/database/userfiles/user-' + id + '.json', 'utf8', (err, data) => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve(data);
+        fs.readFile(
+            "./web-app/static/database/userfiles/user-" + id + ".json",
+            "utf8",
+            (err, data) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(data);
+                }
             }
-        });
+        );
     });
-}
+};
 
 function getSelectedPreferences(obj) {
     const rtn = [];
@@ -432,17 +498,17 @@ function getSelectedPreferences(obj) {
                 if (e) {
                     const objecte = {
                         [catKey]: {
-                            "certainty": el.certainty,
-                            "value": el.values,
-                            "source": el.source
+                            certainty: el.certainty,
+                            value: el.values,
+                            source: el.source
                         }
-                    }
-                    rtn.push(objecte)
+                    };
+                    rtn.push(objecte);
                 }
             }
         }
     }
-    return rtn
+    return rtn;
 }
 
 function getTotalPreferences(obj) {
@@ -452,6 +518,6 @@ function getTotalPreferences(obj) {
         // console.log(category);
         rtn.push(key);
     }
-    return rtn
+    return rtn;
 }
 module.exports = help;

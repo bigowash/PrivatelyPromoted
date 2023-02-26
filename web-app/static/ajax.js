@@ -21,14 +21,18 @@ Ajax.query = async function (requestObj) {
                 method: "POST",
                 body: JSON.stringify(requestObj),
                 headers: {
-                    "Content-Type": "application/json",
-                },
+                    "Content-Type": "application/json"
+                }
             })
             .then(function (response) {
                 if (response.ok) {
                     resolve(response.json());
                 } else {
-                    reject(new Error('Ajax query failed with status ' + response.status));
+                    reject(
+                        new Error(
+                            "Ajax query failed with status " + response.status
+                        )
+                    );
                 }
             })
             .catch(function (error) {
@@ -36,6 +40,5 @@ Ajax.query = async function (requestObj) {
             });
     });
 };
-
 
 export default Object.freeze(Ajax);
