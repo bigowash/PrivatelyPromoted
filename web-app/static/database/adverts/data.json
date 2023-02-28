@@ -1,1 +1,246 @@
-[{"advertiserName":"Adobe","advertiserId":"4","title":"5637893","description":"vrsbvrd","replacementText":"bdbrdg","image":"/images/advert-image-1677077219705-741808804.jpg","totalSpend":"4567","maxSpend":"456","requiredTargetedDemographic":{"Income":"$60,000 to $79,999","Marital status":"Married","Online behavior":"Reading and writing reviews and ratings of products and services"},"recommendedTargetedDemographic":{},"advertTheme":"Education and Training","advertID":"212575","numViews":1,"numClickthroughs":1,"viewerDemographics":{}},{"advertiserName":"Monzo","advertiserId":"5","title":"title","description":"3423424","replacementText":"rfesees","image":"/images/advert-image-1677080158320-386184883.jpg","totalSpend":"345678","maxSpend":"1","requiredTargetedDemographic":{"Age":"17","Language":"Mandarin"},"recommendedTargetedDemographic":{"Marital status":"In a Domestic Partnership"},"advertTheme":"Manufacturing and Industrial","advertID":"245030","numViews":1,"numClickthroughs":1,"viewerDemographics":{}},{"advertiserName":"Disney+","advertiserId":"6","title":"ngruisbfse","description":"fesfesf","replacementText":"ecsnvousbgrs","image":"/images/advert-image-1677081000600-267508664.jpg","totalSpend":"483944","maxSpend":"45","requiredTargetedDemographic":{"Age":"17","Purchasing behavior":"Making impulsive purchases"},"recommendedTargetedDemographic":{"Marital status":"Widowed","Purchasing behavior":"Buying items in bulk to save money"},"advertTheme":"Defense and Security","advertID":"314511","numViews":1,"numClickthroughs":1,"viewerDemographics":{}},{"advertiserName":"eBay","advertiserId":"1","title":"trialTHEO","description":"theo","replacementText":"ehtelr","image":"/images/advert-image-1677085719837-735393004.png","totalSpend":"45","maxSpend":"5","requiredTargetedDemographic":{"Age":"64"},"recommendedTargetedDemographic":{},"advertTheme":"Defense and Security","advertID":"655477","numViews":1,"numClickthroughs":1,"viewerDemographics":{}},{"advertiserName":"Monzo","advertiserId":"5","title":"title","description":"sss","replacementText":"rfesees","image":"/images/advert-image-1677080158320-386184883.jpg","totalSpend":"345678","maxSpend":"1","requiredTargetedDemographic":{},"recommendedTargetedDemographic":{"Marital status":"In a Domestic Partnership"},"advertTheme":"Manufacturing and Industrial","advertID":"245039","numViews":1,"numClickthroughs":1,"viewerDemographics":{}},{"advertiserName":"Monzo","advertiserId":"5","title":"title","description":"hhhhh","replacementText":"njk","image":"/images/advert-image-1677080158320-386184883.jpg","totalSpend":"345678","maxSpend":"1","requiredTargetedDemographic":{},"recommendedTargetedDemographic":{},"advertTheme":"Manufacturing and Industrial","advertID":"245040","numViews":3,"numClickthroughs":1,"viewerDemographics":{}}]
+[
+    {
+        "advertiserName": "eBay",
+        "advertiserId": "1",
+        "title": "Dog Lover",
+        "description": "Ideally for 20yr old Men in the UK",
+        "replacementText": "Dog",
+        "image": "/images/advert-image-1677607077005-10926788.jpeg",
+        "totalSpend": "1000",
+        "maxSpend": "1",
+        "requiredTargetedDemographic": {
+            "Interests": "Dogs"
+        },
+        "recommendedTargetedDemographic": {
+            "Location": "UK"
+        },
+        "advertTheme": "Animals",
+        "advertID": "893632",
+        "numViews": 10,
+        "numClickthroughs": 0,
+        "viewerDemographics": {}
+    },
+    {
+        "advertiserName": "eBay",
+        "advertiserId": "1",
+        "title": "For Men only",
+        "description": "in UK",
+        "replacementText": "men only",
+        "image": "/images/advert-image-1677608875962-843715240.jpeg",
+        "totalSpend": "500",
+        "maxSpend": "1",
+        "requiredTargetedDemographic": {
+            "Gender": "Male"
+        },
+        "recommendedTargetedDemographic": {
+            "Location": "UK"
+        },
+        "advertTheme": "Other",
+        "advertID": "670082",
+        "numViews": 3,
+        "numClickthroughs": 0,
+        "viewerDemographics": {}
+    },
+    {
+        "advertiserName": "eBay",
+        "advertiserId": "1",
+        "title": "Cats for Women",
+        "description": "Cats for Women",
+        "replacementText": "Cats for Women",
+        "image": "/images/advert-image-1677609149422-651497466.jpeg",
+        "totalSpend": "500",
+        "maxSpend": "10",
+        "requiredTargetedDemographic": {
+            "Interests": "Cats"
+        },
+        "recommendedTargetedDemographic": {},
+        "advertTheme": "Animals",
+        "advertID": "276841",
+        "numViews": 4,
+        "numClickthroughs": 0,
+        "viewerDemographics": {}
+    },
+    {
+        "advertiserName": "eBay",
+        "advertiserId": "1",
+        "title": "Cats reccomended for women",
+        "description": "Cats for recc Women",
+        "replacementText": "Cats for recc Women",
+        "image": "/images/advert-image-1677609185886-606396971.jpeg",
+        "totalSpend": "500",
+        "maxSpend": "1",
+        "requiredTargetedDemographic": {
+            "Interests": "Cats"
+        },
+        "recommendedTargetedDemographic": {
+            "Gender": "Female"
+        },
+        "advertTheme": "Animals",
+        "advertID": "046760",
+        "numViews": 3,
+        "numClickthroughs": 0,
+        "viewerDemographics": {}
+    },
+    {
+        "advertiserName": "eBay",
+        "advertiserId": "1",
+        "title": "Cars",
+        "description": "Cars for women",
+        "replacementText": "cars rec women",
+        "image": "/images/advert-image-1677609221263-250767448.jpeg",
+        "totalSpend": "250",
+        "maxSpend": "2",
+        "requiredTargetedDemographic": {
+            "Interests": "Cars"
+        },
+        "recommendedTargetedDemographic": {
+            "Location": "France"
+        },
+        "advertTheme": "Cars",
+        "advertID": "837041",
+        "numViews": 0,
+        "numClickthroughs": 0,
+        "viewerDemographics": {}
+    },
+    {
+        "advertiserName": "eBay",
+        "advertiserId": "1",
+        "title": "Dogs and rec for cats",
+        "description": "req dog rec cat",
+        "replacementText": "req dog rec cat",
+        "image": "/images/advert-image-1677609300377-540265454.jpeg",
+        "totalSpend": "200",
+        "maxSpend": "5",
+        "requiredTargetedDemographic": {
+            "Interests": "Dogs"
+        },
+        "recommendedTargetedDemographic": {
+            "Interests": "Dogs"
+        },
+        "advertTheme": "Environment",
+        "advertID": "311771",
+        "numViews": 1,
+        "numClickthroughs": 0,
+        "viewerDemographics": {}
+    },
+    {
+        "advertiserName": "eBay",
+        "advertiserId": "1",
+        "title": "OIL bad",
+        "description": "OIL BAD",
+        "replacementText": "OIL BAD",
+        "image": "/images/advert-image-1677609366641-497710077.png",
+        "totalSpend": "500",
+        "maxSpend": "1",
+        "requiredTargetedDemographic": {},
+        "recommendedTargetedDemographic": {},
+        "advertTheme": "OIL",
+        "advertID": "097980",
+        "numViews": 1,
+        "numClickthroughs": 0,
+        "viewerDemographics": {}
+    },
+    {
+        "advertiserName": "Skillshare",
+        "advertiserId": "2",
+        "title": "Cat",
+        "description": "cat",
+        "replacementText": "cat",
+        "image": "/images/advert-image-1677609405559-255738992.jpeg",
+        "totalSpend": "600",
+        "maxSpend": "1",
+        "requiredTargetedDemographic": {
+            "Interests": "Cats"
+        },
+        "recommendedTargetedDemographic": {
+            "Interests": "Cycling"
+        },
+        "advertTheme": "Animals",
+        "advertID": "493640",
+        "numViews": 3,
+        "numClickthroughs": 0,
+        "viewerDemographics": {}
+    },
+    {
+        "advertiserName": "Skillshare",
+        "advertiserId": "2",
+        "title": "car good",
+        "description": "cars for men",
+        "replacementText": "cars for men",
+        "image": "/images/advert-image-1677609473838-889926298.jpeg",
+        "totalSpend": "500",
+        "maxSpend": "1",
+        "requiredTargetedDemographic": {
+            "Interests": "Cars"
+        },
+        "recommendedTargetedDemographic": {
+            "Location": "UK"
+        },
+        "advertTheme": "Cars",
+        "advertID": "097184",
+        "numViews": 3,
+        "numClickthroughs": 0,
+        "viewerDemographics": {}
+    },
+    {
+        "advertiserName": "Skillshare",
+        "advertiserId": "2",
+        "title": "cars req men",
+        "description": "cars req men",
+        "replacementText": "cars",
+        "image": "/images/advert-image-1677609519673-201281522.jpeg",
+        "totalSpend": "500",
+        "maxSpend": "1",
+        "requiredTargetedDemographic": {
+            "Interests": "Cars"
+        },
+        "recommendedTargetedDemographic": {},
+        "advertTheme": "Cars",
+        "advertID": "591651",
+        "numViews": 1,
+        "numClickthroughs": 0,
+        "viewerDemographics": {}
+    },
+    {
+        "advertiserName": "Skillshare",
+        "advertiserId": "2",
+        "title": "Cars women",
+        "description": "cars for women",
+        "replacementText": "cars women",
+        "image": "/images/advert-image-1677609552827-732364788.jpeg",
+        "totalSpend": "600",
+        "maxSpend": "1",
+        "requiredTargetedDemographic": {
+            "Interests": "Cars"
+        },
+        "recommendedTargetedDemographic": {
+            "Location": "UK"
+        },
+        "advertTheme": "Cars",
+        "advertID": "298453",
+        "numViews": 2,
+        "numClickthroughs": 0,
+        "viewerDemographics": {}
+    },
+    {
+        "advertiserName": "eBay",
+        "advertiserId": "1",
+        "title": "No req",
+        "description": "Only rec",
+        "replacementText": "no req",
+        "image": "/images/advert-image-1677610923181-942102748.jpeg",
+        "totalSpend": "500",
+        "maxSpend": "1",
+        "requiredTargetedDemographic": {},
+        "recommendedTargetedDemographic": {
+            "Gender": "Male",
+            "Location": "UK",
+            "Interests": "Football"
+        },
+        "advertTheme": "Other",
+        "advertID": "488505",
+        "numViews": 0,
+        "numClickthroughs": 0,
+        "viewerDemographics": {}
+    }
+]

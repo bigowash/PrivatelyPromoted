@@ -369,7 +369,7 @@ help.generateImpression = async function (website_data) {
                                 addToDisplayHistory(
                                     ad,
                                     userObject,
-                                    website_data, userNames(parseInt(user))
+                                    website_data, userNames[parseInt(user)]
                                 );
 
                                 resolve([ad.image, ad.maxSpend]);
@@ -413,6 +413,7 @@ async function readHistory() {
             if (err) {
                 reject(err);
             } else {
+                console.log(data)
                 const userObject = JSON.parse(data);
                 resolve(userObject);
             }

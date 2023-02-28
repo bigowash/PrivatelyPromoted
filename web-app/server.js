@@ -62,7 +62,7 @@ app.post("/submit-form", upload.single("advert-image"), (req, res) => {
     Object.keys(body).forEach((key) => {
         if (key.endsWith("Required_Select")) {
             if (body[key] != "") {
-                const newStr = body[key].slice(0, -15);
+                const newStr = key.slice(0, -15);
                 console.log(newStr)
                 required_demographics[newStr] = body[key];
             }
@@ -75,7 +75,7 @@ app.post("/submit-form", upload.single("advert-image"), (req, res) => {
     Object.keys(body).forEach((key) => {
         if (key.endsWith("Recommended_Select")) {
             if (body[key] != "") {
-                const newStr = body[key].slice(0, -18);
+                const newStr = key.slice(0, -18);
                 console.log(newStr)
                 recommended_demographics[newStr] = body[key];
             }
