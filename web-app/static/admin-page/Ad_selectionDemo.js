@@ -15,7 +15,14 @@ const response = await fetch("../database/history.json")
         // part 1 -- the total insights for the user
         let box1 = document.getElementById("p1")
 
+        const headerNmae = document.createElement("h3")
+        headerNmae.textContent = total.username
+        box1.appendChild(headerNmae)
+
         const listEl = document.createElement("ul")
+
+        // console.log(total.username)
+
 
         for (const [key, value] of Object.entries(total.userdata)) {
             // Create a new list item element for each pair
@@ -143,17 +150,31 @@ const response = await fetch("../database/history.json")
                 // part 5 -- the final selection
                 let box5 = document.getElementById("p5")
 
+                const ss = document.createElement("h3")
+                ss.textContent = "Advertisement 1"
+                box5.appendChild(ss)
+
                 const ul4 = document.createElement("ul")
                 for (const [key, value] of Object.entries(total.ad)) {
                     const li32 = document.createElement("li")
-
                     li32.textContent = `${key} : ${value}`
+
+                    if (typeof value === 'object' && value !== null) {
+
+                        let text = ""
+                        for (const [key1, val1] of Object.entries(value)) {
+                            text += `${key1} : ${val1} \n`
+                        }
+                        li32.textContent = `${key}:  ${text}`
+                    }
                     ul4.appendChild(li32)
+
 
                     // Add the list item to the unordered list
                 }
                 box5.appendChild(ul4)
                 const img = document.createElement("img");
+                img.id = "ad_image"
                 img.src = "../database/adverts/" + total.ad.image;
                 box5.appendChild(img)
             })

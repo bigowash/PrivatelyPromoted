@@ -142,12 +142,14 @@ help.generateImpression = async function (website_data) {
     // need to get a random user
     // look through the csv file
     const users = [];
+    const userNames = [];
     return new Promise((resolve, reject) => {
         readDataFromCSV()
             .then((data) => {
                 console.log(data);
                 data.forEach((el) => {
                     users.push(el.id.substring(1));
+                    userNames.push(el.name.substring(1));
                 });
 
                 let user = users[Math.floor(Math.random() * users.length)];
@@ -251,11 +253,7 @@ help.generateImpression = async function (website_data) {
                                             // check if the values are the same
                                             console.log(key);
                                             console.log(selectedPref);
-                                            for (
-                                                let j = 0;
-                                                j < selectedPref.length;
-                                                j++
-                                            ) {
+                                            for (let j = 0; j < selectedPref.length; j++) {
                                                 const el = selectedPref[j];
                                                 const catgeory =
                                                     Object.keys(el)[0];
@@ -329,42 +327,38 @@ help.generateImpression = async function (website_data) {
                                 // need to iterate thorugh the required and reccomeneed insights and change the values
                                 for (key in ad.requiredTargetedDemographic) {
                                     console.log(key);
-                                    for (
-                                        let i = 0;
-                                        i < userObject[key].length;
-                                        i++
-                                    ) {
-                                        const element = userObject[key][i];
-                                        console.log(element.value);
-                                        if (
-                                            element.values[0] ==
-                                            ad.requiredTargetedDemographic[key]
-                                        ) {
-                                            userObject[key][i].times[0] += 1;
-                                            userObject[key][i].money[0] +=
-                                                parseFloat(ad.maxSpend);
+                                    if (userObject.hasOwnProperty(key)) {
+                                        for (let i = 0; i < userObject[key].length; i++) {
+                                            const element = userObject[key][i];
+                                            console.log(element.value);
+                                            if (
+                                                element.values[0] ==
+                                                ad.requiredTargetedDemographic[key]
+                                            ) {
+                                                userObject[key][i].times[0] += 1;
+                                                userObject[key][i].money[0] +=
+                                                    parseFloat(ad.maxSpend);
+                                            }
                                         }
                                     }
                                 }
 
                                 for (key in ad.recommendedTargetedDemographic) {
                                     console.log(key);
-                                    for (
-                                        let i = 0;
-                                        i < userObject[key].length;
-                                        i++
-                                    ) {
-                                        const element = userObject[key][i];
-                                        console.log(element.value);
-                                        if (
-                                            element.values[0] ==
-                                            ad.recommendedTargetedDemographic[
+                                    if (userObject.hasOwnProperty(key)) {
+                                        for (let i = 0; i < userObject[key].length; i++) {
+                                            const element = userObject[key][i];
+                                            console.log(element.value);
+                                            if (
+                                                element.values[0] ==
+                                                ad.recommendedTargetedDemographic[
                                                 key
-                                            ]
-                                        ) {
-                                            userObject[key][i].times[0] += 1;
-                                            userObject[key][i].money[0] +=
-                                                parseFloat(ad.maxSpend);
+                                                ]
+                                            ) {
+                                                userObject[key][i].times[0] += 1;
+                                                userObject[key][i].money[0] +=
+                                                    parseFloat(ad.maxSpend);
+                                            }
                                         }
                                     }
                                 }
@@ -375,7 +369,7 @@ help.generateImpression = async function (website_data) {
                                 addToDisplayHistory(
                                     ad,
                                     userObject,
-                                    website_data
+                                    website_data, userNames(parseInt(user))
                                 );
 
                                 resolve([ad.image, ad.maxSpend]);
@@ -426,14 +420,15 @@ async function readHistory() {
     });
 }
 
-function addToDisplayHistory(ad, user, website) {
+function addToDisplayHistory(ad, user, website, username) {
     readHistory().then((history) => {
         // history = JSON.parse(history)
         console.log(history);
         objToAdd = {
             userdata: user,
             ad: ad,
-            website: website
+            website: website,
+            username: username,
         };
         history.push(objToAdd);
 

@@ -133,6 +133,7 @@ button.addEventListener("click", function () {
 
         const area = document.getElementById("displayed-ad");
         const myImage = document.createElement("img");
+        myImage.id = "ad_image";
         myImage.src = "../database/adverts/" + object.image;
         myImage.alt = "money made: " + object.money;
 
