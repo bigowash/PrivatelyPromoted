@@ -372,3 +372,36 @@ const writeToFile = async function (data, filename) {
         // rest of the code here
     });
 };
+
+const arrayOfAds = []
+
+async function addAdvertisements() {
+    console.log("Adding advertisements");
+    const response = await fetch("../database/history.json")
+        .then((response) => response.text())
+        .then((data) => {
+            data = JSON.parse(data);
+            console.log(data)
+
+            data.forEach(el => {
+                if (el.username == userName) {
+                    arrayOfAds.push(el)
+                }
+            });
+
+            const adSection = document.getElementById("adverts");
+
+            arrayOfAds.forEach(el => {
+
+                console.log("el")
+                console.log(el.ad.image)
+                const ad = document.createElement("img");
+                ad.id = "ad_image"
+                ad.src = "../database/adverts/" + el.ad.image;
+                adSection.appendChild(ad)
+            });
+
+        })
+}
+
+addAdvertisements();
