@@ -1,149 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Privately Promoted</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Privately Promoted</title>
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+            rel="stylesheet">
 
-</head>
-<header>
-    <h1>Privately Promoted</h1>
-    <div>
-        Welcome to the Privately Promoted. Please chose which stakeholder you want to see the viewpoint from.
-    </div>
-</header>
-
-<main>
-    <!-- Create container for card -->
-    <div class="card">
-        <!-- Primary image for card -->
-        <img class="intro-img" src="img/user-settings.jpg">
-
-        <!-- Padding -->
-        <div class="padding-div">
-            <!-- Title -->
-            <div class="card-title">User Dashboard</div>
-
-            <!-- Text -->
-            <p class="card-body">
-                This stakeholder view represents internet users and how they interact with our marketplace.
-                It includes the insights that social medias and other insight generators have created. Here users
-                should
-                select which insights are used for targeted advertising. It also includes a gallery view of
-                advertisements
-                their filtered insights allow them to see, their associated justification (what insights were used),
-                and
-                their associated revenue.
-            </p>
-
-            <!-- Button -->
-            <input type="button" value="Select This View" class="user-choice-button" id="user-selected">
+    </head>
+    <header>
+        <h1>Privately Promoted</h1>
+        <div>
+            Welcome to the Privately Promoted. Please select a stakeholder POV.
         </div>
-    </div>
+    </header>
 
-    <!-- Create container for card -->
-    <div class="card">
-        <!-- Primary image for card -->
-        <img class="intro-img" src="img/advertisers.jpg">
+    <main>
+        <!-- Create container for card -->
+        <div class="card">
+            <!-- Primary image for card -->
+            <img class="intro-img" src="img/user-settings.jpg">
 
-        <!-- Padding -->
-        <div class="padding-div">
-            <!-- Title -->
-            <div class="card-title">Advertiser Dashboard</div>
+            <!-- Padding -->
+            <div class="padding-div">
+                <!-- Title -->
+                <div class="card-title">User Dashboard</div>
 
-            <!-- Text -->
-            <p class="card-body">
-                This stakeholder view represents the interactions advertisers would have with our platform.
-                They can create advertisements based on certain preferences, and how competitively they would like
-                to bid for their ads to be selected.
-                It includes the cost incurred by displaying each ad and other relevant details.
-            </p>
+                <!-- Text -->
+                <p class="card-body">
+                    This stakeholder view represents internet users and how they interact with our marketplace.
+                    It includes the insights that social medias and other insight generators have created. Here users
+                    should
+                    select which insights are used for targeted advertising. It also includes a gallery view of
+                    advertisements
+                    their filtered insights allow them to see, their associated justification (what insights were used),
+                    and
+                    their associated revenue.
+                </p>
 
-            <!-- Button -->
-            <input type="button" value="Select This View" class="user-choice-button" id="adv-selected">
+                <!-- Button -->
+                <input type="button" value="Select This View" class="user-choice-button" id="user-selected">
+            </div>
         </div>
-    </div>
 
-    <!-- Create container for card -->
-    <div class="card">
-        <!-- Primary image for card -->
-        <img class="intro-img" src="img/backend.jpg">
+        <!-- Create container for card -->
+        <div class="card">
+            <!-- Primary image for card -->
+            <img class="intro-img" src="img/advertisers.jpg">
 
-        <!-- Padding -->
-        <div class="padding-div">
-            <!-- Title -->
-            <div class="card-title">Backend Dashboard</div>
+            <!-- Padding -->
+            <div class="padding-div">
+                <!-- Title -->
+                <div class="card-title">Advertiser Dashboard</div>
 
-            <!-- Text -->
-            <p class="card-body">
-                This view shows the data flows at every step of the adselection. It start off with the total unfiltered
-                insights sent by social medias to users. This then shows which insights were selected by users. Then a
-                website "generates" traffic and connects a user with an ad. Several ads are considered for the
-                selection, but most fail to match the requirements of the users and the website. Finally an advert is
-                selected
-            </p>
+                <!-- Text -->
+                <p class="card-body">
+                    This stakeholder view represents the interactions advertisers would have with our platform.
+                    They can create advertisements based on certain preferences, and how competitively they would like
+                    to bid for their ads to be selected.
+                    It includes the cost incurred by displaying each ad and other relevant details.
+                </p>
 
-            <!-- Button -->
-            <input type="button" value="Select This View" class="user-choice-button" id="admin-selected">
+                <!-- Button -->
+                <input type="button" value="Select This View" class="user-choice-button" id="adv-selected">
+            </div>
         </div>
-    </div>
 
-    <!-- Create container for card -->
-    <div class="card">
-        <!-- Primary image for card -->
-        <img class="intro-img" src="img/internet-user.jpg">
+        <!-- Create container for card -->
+        <div class="card">
+            <!-- Primary image for card -->
+            <img class="intro-img" src="img/backend.jpg">
 
-        <!-- Padding -->
-        <div class="padding-div">
-            <!-- Title -->
-            <div class="card-title">Insight Generator</div>
+            <!-- Padding -->
+            <div class="padding-div">
+                <!-- Title -->
+                <div class="card-title">Backend Dashboard</div>
 
-            <!-- Text -->
-            <p class="card-body">
-                In this view an insight generator can view and create insights for users (randomly). Simply enter a user
-                in the textbox and click "Generate Insihgts". And from the backend, all the relevant files are created
-                which can be seen as buttons once the page has been reloaded.
-            </p>
+                <!-- Text -->
+                <p class="card-body">
+                    This view shows the data flows at every step of the adselection. It start off with the total
+                    unfiltered
+                    insights sent by social medias to users. This then shows which insights were selected by users. Then
+                    a
+                    website "generates" traffic and connects a user with an ad. Several ads are considered for the
+                    selection, but most fail to match the requirements of the users and the website. Finally an advert
+                    is
+                    selected
+                </p>
 
-            <!-- Button -->
-            <input type="button" value="Select This View" class="user-choice-button" id="insight-selected">
+                <!-- Button -->
+                <input type="button" value="Select This View" class="user-choice-button" id="admin-selected">
+            </div>
         </div>
-    </div>
 
-    <!-- Create container for card -->
-    <div class="card">
-        <!-- Primary image for card -->
-        <img class="intro-img" src="img/website.jpg">
+        <!-- Create container for card -->
+        <div class="card">
+            <!-- Primary image for card -->
+            <img class="intro-img" src="img/internet-user.jpg">
 
-        <!-- Padding -->
-        <div class="padding-div">
-            <!-- Title -->
-            <div class="card-title">Example Website</div>
+            <!-- Padding -->
+            <div class="padding-div">
+                <!-- Title -->
+                <div class="card-title">Insight Generator</div>
 
-            <!-- Text -->
-            <p class="card-body">
-                This view allows websites to select what sorts of advertisements are displayed on their website. They
-                can also choose to "Create Traffic" simulating a user browsing their website, and thus initiates an ad
-                seletion.
-            </p>
+                <!-- Text -->
+                <p class="card-body">
+                    In this view an insight generator can view and create insights for users (randomly). Simply enter a
+                    user
+                    in the textbox and click "Generate Insihgts". And from the backend, all the relevant files are
+                    created
+                    which can be seen as buttons once the page has been reloaded.
+                </p>
 
-            <!-- Button -->
-            <input type="button" value="Select This View" class="user-choice-button" id="website-selected">
+                <!-- Button -->
+                <input type="button" value="Select This View" class="user-choice-button" id="insight-selected">
+            </div>
         </div>
-    </div>
-</main>
 
-<footer>
-    Imperial College London - Group 08 <br>
-    Theo Bui | Maximilian Matthews | Chinene Chukwuma | Zyque (Zhao Qi) So
-</footer>
-<script type="module" src="./main.js"></script>
+        <!-- Create container for card -->
+        <div class="card">
+            <!-- Primary image for card -->
+            <img class="intro-img" src="img/website.jpg">
+
+            <!-- Padding -->
+            <div class="padding-div">
+                <!-- Title -->
+                <div class="card-title">Example Website</div>
+
+                <!-- Text -->
+                <p class="card-body">
+                    This view allows websites to select what sorts of advertisements are displayed on their website.
+                    They
+                    can also choose to "Create Traffic" simulating a user browsing their website, and thus initiates an
+                    ad
+                    seletion.
+                </p>
+
+                <!-- Button -->
+                <input type="button" value="Select This View" class="user-choice-button" id="website-selected">
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        Imperial College London - Group 08 <br>
+        Theo Bui | Maximilian Matthews | Chinene Chukwuma | Zyque (Zhao Qi) So
+    </footer>
+    <script type="module" src="./main.js"></script>
 
 </html>
