@@ -179,6 +179,8 @@ help.generateImpression = async function (website_data) {
                             .then((advertList) => {
                                 const newAdvList = [];
 
+                                console.log(getSelectedPreferencesFromUserObject(userObject));
+
                                 for (let i = 0; i < advertList.length; i++) {
                                     let flag = true;
 
@@ -196,6 +198,7 @@ help.generateImpression = async function (website_data) {
                                             .requiredTargetedDemographic;
 
                                     for (const key in l) {
+                                        flag = false;
                                         // console.log(key)
                                         // console.log(typeof selectedPref)
                                         // console.log(selectedPref)
@@ -203,7 +206,6 @@ help.generateImpression = async function (website_data) {
                                             break;
                                         } else {
                                             // iterate through the list selectedPref
-                                            flag = false;
                                             for (
                                                 let j = 0;
                                                 j < selectedPref.length;
@@ -214,16 +216,14 @@ help.generateImpression = async function (website_data) {
                                                 // console.log(j)
                                                 const catgeory =
                                                     Object.keys(el)[0];
-                                                // console.log(catgeory, key)
-                                                // check if this value matches
-                                                if (key == catgeory) {
-                                                    const val =
-                                                        el[catgeory].value[0];
-                                                    // console.log("cat IS THE SAME")
-                                                    // console.log(val, l[key])
-                                                    if (l[key] == val) {
-                                                        flag = true;
-                                                        continue;
+
+                                                if (key == catgeory && !flag) {
+                                                    for (let k = 0; k < el[catgeory].value.length; k++) {
+                                                        const val = el[catgeory].value[k];
+                                                        if (l[key] == val) {
+                                                            flag = true;
+                                                            break;
+                                                        } else { flag = false; }
                                                     }
                                                 }
                                             }
@@ -387,6 +387,22 @@ help.generateImpression = async function (website_data) {
             });
     });
 };
+
+function getSelectedPreferencesFromUserObject(userObject) {
+    const rtnList = [];
+    for (const [key, val] of Object.entries(userObject)) {
+        // console.log(key, val)
+        val.forEach(el => {
+            for (let i = 0; i < el.selected.length; i++) {
+                const l = el.selected[i];
+                if (l) {
+                    rtnList.push(`${key} : ${el.values[i]}`)
+                }
+            }
+        });
+    }
+    return rtnList
+}
 
 function updateDataJSON(ad, advertList) {
     for (let i = 0; i < advertList.length; i++) {
