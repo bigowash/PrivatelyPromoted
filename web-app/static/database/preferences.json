@@ -57,7 +57,8 @@
     ],
     "Gender": [
         "Male",
-        "Female"
+        "Female",
+        "Other"
     ],
     "Location": [
         "UK",
