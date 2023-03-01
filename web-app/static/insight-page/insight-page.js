@@ -6,9 +6,6 @@ const input = document.getElementById("userProfile-input");
 const params = new URLSearchParams(window.location.search);
 const name = params.get("name");
 
-const header = document.getElementById("header_name");
-header.textContent = name;
-
 let totalMoney = 0;
 let totalUses = 0;
 
@@ -18,6 +15,17 @@ const usesText = document.getElementById("uses_total");
 const userButtons = document.getElementById("userButtons");
 const table = document.getElementById("table");
 
+// Fill in subtitle
+const subtitle = document.getElementById("subtitle");
+subtitle.textContent = `Welcome to the insights generator page. This simulates how ${name} would develop insights on an internet user as they browse on their site. The insights generator page artificially generates such insights.`;
+
+// Add homepage link to title
+const title = document.getElementById("title");
+title.addEventListener("click", function () {
+    window.location.href = "../";
+});
+
+// Add preferences buttons
 const addPreferences = async function () {
     console.log("Preferences are loading");
 
@@ -47,23 +55,18 @@ const addPreferences = async function () {
             const el = lines[i].split(", ");
             const name = el[1];
             let id = el[2];
-            // console.log(id);
 
             id = id.replace(/\r/g, "");
-            // profile_ids.push(id)
-            // console.log("el", el);
 
             const a = document.createElement("button");
             a.classList += "intro-button";
-            // let link = "../img/" + img_file + "/" + id + ".jpeg"
-            // a.innerHTML = '<img src = ' + link + ' alt = ' + name + '>'
             a.textContent = id;
             a.id += "user-" + id;
 
             a.addEventListener("click", function () {
                 profileSelected(id);
             });
-            // console.log("in here");
+
             userButtons.appendChild(a);
         }
     });
@@ -119,7 +122,6 @@ const profileSelected = async function (id) {
         keys.sort();
 
         console.log("building the table");
-        // console.log("data", data)
 
         // build the table
 

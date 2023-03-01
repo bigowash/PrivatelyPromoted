@@ -13,16 +13,43 @@ h1 {
     margin-bottom: 20px;
 }
 
-p {
-    display: inline-block;
-    margin: 0;
-    padding: 10px;
-    /* background-color: lightblue; */
+h3 {
+    font-size: smaller;
+    font-weight: 450;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 5px;
+    color: #555;
 }
 
+#title:hover {
+    cursor: pointer;
+}
 
+#subtitle {
+    max-width: 700px;
+    margin: auto;
+}
 
-h1 {
-    font-size: 40pt;
-    margin-bottom: 20px;
+footer {
+    padding-top: 10em;
+    background-color: white;
+    text-align: center;
+    font-size: x-small;
+    font-weight: normal;
+}
+
+main {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+/* Content */
+.containerBox {
+    box-sizing: border-box;
+    padding: 0px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    padding: 10px;
 }

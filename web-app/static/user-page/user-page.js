@@ -373,7 +373,7 @@ const writeToFile = async function (data, filename) {
     });
 };
 
-const arrayOfAds = []
+const arrayOfAds = [];
 
 async function addAdvertisements() {
     console.log("Adding advertisements");
@@ -381,27 +381,25 @@ async function addAdvertisements() {
         .then((response) => response.text())
         .then((data) => {
             data = JSON.parse(data);
-            console.log(data)
+            console.log(data);
 
-            data.forEach(el => {
+            data.forEach((el) => {
                 if (el.username == userName) {
-                    arrayOfAds.push(el)
+                    arrayOfAds.push(el);
                 }
             });
 
             const adSection = document.getElementById("adverts");
 
-            arrayOfAds.forEach(el => {
-
-                console.log("el")
-                console.log(el.ad.image)
+            arrayOfAds.forEach((el) => {
+                console.log("el");
+                console.log(el.ad.image);
                 const ad = document.createElement("img");
-                ad.id = "ad_image"
+                ad.id = "ad_image";
                 ad.src = "../database/adverts/" + el.ad.image;
-                adSection.appendChild(ad)
+                adSection.appendChild(ad);
             });
-
-        })
+        });
 }
 
 addAdvertisements();

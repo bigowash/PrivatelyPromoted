@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,7 +7,10 @@
         <title>Privately Promoted</title>
         <link rel="stylesheet" href="insight-style.css" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap"
+            rel="stylesheet"
+        />
         <script type="module" src="insight-page.js"></script>
     </head>
 
@@ -17,20 +19,45 @@
         <div id="subtitle"></div>
     </header>
 
+    <main>
+        <!-- Content box -->
+        <div class="containerBox">
+            <!-- Container for user profile selectors -->
+            <label>
+                <h3>View User Insights (User ID)</h3>
+            </label>
+            <div id="userButtons"></div>
 
-    <body>
-        <h1 id="header_name"></h1>
-        <div id="userButtons"></div>
-        <button id="button_trial">
-            Create insights for a user:
-        </button>
-        <input type="text" id="userProfile-input"></input>
-        <p>Total Money:</p>
-        <p id="money_total"></p>
-        <p>Total Uses:</p>
-        <p id="uses_total"></p>
-        <div id="table"></div>
-    </body>
-    <script type="module" src="./insight-page.js"></script>
+            <!-- Insight creation section -->
+            <div class="insightCreationWrapper">
+                <label>
+                    <h3>Create New Insight (Input the ID of the user you want to generate for)</h3>
+                </label>
 
+                <div class="insightCreation">
+                    <button id="button_trial">Create insights for a user:</button>
+                    <input type="text" id="userProfile-input" />
+                </div>    
+            </div>
+            
+
+            <!-- Insights infomation section -->
+            <div class="insightsInfo">
+                <label>Total Money:</label>
+                <div id="money_total" name="money_total"></div>
+
+                <label for="uses_total">Total Uses:</label>
+                <div id="uses_total" name="uses_total"></div>
+
+                <table id="table">
+                    <!-- Fill with JavaScript -->
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        Imperial College London - Group 08 <br />
+        Theo Bui | Maximilian Matthews | Chinene Chukwuma | Zyque (Zhao Qi) So
+    </footer>
 </html>
