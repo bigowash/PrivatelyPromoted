@@ -1,3 +1,9 @@
+// Add homepage link to title
+const title = document.getElementById("title");
+title.addEventListener("click", function () {
+    window.location.href = "../";
+});
+
 const params = new URLSearchParams(window.location.search);
 const ad_id = params.get("id");
 

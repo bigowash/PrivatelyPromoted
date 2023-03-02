@@ -78,6 +78,14 @@ footer {
     flex-direction: column;
 }
 
+.intro-button:hover {
+    cursor: pointer;
+}
+
+.button-container:hover {
+    cursor: pointer;
+}
+
 .profile-label {
     margin: auto;
 }
