@@ -393,9 +393,10 @@ async function addAdvertisements() {
 
             arrayOfAds.forEach((el) => {
                 console.log("el");
-                console.log(el.ad.image);
+                console.log(el);
                 const ad = document.createElement("img");
                 ad.id = "ad_image";
+                ad.textContent = JSON.stringify([el.ad.requiredTargetedDemographic, el.ad.recommendedTargetedDemographic])
                 ad.src = "../database/adverts/" + el.ad.image;
                 adSection.appendChild(ad);
             });
