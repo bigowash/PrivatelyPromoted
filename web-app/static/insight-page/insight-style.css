@@ -53,3 +53,73 @@ main {
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     padding: 10px;
 }
+
+#userButtons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.intro-button {
+    font-weight: 600;
+    height: 30px;
+    width: 30px;
+    border: 1px solid #555;
+    color: #555;
+}
+
+.intro-button:hover {
+    border: 1px solid #e74c3c
+}
+
+.intro-button:focus {
+    border: 2px solid #4caf50;
+}
+
+/* Create insight section */
+.insightCreation {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+#button_trial {
+    font-weight: 600;
+    height: 30px;
+    width: 120px;
+    border: 1px solid #555;
+    color: #555;
+}
+
+#button_trial:hover {
+    border: 1px solid #e74c3c
+}
+
+#button_trial:focus {
+    border: 2px solid #4caf50;
+}
+
+#userProfile-input {
+    border: 1px solid #555;
+    width: 30px;
+    height: 30px;
+    padding-left: 9px;
+    box-sizing: border-box;
+}
+
+#userProfile-input:hover {
+    border: 1px solid #e74c3c
+}
+
+#userProfile-input:focus {
+    border: 2px solid #4caf50;
+    outline: none;
+}
+
+.insightCreation {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}

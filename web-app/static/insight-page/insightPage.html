@@ -26,32 +26,51 @@
             <label>
                 <h3>View User Insights (User ID)</h3>
             </label>
-            <div id="userButtons"></div>
+            <div id="userButtons">
+                <!-- Fill with JavaScipt -->
+            </div>
 
             <!-- Insight creation section -->
             <div class="insightCreationWrapper">
                 <label>
-                    <h3>Create New Insight (Input the ID of the user you want to generate for)</h3>
+                    <h3>
+                        Create New Insight (Input the ID of the user you want to
+                        generate for)
+                    </h3>
                 </label>
 
                 <div class="insightCreation">
-                    <button id="button_trial">Create insights for a user:</button>
                     <input type="text" id="userProfile-input" />
-                </div>    
+                    <button id="button_trial">Create Insight</button>
+                </div>
             </div>
-            
 
             <!-- Insights infomation section -->
-            <div class="insightsInfo">
-                <label>Total Money:</label>
-                <div id="money_total" name="money_total"></div>
-
-                <label for="uses_total">Total Uses:</label>
-                <div id="uses_total" name="uses_total"></div>
-
-                <table id="table">
-                    <!-- Fill with JavaScript -->
-                </table>
+            <div class="insightsInfoWrapper">
+                <!-- Label -->
+                <label for="insightsInfo">
+                    <h3>Insight Details</h3>
+                </label>
+                
+                <!-- Content -->
+                <div class="insightsInfo" name="insightsInfo">
+                    <!-- Total money -->
+                    <div class="totalMoneyWrapper">
+                       <label>Total Money:</label>
+                        <div id="money_total" name="money_total"></div> 
+                    </div>
+                    
+                    <!-- Total uses -->
+                    <div class="totalUsesWrapper">
+                        <label for="uses_total">Total Uses:</label>
+                        <div id="uses_total" name="uses_total"></div>
+                    </div>
+                    
+                    <!-- Insights table -->
+                    <table id="table">
+                        <!-- Fill with JavaScript -->
+                    </table>
+                </div>
             </div>
         </div>
     </main>
