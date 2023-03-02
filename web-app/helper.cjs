@@ -458,6 +458,7 @@ function addToDisplayHistory(ad, user, website, username) {
             ad: ad,
             website: website,
             username: username,
+            impressionId: Math.floor(Math.random() * 900000) + 100000
         };
         history.push(objToAdd);
 
