@@ -22,6 +22,11 @@ h2 {
     font-weight: normal;
 }
 
+#subtitle {
+    max-width: 700px;
+    margin: auto;
+}
+
 .intro-button {
     margin: 10px;
     width: 150px;
@@ -78,6 +83,11 @@ footer {
 }
 
 #profile-selector {
+    max-width: 700px;
+    margin: auto;
+}
+
+#ads-list {
     max-width: 700px;
     margin: auto;
 }

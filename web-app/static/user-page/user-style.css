@@ -23,7 +23,7 @@ h1 {
 
 h2 {
     font-size: large;
-    font-weight: normal;
+    font-weight: bold;
 }
 
 #title {
@@ -34,7 +34,23 @@ main {
     margin: auto;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
 }
+
+.advertsWrapper {
+    max-width: 700px;
+    padding: 10px;
+    margin: 0px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+
+#adverts {}
+
+
+
 
 /*  */
 /* Table Styling */
@@ -50,6 +66,7 @@ table {
     padding: 0px;
     margin: 0px;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    width: fit-content;
 }
 
 /* Header */
