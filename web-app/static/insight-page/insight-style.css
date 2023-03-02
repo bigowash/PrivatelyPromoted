@@ -123,3 +123,59 @@ main {
     flex-direction: row;
     gap: 10px;
 }
+
+/* Insights Info */
+.insightsInfoWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.insightsInfo {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.totalMoneyWrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    color: #555;
+    font-size: smaller;
+}
+
+.totalUsesWrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    color: #555;
+    font-size: smaller;
+}
+
+/* Info table */
+table {
+    border: none;
+    border-collapse: collapse;
+}
+
+thead th {
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-weight: 450;
+    font-size: normal;
+    text-align: center;
+    background-color: inherit;
+    background-color: #fc4445;
+}
+
+tr td {
+    color: #555;
+    font-weight: normal;
+    font-size: smaller;
+    padding: 10px;
+    text-align: left;
+}

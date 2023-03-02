@@ -126,19 +126,23 @@ const profileSelected = async function (id) {
         // build the table
 
         // Create the header row
-        const headerRow = document.createElement("tr");
+        const headerRow = document.createElement("thead");
         const headerCategory = document.createElement("th");
         headerCategory.textContent = "Category";
         headerRow.appendChild(headerCategory);
+
         const headerValue = document.createElement("th");
         headerValue.textContent = "Value";
         headerRow.appendChild(headerValue);
+
         const headerCertainty = document.createElement("th");
         headerCertainty.textContent = "Certainty";
         headerRow.appendChild(headerCertainty);
+
         const headerMoney = document.createElement("th");
         headerMoney.textContent = "MoneyIn";
         headerRow.appendChild(headerMoney);
+
         const headerTimes = document.createElement("th");
         headerTimes.textContent = "#ofTimesUsed";
         headerRow.appendChild(headerTimes);
