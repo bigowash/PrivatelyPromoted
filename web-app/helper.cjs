@@ -371,6 +371,7 @@ help.generateImpression = async function (website_data) {
                                     userObject,
                                     website_data, userNames[parseInt(user)]
                                 );
+                                updateUserFileAfterImpression(user, userObject);
 
                                 resolve([ad.image, ad.maxSpend]);
                             })
@@ -387,6 +388,17 @@ help.generateImpression = async function (website_data) {
             });
     });
 };
+
+function updateUserFileAfterImpression(user, userObject) {
+    fs.writeFile(
+        "./web-app/static/database/userfiles/user-" + user + ".json",
+        JSON.stringify(userObject),
+        (err, data) => {
+            if (err) throw err;
+            console.log("The file has been saved!");
+        }
+    );
+}
 
 function getSelectedPreferencesFromUserObject(userObject) {
     const rtnList = [];
