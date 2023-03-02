@@ -259,22 +259,5 @@
         "numViews": 0,
         "numClickthroughs": 0,
         "viewerDemographics": {}
-    },
-    {
-        "advertiserName": "Trivago",
-        "advertiserId": "3",
-        "title": "cars for everyon",
-        "description": "cars",
-        "replacementText": "cars",
-        "image": null,
-        "totalSpend": "500",
-        "maxSpend": "1",
-        "requiredTargetedDemographic": {},
-        "recommendedTargetedDemographic": {},
-        "advertTheme": "Cars",
-        "advertID": "532470",
-        "numViews": 7,
-        "numClickthroughs": 0,
-        "viewerDemographics": {}
     }
 ]
