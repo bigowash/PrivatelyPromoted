@@ -1,3 +1,148 @@
+* {
+    font-family: "Inter", sans-serif;
+    background-color: #ffffff;
+}
+
+header {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+h1 {
+    font-size: 40pt;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: larger;
+    font-weight: bold;
+    margin: 0px;
+}
+
+h3 {
+    font-size: smaller;
+    font-weight: 450;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+#title {
+    cursor: pointer;
+}
+
+#subtitle {
+    max-width: 700px;
+    margin: auto;
+}
+
+footer {
+    padding-top: 10em;
+    background-color: white;
+    text-align: center;
+    font-size: x-small;
+    font-weight: normal;
+}
+
+footer {
+    padding-top: 10em;
+    background-color: white;
+    text-align: center;
+    font-size: x-small;
+    font-weight: normal;
+}
+
+/* Main content */
+main {
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 800px;
+    margin: auto;
+}
+
+.publisherSettingsWrapper {
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 0px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 250px
+}
+
+.userTrafficWrapper {
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 0px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Table Styling */
+table {
+    border: none;
+    border-collapse: collapse;
+}
+
+thead th {
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-weight: 450;
+    font-size: smaller;
+    text-align: left;
+    background-color: #fc4445;
+}
+
+tr td {
+    color: #555;
+    font-weight: normal;
+    font-size: smaller;
+    padding: 10px;
+    text-align: left;
+}
+
 #ad_image {
     width: 200px;
+}
+
+/* Buttons */
+#save-button {
+    height: 30px;
+    width: 100px;
+    border: 1px solid #555;
+    color: #555;
+}
+
+#save-button:hover {
+    border: 1px solid #e74c3c;
+}
+
+#save-button:focus {
+    border: 1px solid #4caf50;
+}
+
+#button_traffic {
+    height: 30px;
+    width: 190px;
+    border: 1px solid #555;
+    color: #555;
+}
+
+#button_traffic:hover {
+    border: 1px solid #e74c3c;
+}
+
+#button_traffic:focus {
+    border: 1px solid #4caf50;
 }

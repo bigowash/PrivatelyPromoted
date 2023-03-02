@@ -5,11 +5,27 @@ const button = document.getElementById("button_traffic");
 const params = new URLSearchParams(window.location.search);
 const name = params.get("name");
 
-const header = document.getElementById("header_name");
-header.textContent = name;
 const tableTheme = document.getElementById("theme-table");
 const saveButton = document.getElementById("save-button");
-const filename = name + ".json"
+const filename = name + ".json";
+
+// Fill in subtitle
+const subtitle = document.getElementById("subtitle");
+subtitle.textContent = `Welcome to the example webpage for ${name}. This simulates both the settings available to publishers, whereby they can chose what sorts of adverts get displayed on their site, as well as simulating the delivery of an advert to the user.`;
+
+// Add homepage link to title
+const title = document.getElementById("title");
+title.addEventListener("click", function () {
+    window.location.href = "../";
+});
+
+// Add subtitle to web traffic div
+const trafficBox = document.getElementById("webTrafficTitle");
+trafficBox.textContent = `Simulate Advert Delivery to ${name}`;
+
+///
+// Main content
+///
 
 let website_data;
 
@@ -23,12 +39,11 @@ async function loadPage() {
             website_data = JSON.parse(data);
             console.log(website_data);
 
-            const themes = website_data.themes
+            const themes = website_data.themes;
             console.log(themes);
 
-
             // Create the header row
-            const headerRow = document.createElement("tr");
+            const headerRow = document.createElement("thead");
             const headerCheck = document.createElement("th");
             headerCheck.textContent = "Include";
             headerRow.appendChild(headerCheck);
@@ -38,8 +53,8 @@ async function loadPage() {
 
             tableTheme.appendChild(headerRow);
 
-            themes.forEach(el => {
-                console.log(el)
+            themes.forEach((el) => {
+                console.log(el);
 
                 const dataRow = document.createElement("tr");
 
@@ -65,15 +80,13 @@ async function loadPage() {
                 dataRow.appendChild(catSection);
 
                 tableTheme.appendChild(dataRow);
-
             });
-
         });
 }
 
 saveButton.addEventListener("click", function () {
     // const selectedCategories = {};
-    const checkboxes = document.querySelectorAll("input[type=\"checkbox\"]");
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     // console.log(checkboxes)
 
     const listThemes = [];
@@ -85,11 +98,11 @@ saveButton.addEventListener("click", function () {
 
         // console.log(userdata[category[2]][category[1]].selected);
         if (checkbox.checked) {
-            listThemes.push(category)
+            listThemes.push(category);
         }
     });
 
-    website_data.selectedThemes = listThemes
+    website_data.selectedThemes = listThemes;
     // console.log(listThemes)
 
     writeToFile(website_data, filename);
@@ -114,7 +127,6 @@ async function writeToFile(data, filename) {
 
         // rest of the code here
     });
-
 }
 
 button.addEventListener("click", function () {
@@ -137,14 +149,13 @@ button.addEventListener("click", function () {
         myImage.src = "../database/adverts/" + object.image;
         myImage.alt = "money made: " + object.money;
 
-        area.appendChild(myImage)
+        area.appendChild(myImage);
 
         // should get the money recieved
         // advertisement displayed (and display it)
         // update stats on how much money has been recieved and number of total impressions
         // maybe the theme aswell
-
     });
-})
+});
 
 loadPage();

@@ -1,26 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Privately Promoted</title>
+        <link rel="stylesheet" href="web-style.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap"
+            rel="stylesheet"
+        />
+        <script type="module" src="web-page.js"></script>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="web-style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website</title>
-</head>
+    <header>
+        <h1 id="title">Privately Promoted</h1>
+        <div id="subtitle"></div>
+    </header>
 
-<body>
-    <h1 id="header_name"></h1>
-    <!-- <div id="userButtons"></div> -->
-    <button id="button_traffic">
-        Generate traffic on website
-    </button>
-    <div id="theme-table"></div>
-    <div id="save">
-        <button id="save-button">Save Themes</button>
-    </div>
-    <div id="displayed-ad"></div>
-</body>
-<script type="module" src="./web-page.js"></script>
+    <main>
+        <!-- Publisher settings -->
+        <div class="publisherSettingsWrapper">
+            <label>
+                <h2>Publisher Settings</h2>
+            </label>
 
+            <table id="theme-table">
+                <!-- Fill with JavaScript -->
+            </table>
+            <div id="save">
+                <button id="save-button">Save Themes</button>
+            </div>
+        </div>
+
+        <!-- Webpage traffic -->
+        <div class="userTrafficWrapper">
+            <label>
+                <h2 id="webTrafficTitle">
+                    <!-- Fill with Javascript -->
+                </h2>
+            </label>
+
+            <button id="button_traffic">Generate traffic on website</button>
+            <div id="displayed-ad"></div>
+        </div>
+    </main>
+
+    <footer>
+        Imperial College London - Group 08 <br />
+        Theo Bui | Maximilian Matthews | Chinene Chukwuma | Zyque (Zhao Qi) So
+    </footer>
 </html>
