@@ -27,11 +27,14 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+    align-items: stretch;
 }
 
 .card {
     width: 300px;
-    height: 450px;
+    /* height: 450px; */
     /* border-radius: 5%; */
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     display: flex;
@@ -49,6 +52,7 @@ main {
     padding: 20px 10px 10px;
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .card-title {
@@ -67,12 +71,12 @@ main {
     border: none;
     cursor: pointer;
     font-weight: 600;
-    border-radius: 4px;
     font-size: 13px;
     height: 30px;
     background-color: #0000000d;
     color: #0e0e10;
     padding: 0 20px;
+    margin-top: auto;
 }
 
 .user-choice-button:hover {
