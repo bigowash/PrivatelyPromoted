@@ -389,6 +389,229 @@ help.generateImpression = async function (website_data) {
     });
 };
 
+help.generateAd = async function (user_data) {
+    return new Promise((resolve, reject) => {
+        console.log("Generating an impression");
+        console.log("Here is the user data", user_data);
+
+        const userObject = user_data
+        // got the preferences of the user
+        const totalPref = getTotalPreferences(userObject);
+        const selectedPref = getSelectedPreferences(userObject);
+        const values = [];
+
+        for (let i = 0; i < selectedPref.length; i++) {
+            values.push(Object.keys(selectedPref[i]));
+        }
+
+        const listSelectedCat = values;
+
+        const arr1d = listSelectedCat.map((item) => item[0]);
+        console.log("User list", arr1d);
+
+        // website_data has the preferences of the advertisers
+
+        // get the advertisements
+        getAdverts()
+            .then((advertList) => {
+                const newAdvList = [];
+
+                console.log(getSelectedPreferencesFromUserObject(userObject));
+
+                for (let i = 0; i < advertList.length; i++) {
+                    let flag = true;
+
+
+
+                    const l =
+                        advertList[i]
+                            .requiredTargetedDemographic;
+
+                    for (const key in l) {
+                        flag = false;
+                        // console.log(key)
+                        // console.log(typeof selectedPref)
+                        // console.log(selectedPref)
+                        if (!arr1d.includes(key)) {
+                            break;
+                        } else {
+                            // iterate through the list selectedPref
+                            for (
+                                let j = 0;
+                                j < selectedPref.length;
+                                j++
+                            ) {
+                                const el = selectedPref[j];
+                                // console.log(typeof el, el)
+                                // console.log(j)
+                                const catgeory =
+                                    Object.keys(el)[0];
+
+                                if (key == catgeory && !flag) {
+                                    for (let k = 0; k < el[catgeory].value.length; k++) {
+                                        const val = el[catgeory].value[k];
+                                        if (l[key] == val) {
+                                            flag = true;
+                                            break;
+                                        } else { flag = false; }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if (flag) {
+                        newAdvList.push(advertList[i]);
+                    }
+                }
+                console.log(
+                    "number of possible adverts that fit",
+                    newAdvList.length
+                );
+                // all ads have the required things,
+                // check which has the most recommended
+
+                let rates = {};
+
+                for (let i = 0; i < newAdvList.length; i++) {
+                    const l =
+                        newAdvList[i]
+                            .recommendedTargetedDemographic;
+                    rates[newAdvList[i].advertID] = 0;
+
+                    for (const key in l) {
+                        if (arr1d.includes(key)) {
+                            // check if the values are the same
+                            console.log(key);
+                            console.log(selectedPref);
+                            for (let j = 0; j < selectedPref.length; j++) {
+                                const el = selectedPref[j];
+                                const catgeory =
+                                    Object.keys(el)[0];
+                                if (catgeory == key) {
+                                    const val =
+                                        el[catgeory].value[0];
+                                    if (l[key] == val) {
+                                        rates[
+                                            newAdvList[
+                                                i
+                                            ].advertID
+                                        ] += 1;
+                                    }
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                console.log(rates);
+
+                const listOfRates = [];
+                const listOfIds = [];
+                for (const [key, value] of Object.entries(
+                    rates
+                )) {
+                    listOfRates.push(value);
+                    listOfIds.push(key);
+                }
+
+                if (listOfRates.length == 0) {
+                    console.log("No adverts match :(");
+                    return null;
+                }
+                // in case they both have the same rate (i.e 0) so that its not always the same one that 'wins
+                const randomLists = randomizeLists(
+                    listOfRates,
+                    listOfIds
+                );
+                const sortedLists = sortLists(
+                    randomLists[0],
+                    randomLists[1]
+                );
+
+                console.log(sortedLists);
+                // so now i have rates.length advertisements that
+                // are rated in terms of how much the recommended features match up
+
+                // the first element should be the displayed ad
+                const selectedAd = sortedLists[1][0];
+
+                // now i need to return the advert to the page
+                // need to update its stats
+
+                let ad;
+                for (let j = 0; j < advertList.length; j++) {
+                    if (advertList[j].advertID == selectedAd) {
+                        ad = advertList[j];
+                    }
+                }
+                console.log(ad);
+
+                // // update stats
+                // ad.numViews += 1;
+                // website_data.money += parseFloat(ad.maxSpend);
+                // website_data.times += 1;
+
+                // // console.log(userObject);
+                // // user object update is a bit more complicated,
+                // // need to iterate thorugh the required and reccomeneed insights and change the values
+                // for (key in ad.requiredTargetedDemographic) {
+                //     console.log(key);
+                //     if (userObject.hasOwnProperty(key)) {
+                //         for (let i = 0; i < userObject[key].length; i++) {
+                //             const element = userObject[key][i];
+                //             console.log(element.value);
+                //             if (
+                //                 element.values[0] ==
+                //                 ad.requiredTargetedDemographic[key]
+                //             ) {
+                //                 userObject[key][i].times[0] += 1;
+                //                 userObject[key][i].money[0] +=
+                //                     parseFloat(ad.maxSpend);
+                //             }
+                //         }
+                //     }
+                // }
+
+                // for (key in ad.recommendedTargetedDemographic) {
+                //     console.log(key);
+                //     if (userObject.hasOwnProperty(key)) {
+                //         for (let i = 0; i < userObject[key].length; i++) {
+                //             const element = userObject[key][i];
+                //             console.log(element.value);
+                //             if (
+                //                 element.values[0] ==
+                //                 ad.recommendedTargetedDemographic[
+                //                 key
+                //                 ]
+                //             ) {
+                //                 userObject[key][i].times[0] += 1;
+                //                 userObject[key][i].money[0] +=
+                //                     parseFloat(ad.maxSpend);
+                //             }
+                //         }
+                //     }
+                // }
+
+                // console.log("Going in to add history");
+                // // need to append it to the history file
+                // updateDataJSON(ad, advertList);
+                // addToDisplayHistory(
+                //     ad,
+                //     userObject,
+                //     website_data, userNames[parseInt(user)]
+                // );
+                // updateUserFileAfterImpression(user, userObject);
+
+                // resolve([ad.image, ad.maxSpend]);
+                resolve(ad)
+            })
+            .catch((err) => {
+                console.error(err);
+            });
+    })
+}
+
 function updateUserFileAfterImpression(user, userObject) {
     fs.writeFile(
         "./web-app/static/database/userfiles/user-" + user + ".json",

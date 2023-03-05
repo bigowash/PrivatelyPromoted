@@ -25,6 +25,11 @@ const handler = async function (obj) {
         rtnObject.image = d[0];
         rtnObject.money = d[1];
         // return rtnObject.adObj
+    } else if (task === "generateAd") {
+        const d = await help.generateAd(obj.user_data)
+        console.log("In the handler file")
+        console.log("this is the returned thingy:")
+        rtnObject.ad = d;
     } else if (task === "get-user-data") {
         rtnObject.success = help.getData(obj.data, obj.filename);
     } else if (task === "get-user-file") {
