@@ -294,6 +294,7 @@ addPreferences();
 const saveButton = document.getElementById("save");
 const selectAllButton = document.getElementById("selectAll");
 const deselectAllButton = document.getElementById("deselectAll");
+const generateAdButton = document.getElementById("generateAd");
 
 saveButton.addEventListener("click", function () {
     const selectedCategories = {};
@@ -328,6 +329,50 @@ deselectAllButton.addEventListener("click", function () {
         checkbox.checked = false;
     });
 });
+
+generateAdButton.addEventListener("click", function () {
+    // console.log("Button pressed")
+    // prepare request
+    const request = {
+        task: "generateAd",
+        user_data: userdata,
+    };
+
+    const template = Ajax.query(request);
+    console.log("Request: " + JSON.stringify(request));
+
+    // upon the return of the request
+    template.then(function (object) {
+        console.log("Response: " + JSON.stringify(object.ad));
+
+        const advert = object.ad;
+        console.log(advert);
+        // rest of the code here
+        const adSection = document.getElementById("adverts");
+
+        const ad = document.createElement("img");
+        ad.id = "ad_image";
+        ad.title = `Required: ${JSON.stringify(advert.requiredTargetedDemographic)}, \nRecommended: ${JSON.stringify(advert.recommendedTargetedDemographic)}`
+        ad.addEventListener("mouseover", function () {
+            // Create a tooltip element
+            var tooltip = document.createElement("span");
+            tooltip.innerHTML = `Required: ${JSON.stringify(advert.requiredTargetedDemographic)}, \nRecommended: ${JSON.stringify(advert.recommendedTargetedDemographic)}`
+            tooltip.classList.add("tooltip");
+            // Position the tooltip element above the image
+            tooltip.style.top = (ad.offsetTop - 20) + "px";
+            tooltip.style.left = ad.offsetLeft + "px";
+            // Append the tooltip element to the document
+            document.body.appendChild(tooltip);
+        });
+        ad.addEventListener("mouseout", function () {
+            // Remove the tooltip element when the cursor leaves the image
+            var tooltip = document.querySelector(".tooltip");
+            document.body.removeChild(tooltip);
+        });
+        ad.src = "../database/adverts/" + advert.image;
+        adSection.appendChild(ad);
+    });
+})
 
 function changeValue(idFinder, category) {
     // get the value from the text prompt
@@ -396,9 +441,27 @@ async function addAdvertisements() {
                 console.log(el);
                 const ad = document.createElement("img");
                 ad.id = "ad_image";
-                ad.textContent = JSON.stringify([el.ad.requiredTargetedDemographic, el.ad.recommendedTargetedDemographic])
+                ad.title = `Required: ${JSON.stringify(advert.requiredTargetedDemographic)}, \nRecommended: ${JSON.stringify(advert.recommendedTargetedDemographic)}`
+                ad.addEventListener("mouseover", function () {
+                    // Create a tooltip element
+                    var tooltip = document.createElement("span");
+                    tooltip.innerHTML = `Required: ${JSON.stringify(advert.requiredTargetedDemographic)}, \nRecommended: ${JSON.stringify(advert.recommendedTargetedDemographic)}`
+                    tooltip.classList.add("tooltip");
+                    // Position the tooltip element above the image
+                    tooltip.style.top = (ad.offsetTop - 20) + "px";
+                    tooltip.style.left = ad.offsetLeft + "px";
+                    // Append the tooltip element to the document
+                    document.body.appendChild(tooltip);
+                });
+                ad.addEventListener("mouseout", function () {
+                    // Remove the tooltip element when the cursor leaves the image
+                    var tooltip = document.querySelector(".tooltip");
+                    document.body.removeChild(tooltip);
+                });
+
                 ad.src = "../database/adverts/" + el.ad.image;
                 adSection.appendChild(ad);
+
             });
         });
 }
